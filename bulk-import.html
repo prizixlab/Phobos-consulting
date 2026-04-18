@@ -45,59 +45,48 @@ tailwind.config = {
 </style>
 </head>
 <body class="bg-surface font-body text-on-surface">
-<aside class="flex flex-col h-full bg-slate-950 h-screen w-64 fixed left-0 top-0 shadow-[20px_0px_40px_rgba(15,23,42,0.06)] z-40">
-<div class="px-6 py-8">
-<h1 class="font-['Space_Grotesk'] text-2xl font-bold tracking-tighter text-white">PHOBOS</h1>
-<p class="font-['Inter'] uppercase tracking-widest text-[10px] font-bold text-orange-600">YARD CONTROL</p>
-</div>
-<nav class="flex-1 mt-4">
-<a class="text-slate-400 hover:text-white flex items-center gap-3 px-6 py-4 transition-colors hover:bg-slate-900/50" href="dashboard.html">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="font-medium text-sm">Dashboard</span>
-</a>
-<a class="bg-slate-900 text-white border-l-4 border-orange-600 flex items-center gap-3 px-6 py-4" href="containers.html">
-<span class="material-symbols-outlined text-orange-600" data-icon="inventory_2">inventory_2</span>
-<span class="font-medium text-sm">Containers</span>
-</a>
-<a class="text-slate-400 hover:text-white flex items-center gap-3 px-6 py-4 transition-colors hover:bg-slate-900/50" href="movement-log.html">
-<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
-<span class="font-medium text-sm">Movement Log</span>
-</a>
-<a class="text-slate-400 hover:text-white flex items-center gap-3 px-6 py-4 transition-colors hover:bg-slate-900/50" href="analytics.html">
-<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
-<span class="font-medium text-sm">Analytics</span>
-</a>
-<a class="text-slate-400 hover:text-white flex items-center gap-3 px-6 py-4 transition-colors hover:bg-slate-900/50" href="settings.html">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span class="font-medium text-sm">Settings</span>
-</a>
-</nav>
+<aside class="bg-slate-900 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 overflow-y-auto flex flex-col z-50 border-r border-white/5 shadow-2xl shadow-slate-950/50">
 <div class="p-6">
-<div class="bg-slate-900 rounded-lg p-4 flex items-center gap-3">
-<div class="w-8 h-8 rounded bg-orange-600 flex items-center justify-center text-white text-xs font-bold">OP</div>
-<div class="overflow-hidden">
-<p class="text-white text-xs font-bold truncate">Operator #412</p>
-<p class="text-slate-500 text-[10px] uppercase">Tier 1 Clearance</p>
+<div class="flex items-center gap-3 mb-8">
+<div class="w-8 h-8 bg-[#e25700] flex items-center justify-center rounded-sm">
+<span class="material-symbols-outlined text-white text-lg">layers</span>
+</div>
+<div>
+<h1 class="font-['Space_Grotesk'] text-xl font-bold tracking-tighter text-white leading-none">Phobos</h1>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Yard Orchestration</p>
 </div>
 </div>
+<nav class="space-y-1 font-['Space_Grotesk'] tracking-tight text-sm">
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="dashboard.html">
+<span class="material-symbols-outlined text-xl">dashboard</span><span>Dashboard</span></a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="containers.html">
+<span class="material-symbols-outlined text-xl">inventory_2</span><span>Containers</span></a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="movement-log.html">
+<span class="material-symbols-outlined text-xl">swap_horiz</span><span>Movement Log</span></a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="analytics.html">
+<span class="material-symbols-outlined text-xl">monitoring</span><span>Analytics</span></a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="settings.html">
+<span class="material-symbols-outlined text-xl">settings</span><span>Settings</span></a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="add-entry.html">
+<span class="material-symbols-outlined text-xl">add_circle</span><span>Add Entry</span></a>
+<a class="bg-[#e25700] text-white rounded-sm font-bold border-l-4 border-white/20 flex items-center gap-3 px-4 py-3 scale-[0.98] active:scale-95 transition-all" href="bulk-import.html">
+<span class="material-symbols-outlined text-xl">upload_file</span><span>Bulk Import</span></a>
+</nav>
 </div>
 </aside>
 <main class="ml-64 min-h-screen blueprint-grid">
-<header class="w-full h-20 sticky top-0 z-30 flex items-center justify-between px-10 ml-64 bg-[#F7F9FB] dark:bg-slate-900">
-<h2 class="font-['Space_Grotesk'] text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Add Entry</h2>
-<div class="flex items-center gap-6">
-<button onclick="showToast('No new notifications')" class="relative text-slate-500 hover:bg-slate-100 p-2 rounded-lg transition-colors active:scale-95 duration-100">
+<header class="h-16 sticky top-0 z-40 w-full bg-slate-50/80 backdrop-blur-xl flex items-center justify-between px-8 border-b border-slate-200/50 shadow-sm">
+<div class="flex items-center gap-4">
+<h2 class="font-['Space_Grotesk'] font-bold text-slate-900 tracking-tight text-xl uppercase">Bulk Import</h2>
+</div>
+<div class="flex items-center gap-4">
+<button onclick="showToast('No new notifications')" class="relative text-slate-500 hover:bg-slate-100 p-2 rounded-lg transition-colors">
 <span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-orange-600 rounded-full border-2 border-background"></span>
 </button>
-<button onclick="window.open('mailto:Info@phobosconsulting.com','_blank')" class="text-slate-500 hover:bg-slate-100 p-2 rounded-lg transition-colors active:scale-95 duration-100">
+<button onclick="window.open('mailto:Info@phobosconsulting.com','_blank')" class="text-slate-500 hover:bg-slate-100 p-2 rounded-lg transition-colors">
 <span class="material-symbols-outlined">help_outline</span>
 </button>
-<div class="h-8 w-[1px] bg-outline-variant opacity-15"></div>
-<div class="flex items-center gap-3">
-<span class="text-sm font-bold text-slate-900">System Logged</span>
-<span onclick="toggleProfileMenu(event)" class="material-symbols-outlined text-slate-900 cursor-pointer hover:text-[#e25700] transition-colors" style="font-size:2rem;" title="Profile menu">account_circle</span>
-</div>
+<img onclick="toggleProfileMenu(event)" alt="User Profile" class="w-8 h-8 rounded-full border border-slate-200 cursor-pointer hover:ring-2 hover:ring-[#e25700] transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTD9sEgApr7D1OLwGDwhfK7mWew2qIO9JZGoWbazSb9a2H2RDPAx7iXt3o-u9vHjJhYuR_2njhKHYZ_TR_HTZ_4xCNIwQtbpojyKDbWYDKKleXLpD6dZENL6e7m5Hh0fE4ZhDWnV2xU0XdgL8YCPDVSoeOiGWuy3k-cjawZRNotQi9GLKkALtDvHpUlTd9rkX2u_runsiS3Lpq_a9wLYt9zAhl0C8Yy-9Hh3yXf5tKNrwtbHDHVGtPcJITXSHStdLAKwB2DOlebgeV"/>
 </div>
 </header>
 <div class="max-w-[1400px] mx-auto px-8 py-10">
