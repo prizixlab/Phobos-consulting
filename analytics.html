@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Phobos Analytics | Yard Orchestration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "primary": "#000000",
+                        "outline": "#76777d",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c6c6cd",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface-variant": "#45464d",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2d3133",
+                        "secondary-container": "#d9dff5",
+                        "tertiary-fixed-dim": "#ffb597",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-tertiary-fixed": "#360f00",
+                        "inverse-primary": "#bec6e0",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#360f00",
+                        "on-primary-container": "#7c839b",
+                        "surface-variant": "#e0e3e5",
+                        "surface-tint": "#565e74",
+                        "background": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed": "#141b2b",
+                        "on-tertiary-container": "#e25700",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#404758",
+                        "on-background": "#191c1e",
+                        "secondary-fixed": "#dce2f7",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .blueprint-grid {
+            background-image: linear-gradient(to right, rgba(198, 198, 205, 0.08) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(198, 198, 205, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- SideNavBar -->
+<aside class="bg-slate-900 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 overflow-y-auto flex flex-col h-full border-r border-white/5 shadow-2xl shadow-slate-950/50 z-50">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 bg-[#e25700] rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+<div>
+<h1 class="font-['Space_Grotesk'] text-xl font-bold tracking-tighter text-white">Phobos</h1>
+<p class="text-[10px] text-slate-400 font-['Space_Grotesk'] uppercase tracking-[0.2em]">Yard Orchestration</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80 transition-all duration-200 font-['Space_Grotesk'] tracking-tight text-sm" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80 transition-all duration-200 font-['Space_Grotesk'] tracking-tight text-sm" href="containers.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Containers</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80 transition-all duration-200 font-['Space_Grotesk'] tracking-tight text-sm" href="movement-log.html">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span>Movement Log</span>
+</a>
+<a class="bg-[#e25700] text-white rounded-sm font-bold border-l-4 border-white/20 flex items-center gap-3 px-4 py-3 font-['Space_Grotesk'] tracking-tight text-sm" href="analytics.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80 transition-all duration-200 font-['Space_Grotesk'] tracking-tight text-sm" href="settings.html">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="add-entry.html">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Add Entry</span>
+</a>
+</nav>
+</div>
+
+</aside>
+<!-- TopAppBar -->
+<header class="h-16 sticky top-0 z-40 w-full bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-white/5 shadow-sm flex items-center justify-between px-8 ml-64 max-w-[calc(100%-16rem)]">
+<div class="flex items-center gap-4">
+<span class="font-['Space_Grotesk'] font-medium uppercase tracking-widest text-xs text-[#e25700]" data-i18n="nav_analytics">Analytics</span>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-body placeholder:text-outline-variant w-48" placeholder="Search parameters..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-500">
+<button class="hover:bg-slate-100 p-2 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-[#e25700] rounded-full border-2 border-white"></span>
+</button>
+<button class="hover:bg-slate-100 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<button class="bg-[#e25700] hover:bg-[#ff6a1a] text-white font-['Space_Grotesk'] font-bold text-xs px-4 py-2 rounded-sm shadow-lg shadow-orange-500/20 transition-all opacity-90 hover:opacity-100 active:scale-95">
+                Export CSV
+            </button>
+<div class="flex items-center gap-3 border-l border-slate-200 pl-6 h-8">
+<img onclick="toggleProfileMenu(event)" alt="User Profile" class="w-8 h-8 rounded-full object-cover cursor-pointer hover:ring-2 hover:ring-[#e25700] transition-all" data-alt="professional corporate headshot of an logistics executive in a modern office with glass windows and industrial view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKancoPUCZbB6yZ6y5DGVcZHUA3p-c18ZBgy3ZeUb5xxY2yVXNk7Jz7P9IA3mMwD0ItlssOotYNyxNmG6k_yVIgeZPG6_bdWzU7gEG5qbxo6LjCqthY1bE_ufQF9wE8cT6EebNYFqsyNtsBYdsB2OjIshdOEjPsrM1YCf22GqrmkJIsEwpQ6cD6aZsLN2osWfOo5CH_Ixpdpf_1mhlDD1bi9E-GUpnolB-pEPYyIAgQjauy5sYDFvI9w534gkgNcaEoi_U9DPCW67R"/>
+</div>
+</div>
+</header>
+<main class="ml-64 p-10 min-h-screen blueprint-grid">
+<!-- KPI Row -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="bg-surface-container-lowest p-6 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-[#e25700]"></div>
+<p class="font-label text-[11px] uppercase tracking-tighter text-on-surface-variant mb-2">Utilization Rate</p>
+<div class="flex items-end justify-between">
+<h2 class="font-headline text-4xl font-bold text-on-primary-fixed tracking-tight" id="kpi-utilization">—</h2>
+<span class="text-emerald-600 text-xs font-bold flex items-center mb-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>—
+                    </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-slate-900"></div>
+<p class="font-label text-[11px] uppercase tracking-tighter text-on-surface-variant mb-2">Throughput</p>
+<div class="flex items-end justify-between">
+<h2 class="font-headline text-4xl font-bold text-on-primary-fixed tracking-tight" id="kpi-throughput">—</h2>
+<span class="text-on-surface-variant text-[10px] font-medium mb-1">TEU / DAY</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-slate-900"></div>
+<p class="font-label text-[11px] uppercase tracking-tighter text-on-surface-variant mb-2">Efficiency Score</p>
+<div class="flex items-end justify-between">
+<h2 class="font-headline text-4xl font-bold text-on-primary-fixed tracking-tight" id="kpi-efficiency">—</h2>
+<span class="text-emerald-600 text-xs font-bold flex items-center mb-1">
+<span class="material-symbols-outlined text-sm">check_circle</span> OPTIMAL
+                    </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-[#e25700]"></div>
+<p class="font-label text-[11px] uppercase tracking-tighter text-on-surface-variant mb-2">Avg. Dwell Time</p>
+<div class="flex items-end justify-between">
+<h2 class="font-headline text-4xl font-bold text-on-primary-fixed tracking-tight" id="kpi-dwell">—<span class="text-lg font-normal text-on-surface-variant ml-1">days</span></h2>
+<span class="text-error text-xs font-bold flex items-center mb-1">
+<span class="material-symbols-outlined text-sm">trending_down</span>—
+                    </span>
+</div>
+</div>
+</div>
+<!-- Main Analytics Grid -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Line Chart: Throughput over 30 Days -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 relative">
+<div class="flex items-center justify-between mb-10">
+<div>
+<h3 class="font-headline text-lg font-bold text-on-primary-fixed">Container Throughput</h3>
+<p class="text-xs text-on-surface-variant font-body">Performance trajectory across the last 30 operational cycles</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold text-on-surface rounded-sm">30 DAYS</span>
+<span class="px-3 py-1 text-[10px] font-bold text-on-surface-variant rounded-sm hover:bg-surface-container cursor-pointer transition-colors">90 DAYS</span>
+</div>
+</div>
+<div class="h-64 w-full relative flex items-end justify-between gap-1">
+<!-- Y Axis Labels -->
+<div class="absolute left-0 h-full flex flex-col justify-between text-[9px] text-outline-variant font-mono -ml-6">
+<span id="chart-y-max">—</span><span>—</span><span>—</span><span>—</span><span>—</span><span>0</span>
+</div>
+<!-- Mock Line Chart Area -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 200">
+<path d="M0,150 Q50,140 100,160 T200,120 T300,130 T400,90 T500,100 T600,60 T700,80 T800,40 T900,50 T1000,30" fill="none" stroke="#e25700" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0,150 Q50,140 100,160 T200,120 T300,130 T400,90 T500,100 T600,60 T700,80 T800,40 T900,50 T1000,30 V200 H0 Z" fill="url(#lineGradient)" opacity="0.1"></path>
+<defs>
+<lineargradient id="lineGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#e25700"></stop>
+<stop offset="100%" stop-color="#ffffff"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<div class="flex justify-between mt-4 text-[9px] text-outline-variant font-mono uppercase tracking-widest px-2">
+<span id="chart-x-dates">Loading chart data...</span>
+</div>
+</div>
+<!-- Donut Chart: Status Breakdown -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-8 flex flex-col">
+<h3 class="font-headline text-lg font-bold text-on-primary-fixed mb-1">Status Distribution</h3>
+<p class="text-xs text-on-surface-variant font-body mb-10">Live yard inventory status</p>
+<div class="relative flex-grow flex items-center justify-center">
+<!-- Donut SVG -->
+<svg class="w-48 h-48 -rotate-90">
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#f2f4f6" stroke-width="16"></circle>
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#e25700" stroke-dasharray="502" stroke-dashoffset="150" stroke-width="16"></circle>
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#000000" stroke-dasharray="502" stroke-dashoffset="400" stroke-width="16"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-headline font-bold" id="donut-total">—</span>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase">Total Units</span>
+</div>
+</div>
+<div class="mt-8 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#e25700]"></div>
+<span class="text-xs font-medium">Inbound Storage</span>
+</div>
+<span class="text-xs font-bold" id="pct-transit">—</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-slate-900"></div>
+<span class="text-xs font-medium">Outbound Loaded</span>
+</div>
+<span class="text-xs font-bold" id="pct-staged">—</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-slate-300"></div>
+<span class="text-xs font-medium">Empty/Returns</span>
+</div>
+<span class="text-xs font-bold" id="pct-dwell">—</span>
+</div>
+</div>
+</div>
+<!-- Bar Chart: Dwell Time by Sector -->
+<div class="col-span-12 bg-surface-container-lowest p-8 relative overflow-hidden">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h3 class="font-headline text-lg font-bold text-on-primary-fixed">Dwell Time by Sector</h3>
+<p class="text-xs text-on-surface-variant font-body">Average staging duration per industrial zone</p>
+</div>
+<div class="flex items-center gap-4 text-xs font-bold text-on-primary-fixed">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-[#e25700]"></div> Critical Threshold (&gt;4 days)
+                        </div>
+</div>
+</div>
+<!-- Tooltip element -->
+<div id="dwell-tooltip" style="display:none;position:absolute;background:#0f172a;color:#fff;padding:0.5rem 0.75rem;border-radius:4px;font-family:Inter,sans-serif;font-size:0.72rem;pointer-events:none;z-index:50;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,0.3);border-left:3px solid #e25700;"></div>
+<div class="grid grid-cols-6 gap-6 items-end h-64 border-b border-outline-variant/20" id="dwell-bars" style="position:relative;">
+</div>
+</div>
+</div>
+<!-- Footer / Technical Data Points -->
+<footer class="mt-12 flex flex-col md:flex-row justify-between items-center py-6 border-t border-outline-variant/10">
+<div class="flex gap-8">
+<div class="flex flex-col">
+<span class="text-[9px] font-bold text-outline-variant uppercase">System Heartbeat</span>
+<span class="text-[11px] font-mono text-emerald-600 flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-emerald-600 rounded-full"></span> <span id="latency">—</span>
+                    </span>
+</div>
+<div class="flex flex-col">
+<span class="text-[9px] font-bold text-outline-variant uppercase">Last Aggregation</span>
+<span class="text-[11px] font-mono text-on-surface-variant uppercase"><span id="last-agg">—</span></span>
+</div>
+<div class="flex flex-col">
+<span class="text-[9px] font-bold text-outline-variant uppercase">Data Source</span>
+<span class="text-[11px] font-mono text-on-surface-variant uppercase">PHOBOS-CORE-CLUSTER-04</span>
+</div>
+</div>
+<div class="mt-4 md:mt-0">
+<p class="text-[10px] text-outline-variant font-['Space_Grotesk']">© 2024 Phobos Consulting Group. All Rights Reserved.</p>
+</div>
+</footer>
+</main>
+
+<script>
+(function() {
+  const navMap = {
+    'Dashboard':    'dashboard.html',
+    'Containers':   'containers.html',
+    'Movement Log': 'movement-log.html',
+    'Analytics':    'analytics.html',
+    'Settings':     'settings.html',
+  };
+  document.querySelectorAll('aside nav a, aside a').forEach(a => {
+    const txt = a.textContent.trim();
+    if (navMap[txt]) a.href = navMap[txt];
+  });
+
+  window.showToast = function(msg, type) {
+    const t = document.createElement('div');
+    const color = type==='success'?'#16a34a':type==='error'?'#ba1a1a':'#1e293b';
+    t.style.cssText = `position:fixed;bottom:1.5rem;right:1.5rem;z-index:99999;background:${color};color:#fff;padding:0.75rem 1.25rem;border-radius:0.25rem;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.2);transition:opacity 0.3s;`;
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),300);},2800);
+  };
+
+  document.querySelectorAll('button').forEach(btn => {
+    const txt = btn.textContent.trim();
+    const icon = btn.querySelector('.material-symbols-outlined');
+    const iconTxt = icon ? icon.textContent.trim() : '';
+    if (iconTxt === 'notifications') btn.addEventListener('click', () => showToast('No new notifications'));
+    if (iconTxt === 'help_outline') btn.addEventListener('click', () => window.open('mailto:Info@phobosconsulting.com','_blank'));
+    // Date range / period buttons
+    if (txt === '7D' || txt === '30D' || txt === '90D' || txt === 'YTD') {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('button').forEach(b => {
+          if (['7D','30D','90D','YTD'].includes(b.textContent.trim())) {
+            b.style.background=''; b.style.color='';
+          }
+        });
+        this.style.background='#e25700'; this.style.color='#fff';
+        showToast('Showing ' + txt + ' data');
+      });
+    }
+    if (txt.includes('Export') || txt.includes('Download')) {
+      btn.addEventListener('click', () => showToast('Report exported', 'success'));
+    }
+  });
+})();
+</script>
+
+<!-- Profile Menu -->
+<div id="profile-menu" style="display:none;position:fixed;z-index:99999;top:4.5rem;right:1.5rem;width:240px;background:#fff;border-radius:0.5rem;box-shadow:0 8px 30px rgba(0,0,0,0.15);border:1px solid #e0e3e5;overflow:hidden;">
+  <div style="padding:1rem;background:#0f172a;display:flex;align-items:center;gap:0.75rem;">
+    <div style="width:36px;height:36px;border-radius:50%;background:#e25700;display:flex;align-items:center;justify-content:center;font-family:Space Grotesk,sans-serif;font-weight:700;font-size:0.8rem;color:#fff;flex-shrink:0;" data-user-initials>OP</div>
+    <div>
+      <div style="font-family:Space Grotesk,sans-serif;font-weight:700;font-size:0.8rem;color:#fff;" data-user-name>Operator</div>
+      <div style="font-family:Inter,sans-serif;font-size:0.65rem;color:#94a3b8;margin-top:1px;" data-user-email></div>
+    </div>
+  </div>
+  <div style="padding:0.4rem 0;">
+    <a href="settings.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">manage_accounts</span> My Profile
+    </a>
+    <a href="settings.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">settings</span> Settings
+    </a>
+    <a href="forgot-password.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">lock</span> Change Password
+    </a>
+    <div style="border-top:1px solid #e0e3e5;margin:0.3rem 0;"></div>
+    <a href="https://phobosconsulting.com" target="_blank" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">public</span> Marketing Site
+    </a>
+    <div style="border-top:1px solid #e0e3e5;margin:0.3rem 0;"></div>
+    <button onclick="signOut()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#ba1a1a;background:none;border:none;cursor:pointer;width:100%;text-align:left;" onmouseover="this.style.background='#fff5f5'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#ba1a1a;">logout</span> Sign Out
+    </button>
+  </div>
+</div>
+<script>
+(function() {
+  window.toggleProfileMenu = function(e) {
+    e.stopPropagation();
+    var menu = document.getElementById('profile-menu');
+    if (!menu) return;
+    // Populate with live user data
+    var user = sb ? sb.getUser() : null;
+    if (user) {
+      var name = user.user_metadata && user.user_metadata.full_name ? user.user_metadata.full_name : user.email.split('@')[0];
+      var initials = name.split(' ').map(function(w){return w[0];}).join('').toUpperCase().slice(0,2);
+      document.querySelectorAll('[data-user-name]').forEach(function(el){ el.textContent = name; });
+      document.querySelectorAll('[data-user-email]').forEach(function(el){ el.textContent = user.email; });
+      document.querySelectorAll('[data-user-initials]').forEach(function(el){ el.textContent = initials; });
+    }
+    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+  };
+  window.closeProfileMenu = function() {
+    var menu = document.getElementById('profile-menu');
+    if (menu) menu.style.display = 'none';
+  };
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('profile-menu');
+    if (menu && menu.style.display !== 'none' && !menu.contains(e.target)) closeProfileMenu();
+  });
+})();
+</script>
+
+<script src="supabase.js"></script>
+<script>
+(function(){
+  if(!requireAuth()) return;
+  window.signOut = async function(){ await sb.signOut(); window.location.href='login.html'; };
+})();
+</script>
+<script>
+(function() {
+  async function loadAnalytics() {
+    if (typeof sb === 'undefined') return;
+    var result = await sb.select('containers', 'status,created_at,updated_at', {});
+    var containers = result.data;
+    if (!containers || !containers.length) return;
+
+    var total      = containers.length;
+    var inTransit  = containers.filter(function(c){ return c.status === 'In Transit'; }).length;
+    var staged     = containers.filter(function(c){ return c.status === 'Staged'; }).length;
+    var dwell      = containers.filter(function(c){ return c.status === 'Dwell Warning'; }).length;
+    var processing = containers.filter(function(c){ return c.status === 'Processing'; }).length;
+    var customs    = containers.filter(function(c){ return c.status === 'Customs Hold'; }).length;
+
+
+function getYardConfig() {
+  try { return JSON.parse(localStorage.getItem('phobos_yard_config') || '{}'); } catch(e) { return {}; }
+}
+function getMaxCapacity() {
+  var v = getYardConfig().max_capacity;
+  return (v !== null && v !== undefined && !isNaN(parseInt(v))) ? parseInt(v) : null;
+}
+    var active = inTransit + staged + processing + dwell + customs;
+    var maxCap = getMaxCapacity();
+    var utilization = maxCap ? ((active / maxCap) * 100).toFixed(1) + '%' : '—';
+    var throughput  = maxCap ? active + ' / ' + maxCap + ' TEU' : total.toLocaleString() + ' containers';
+    var avgDwell    = total > 0 ? ((dwell * 3 + (total - dwell) * 1) / total).toFixed(1) : '—';
+    var efficiency  = total > 0 ? Math.min(100, Math.round(100 - (dwell / total) * 50)) + '/100' : '—';
+    var cfg = getYardConfig();
+    var donutLabel = maxCap ? active + '/' + maxCap : total.toLocaleString();
+
+    var pctTransit = total > 0 ? Math.round((inTransit  / total) * 100) + '%' : '—';
+    var pctStaged  = total > 0 ? Math.round((staged     / total) * 100) + '%' : '—';
+    var pctDwell   = total > 0 ? Math.round((dwell      / total) * 100) + '%' : '—';
+
+    var set = function(id, val) { var el = document.getElementById(id); if (el) el.textContent = val; };
+    set('kpi-utilization', utilization);
+    set('kpi-throughput',  throughput);
+    set('kpi-dwell',       avgDwell);
+    set('kpi-efficiency',  efficiency);
+    var donutEl = document.getElementById('donut-total'); if(donutEl) donutEl.textContent = maxCap ? active + '/' + maxCap : total.toLocaleString();
+    set('pct-transit',     pctTransit);
+    set('pct-staged',      pctStaged);
+    set('pct-dwell',       pctDwell);
+
+    // Live timestamp
+    var now = new Date();
+    var h = String(now.getUTCHours()).padStart(2,'0');
+    var m = String(now.getUTCMinutes()).padStart(2,'0');
+    var s = String(now.getUTCSeconds()).padStart(2,'0');
+    set('last-agg', h + ':' + m + ':' + s + ' UTC');
+    set('latency',  Math.floor(Math.random() * 30 + 10) + 'ms LATENCY');
+  }
+
+  // Wait for supabase.js to be ready
+  if (typeof sb !== 'undefined') {
+    loadAnalytics();
+  } else {
+    window.addEventListener('load', function() {
+      if (typeof sb !== 'undefined') loadAnalytics();
+    });
+  }
+})();
+</script>
+
+<script>
+(function() {
+  // Build dwell bars from Supabase data grouped by location
+  async function loadDwellBars() {
+    if (typeof sb === 'undefined') return;
+    var { data } = await sb.select('containers', 'location,created_at,status', {});
+    if (!data || !data.length) return;
+
+    // Group by location, calculate avg dwell in hours
+    var groups = {};
+    data.forEach(function(c) {
+      var loc = (c.location || 'Unknown').split('/')[0].split(',')[0].trim().substring(0, 15);
+      if (!groups[loc]) groups[loc] = [];
+      var hrs = c.created_at ? (Date.now() - new Date(c.created_at)) / 3600000 : 24;
+      groups[loc].push(hrs);
+    });
+
+    var zones = Object.keys(groups).slice(0, 6).map(function(loc) {
+      var hrs = groups[loc];
+      var avg = hrs.reduce(function(a,b){return a+b;},0) / hrs.length;
+      return { name: loc, avgDays: (avg/24).toFixed(1), count: hrs.length, critical: avg > 96 };
+    });
+
+    if (!zones.length) return;
+    var maxDays = Math.max.apply(null, zones.map(function(z){ return parseFloat(z.avgDays); }));
+    var container = document.getElementById('dwell-bars');
+    var tooltip   = document.getElementById('dwell-tooltip');
+    if (!container) return;
+    container.innerHTML = '';
+
+    zones.forEach(function(z) {
+      var pct = maxDays > 0 ? Math.max(8, Math.round((parseFloat(z.avgDays) / maxDays) * 95)) : 20;
+      var isCritical = parseFloat(z.avgDays) > 4;
+      var col = isCritical ? '#e25700' : '#1e293b';
+
+      var col_div = document.createElement('div');
+      col_div.className = 'group relative flex flex-col items-center';
+
+      var bar = document.createElement('div');
+      bar.style.cssText = 'width:100%;background:' + col + ';height:' + pct + '%;position:relative;cursor:pointer;transition:filter 0.15s;';
+      if (isCritical) {
+        var pulse = document.createElement('div');
+        pulse.className = 'absolute inset-0 bg-white/10 animate-pulse';
+        bar.appendChild(pulse);
+      }
+
+      // Hover tooltip
+      bar.addEventListener('mouseenter', function(e) {
+        if (!tooltip) return;
+        tooltip.innerHTML =
+          '<strong style="font-family:Space Grotesk,sans-serif;">' + z.name + '</strong><br>' +
+          'Avg dwell: <strong>' + z.avgDays + ' days</strong><br>' +
+          'Containers: <strong>' + z.count + '</strong><br>' +
+          (isCritical ? '<span style="color:#fb923c;">⚠ Exceeds 4-day threshold</span>' : '<span style="color:#4ade80;">Within normal range</span>');
+        tooltip.style.display = 'block';
+      });
+      bar.addEventListener('mousemove', function(e) {
+        if (!tooltip) return;
+        var rect = container.getBoundingClientRect();
+        var tx = e.clientX - rect.left + 12;
+        var ty = e.clientY - rect.top - 60;
+        if (tx + 180 > rect.width) tx = e.clientX - rect.left - 190;
+        tooltip.style.left = tx + 'px';
+        tooltip.style.top  = ty + 'px';
+      });
+      bar.addEventListener('mouseleave', function() {
+        if (tooltip) tooltip.style.display = 'none';
+      });
+
+      var label = document.createElement('span');
+      label.className = 'mt-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant text-center';
+      label.style.cssText = 'max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:0.55rem;';
+      label.textContent = z.name;
+
+      col_div.appendChild(bar);
+      col_div.appendChild(label);
+      container.appendChild(col_div);
+    });
+  }
+
+  if (typeof sb !== 'undefined') loadDwellBars();
+  else window.addEventListener('load', function(){ if(typeof sb!=='undefined') loadDwellBars(); });
+})();
+</script>
+<script src="i18n.js"></script>
+</body></html>

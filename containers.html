@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Phobos - Container Inventory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "surface-container-low": "#f2f4f6",
+                    "primary": "#000000",
+                    "outline": "#76777d",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c6c6cd",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface-variant": "#45464d",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2d3133",
+                    "secondary-container": "#d9dff5",
+                    "tertiary-fixed-dim": "#ffb597",
+                    "on-surface": "#191c1e",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "secondary-fixed-dim": "#c0c6db",
+                    "on-primary-fixed": "#131b2e",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-tertiary-fixed": "#360f00",
+                    "inverse-primary": "#bec6e0",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#360f00",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "tertiary": "#000000",
+                    "secondary": "#575e70",
+                    "on-secondary-container": "#5c6274",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container": "#eceef0",
+                    "on-primary-container": "#7c839b",
+                    "surface-variant": "#e0e3e5",
+                    "surface-tint": "#565e74",
+                    "background": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#bec6e0",
+                    "primary-container": "#131b2e",
+                    "on-secondary-fixed": "#141b2b",
+                    "on-tertiary-container": "#e25700",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "on-secondary-fixed-variant": "#404758",
+                    "on-background": "#191c1e",
+                    "secondary-fixed": "#dce2f7",
+                    "primary-fixed": "#dae2fd",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .blueprint-grid {
+            background-image: linear-gradient(to right, rgba(198, 198, 205, 0.1) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(198, 198, 205, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .notch-left {
+            border-left: 2px solid #e25700;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-on-tertiary-container selection:text-white">
+<!-- SideNavBar -->
+<aside class="bg-slate-900 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 overflow-y-auto z-50 flex flex-col border-r border-white/5 shadow-2xl shadow-slate-950/50 font-['Space_Grotesk'] tracking-tight text-sm">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-[#e25700] rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xl">inventory_2</span>
+</div>
+<div>
+<div class="font-['Space_Grotesk'] text-xl font-bold tracking-tighter text-white">Phobos</div>
+<div class="text-[10px] text-slate-500 uppercase tracking-widest leading-none">Yard Orchestration</div>
+</div>
+</div>
+<nav class="mt-8 flex-1 px-3 space-y-1">
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80 group" href="dashboard.html">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Active Tab: Containers -->
+<a class="bg-[#e25700] text-white rounded-sm font-bold border-l-4 border-white/20 flex items-center gap-3 px-4 py-3 transition-all duration-200 scale-[0.98] active:scale-95" href="containers.html">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span>Containers</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80 group" href="movement-log.html">
+<span class="material-symbols-outlined text-xl">swap_horiz</span>
+<span>Movement Log</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80 group" href="analytics.html">
+<span class="material-symbols-outlined text-xl">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80 group" href="settings.html">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span>Settings</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="add-entry.html">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+<span>Add Entry</span>
+</a>
+</nav>
+
+</aside>
+<!-- TopAppBar -->
+<header class="h-16 sticky top-0 z-40 w-full bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-white/5 shadow-sm flex items-center justify-between px-8 ml-64 max-w-[calc(100%-16rem)]">
+<div class="flex items-center gap-6 flex-1">
+<div class="font-['Space_Grotesk'] font-bold text-slate-900 dark:text-white text-lg">Phobos Consulting</div>
+<div class="h-6 w-px bg-slate-300/50 dark:bg-slate-700/50"></div>
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-sm pl-10 pr-4 py-2 text-[10px] font-['Inter'] font-medium uppercase tracking-widest text-slate-500 focus:ring-1 focus:ring-[#e25700]" placeholder="SEARCH ASSET ID OR BILL OF LADING..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:text-[#e25700] transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-[#e25700] transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<button class="bg-[#e25700] text-white px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:shadow-lg hover:shadow-[#e25700]/20 transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                Export CSV
+            </button>
+<div class="flex items-center gap-3 ml-4" onclick="toggleProfileMenu(event)" style="cursor:pointer;" title="Profile menu">
+<div class="text-right">
+<div class="text-[10px] font-bold text-slate-900 dark:text-white uppercase tracking-tighter">Ops Manager</div>
+<div class="text-[9px] text-slate-500 uppercase tracking-widest">Yard A-42</div>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a yard operations manager in a high-tech warehouse environment with soft industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3IInuEvINQ3rwNc2V2gQqMINoX5NLa2CRSzrYj1Am0B7kZ-DbO2f2zCfoqwcSagjfCpd7MaGNyE1uTFNkAPHlit5ghRmpOrTLjqf_2ctJsT-xJXV0PD_a5k0JZ49bFRYS27ujMx69G02W_w4PN3Pkq9o1MBGuUnnsgM5HTE-mxNEJTiJDlWZCukDy48L_nPRXjKi3g2BCvDbFJVl6LtMA_9sIjrfxHzFtsXYW4KLqer-jhmfAS4_-16T3WOgZEUitv4VgtoJ_ooUo"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-8 min-h-[calc(100vh-4rem)] blueprint-grid relative">
+<!-- Hero Section Asymmetry -->
+<div class="flex justify-between items-end mb-12">
+<div class="max-w-2xl">
+<h1 class="font-headline text-5xl font-bold tracking-tighter text-on-primary-fixed leading-tight mb-2 uppercase">Container Tracking</h1>
+<p class="text-on-surface-variant text-sm font-body max-w-lg">
+                    Real-time yard orchestration and inventory management. Monitor dwell times, processing status, and staging locations with precision-grade telemetry.
+                </p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-sm border-t-2 border-[#e25700] shadow-sm">
+<div class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Active Assets</div>
+<div class="font-headline text-3xl font-bold" id="cont-total">—</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-sm border-t-2 border-primary shadow-sm">
+<div class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Dwell Warnings</div>
+<div class="font-headline text-3xl font-bold text-error" id="cont-dwell">—</div>
+</div>
+</div>
+</div>
+<!-- Filters Bar -->
+<div class="bg-surface-container-low/50 backdrop-blur-md p-2 rounded-sm mb-6 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="flex items-center bg-surface-container-lowest px-3 py-2 rounded-sm gap-2">
+<span class="material-symbols-outlined text-sm text-slate-400">filter_list</span>
+<span class="font-label text-[11px] uppercase font-bold tracking-widest text-on-surface">Filters</span>
+</div>
+<div class="h-6 w-px bg-outline-variant/20 mx-2"></div>
+<select class="bg-transparent border-none font-label text-[11px] uppercase tracking-widest focus:ring-0 text-on-surface-variant">
+<option>All Statuses</option>
+<option>In Transit</option>
+<option>Dwell Warning</option>
+<option>Processing</option>
+<option>Staged</option>
+</select>
+<select class="bg-transparent border-none font-label text-[11px] uppercase tracking-widest focus:ring-0 text-on-surface-variant">
+<option>All Locations</option>
+<option>North Yard</option>
+<option>Terminal B</option>
+
+<option>In-Gate Queue</option>
+</select>
+</div>
+<div class="text-[10px] font-label text-on-surface-variant uppercase tracking-widest pr-4">
+                Showing <span class="text-primary font-bold" id="cont-showing">—</span> containers
+            </div>
+</div>
+<!-- Inventory Table -->
+<div class="bg-surface-container-lowest rounded-sm shadow-sm overflow-hidden border border-outline-variant/10">
+<table class="w-full text-left">
+<thead class="bg-surface-container-high">
+<tr>
+<th class="px-6 py-4 font-label text-[11px] uppercase tracking-widest text-on-primary-fixed-variant font-bold">Container ID</th>
+<th class="px-6 py-4 font-label text-[11px] uppercase tracking-widest text-on-primary-fixed-variant font-bold">Status</th>
+<th class="px-6 py-4 font-label text-[11px] uppercase tracking-widest text-on-primary-fixed-variant font-bold">Location</th>
+<th class="px-6 py-4 font-label text-[11px] uppercase tracking-widest text-on-primary-fixed-variant font-bold">Last Updated</th>
+<th class="px-6 py-4 font-label text-[11px] uppercase tracking-widest text-on-primary-fixed-variant font-bold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5" id="containers-tbody">
+<tr><td colspan="5" style="padding:2rem;text-align:center;font-family:Inter,sans-serif;font-size:0.8rem;color:#76777d;">Loading containers...</td></tr>
+</tbody>
+</table>
+<div class="bg-surface-container-low px-6 py-3 flex items-center justify-between border-t border-outline-variant/10">
+<div class="text-[10px] font-label text-on-surface-variant uppercase tracking-widest">
+                    <span id="cont-pages">Loading...</span>
+                </div>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-sm bg-surface-container-lowest text-on-surface-variant hover:bg-white hover:shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-sm bg-primary text-white font-bold text-[10px]">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-sm bg-surface-container-lowest text-on-surface-variant hover:bg-white hover:shadow-sm border border-outline-variant/10 text-[10px]">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-sm bg-surface-container-lowest text-on-surface-variant hover:bg-white hover:shadow-sm border border-outline-variant/10 text-[10px]">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-sm bg-surface-container-lowest text-on-surface-variant hover:bg-white hover:shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Details Slide-in Indication (Visual Hint Only) -->
+<div class="mt-8 grid grid-cols-3 gap-6 opacity-40 select-none grayscale">
+<div class="h-24 bg-surface-container-lowest rounded-sm flex items-center justify-center border-2 border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-slate-300 mr-2">analytics</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-slate-400">History Panel Staging</span>
+</div>
+<div class="h-24 bg-surface-container-lowest rounded-sm flex items-center justify-center border-2 border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-slate-300 mr-2">inventory</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-slate-400">Inventory Sync</span>
+</div>
+<div class="h-24 bg-surface-container-lowest rounded-sm flex items-center justify-center border-2 border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-slate-300 mr-2">terminal</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-slate-400">Command Terminal</span>
+</div>
+</div>
+</main>
+<!-- Slide-in Panel Placeholder (Invisible until triggered) -->
+<div class="fixed right-0 top-16 h-[calc(100vh-4rem)] w-[420px] bg-white shadow-2xl z-30 translate-x-full transition-transform duration-300 border-l border-outline-variant/20 flex flex-col pointer-events-none" id="side-panel">
+  <!-- Header -->
+  <div class="bg-slate-900 px-6 py-5">
+    <div class="flex justify-between items-start mb-3">
+      <div>
+        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Container ID</p>
+        <span class="font-headline font-bold text-xl text-white tracking-tight" id="panel-id">—</span>
+      </div>
+      <button onclick="document.getElementById('side-panel').style.transform='translateX(100%)';document.getElementById('side-panel').style.pointerEvents='none';" class="text-slate-400 hover:text-white mt-1"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div id="panel-status" class="inline-flex px-2 py-1 bg-[#e25700] text-white text-[10px] font-bold uppercase tracking-widest rounded-sm">—</div>
+  </div>
+
+  <!-- Body -->
+  <div class="flex-1 overflow-y-auto">
+
+    <!-- Identity & Ownership -->
+    <div class="px-6 py-5 border-b border-slate-100">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Identity & Ownership</p>
+      <div class="space-y-2.5">
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Carrier / Owner</span><span class="font-semibold text-slate-900" id="panel-owner">—</span></div>
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Bill of Lading</span><span class="font-mono font-bold text-slate-900" id="panel-bol">—</span></div>
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Seal Number</span><span class="font-mono text-slate-900" id="panel-seal">—</span></div>
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Operator ID</span><span class="font-mono text-slate-900" id="panel-operator">—</span></div>
+      </div>
+    </div>
+
+    <!-- Physical Specs -->
+    <div class="px-6 py-5 border-b border-slate-100">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Physical Specifications</p>
+      <div class="space-y-2.5">
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Container Size</span><span class="font-semibold text-slate-900" id="panel-size">—</span></div>
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Entry Type</span><span class="font-semibold text-slate-900" id="panel-entry-type">—</span></div>
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Hazmat Classification</span>
+          <span class="font-bold uppercase" id="panel-hazmat">—</span>
+        </div>
+        <div class="flex justify-between text-xs" id="panel-hazmat-class-row" style="display:none!important">
+          <span class="text-slate-500">Hazmat Class</span>
+          <span class="font-bold text-error" id="panel-hazmat-class">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Location & Status -->
+    <div class="px-6 py-5 border-b border-slate-100">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Location & Status</p>
+      <div class="space-y-2.5">
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Current Location</span><span class="font-semibold text-slate-900" id="panel-location">—</span></div>
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Current Status</span><span class="font-semibold text-slate-900" id="panel-status-text">—</span></div>
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Last Updated</span><span class="text-slate-500" id="panel-updated">—</span></div>
+        <div class="flex justify-between text-xs"><span class="text-slate-500">Date Added</span><span class="text-slate-500" id="panel-created">—</span></div>
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="px-6 py-5 border-b border-slate-100" id="panel-notes-section">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Operational Notes</p>
+      <p class="text-xs text-slate-600 leading-relaxed" id="panel-notes">—</p>
+    </div>
+
+    <!-- Actions -->
+    <div class="px-6 py-5">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Actions</p>
+      <div class="space-y-2">
+        <a href="movement-log.html" class="flex items-center gap-2 w-full px-4 py-2.5 bg-slate-50 hover:bg-slate-100 rounded-sm transition-colors text-xs font-bold text-slate-700">
+          <span class="material-symbols-outlined text-sm">history</span> View Movement History
+        </a>
+        <a href="add-entry.html" class="flex items-center gap-2 w-full px-4 py-2.5 bg-[#e25700] hover:brightness-110 rounded-sm transition-all text-xs font-bold text-white">
+          <span class="material-symbols-outlined text-sm">add_task</span> Log New Entry
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function() {
+  // NAV - fix root-relative paths
+  var navMap = {
+    'Dashboard':    'dashboard.html',
+    'Containers':   'containers.html',
+    'Movement Log': 'movement-log.html',
+    'Analytics':    'analytics.html',
+    'Settings':     'settings.html',
+  };
+  document.querySelectorAll('aside nav a, aside a').forEach(function(a) {
+    var txt = a.textContent.trim();
+    if (navMap[txt]) a.href = navMap[txt];
+  });
+
+  window.showToast = function(msg, type) {
+    var color = type==='success'?'#16a34a':type==='error'?'#ba1a1a':'#1e293b';
+    var t = document.createElement('div');
+    t.style.cssText = 'position:fixed;bottom:1.5rem;right:1.5rem;z-index:99999;background:'+color+';color:#fff;padding:0.75rem 1.25rem;border-radius:0.25rem;font-family:Inter,sans-serif;font-size:0.8rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.2);transition:opacity 0.3s;';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(function(){t.style.opacity='0';setTimeout(function(){t.remove();},300);},2800);
+  };
+
+  // Close panel button
+  document.addEventListener('DOMContentLoaded', function() {
+    var closeBtn = document.querySelector('#side-panel button');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        var panel = document.getElementById('side-panel');
+        if (panel) { panel.style.transform='translateX(100%)'; panel.style.pointerEvents='none'; }
+      });
+    }
+    var notifBtn = document.querySelector('button .material-symbols-outlined');
+    document.querySelectorAll('button').forEach(function(btn) {
+      var icon = btn.querySelector('.material-symbols-outlined');
+      var iconTxt = icon ? icon.textContent.trim() : '';
+      if (iconTxt === 'notifications') btn.addEventListener('click', function(){ showToast('No new notifications'); });
+      if (iconTxt === 'help_outline') btn.addEventListener('click', function(){ window.open('mailto:Info@phobosconsulting.com','_blank'); });
+    });
+  });
+})();
+</script>
+
+<!-- Profile Menu -->
+<div id="profile-menu" style="display:none;position:fixed;z-index:99999;top:4.5rem;right:1.5rem;width:240px;background:#fff;border-radius:0.5rem;box-shadow:0 8px 30px rgba(0,0,0,0.15);border:1px solid #e0e3e5;overflow:hidden;">
+  <div style="padding:1rem;background:#0f172a;display:flex;align-items:center;gap:0.75rem;">
+    <div style="width:36px;height:36px;border-radius:50%;background:#e25700;display:flex;align-items:center;justify-content:center;font-family:Space Grotesk,sans-serif;font-weight:700;font-size:0.8rem;color:#fff;flex-shrink:0;" data-user-initials>OP</div>
+    <div>
+      <div style="font-family:Space Grotesk,sans-serif;font-weight:700;font-size:0.8rem;color:#fff;" data-user-name>Operator</div>
+      <div style="font-family:Inter,sans-serif;font-size:0.65rem;color:#94a3b8;margin-top:1px;" data-user-email></div>
+    </div>
+  </div>
+  <div style="padding:0.4rem 0;">
+    <a href="settings.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">manage_accounts</span> My Profile
+    </a>
+    <a href="settings.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">settings</span> Settings
+    </a>
+    <a href="forgot-password.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">lock</span> Change Password
+    </a>
+    <div style="border-top:1px solid #e0e3e5;margin:0.3rem 0;"></div>
+    <a href="https://phobosconsulting.com" target="_blank" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">public</span> Marketing Site
+    </a>
+    <div style="border-top:1px solid #e0e3e5;margin:0.3rem 0;"></div>
+    <button onclick="signOut()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#ba1a1a;background:none;border:none;cursor:pointer;width:100%;text-align:left;" onmouseover="this.style.background='#fff5f5'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#ba1a1a;">logout</span> Sign Out
+    </button>
+  </div>
+</div>
+<script>
+(function() {
+  window.toggleProfileMenu = function(e) {
+    e.stopPropagation();
+    var menu = document.getElementById('profile-menu');
+    if (!menu) return;
+    // Populate with live user data
+    var user = sb ? sb.getUser() : null;
+    if (user) {
+      var name = user.user_metadata && user.user_metadata.full_name ? user.user_metadata.full_name : user.email.split('@')[0];
+      var initials = name.split(' ').map(function(w){return w[0];}).join('').toUpperCase().slice(0,2);
+      document.querySelectorAll('[data-user-name]').forEach(function(el){ el.textContent = name; });
+      document.querySelectorAll('[data-user-email]').forEach(function(el){ el.textContent = user.email; });
+      document.querySelectorAll('[data-user-initials]').forEach(function(el){ el.textContent = initials; });
+    }
+    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+  };
+  window.closeProfileMenu = function() {
+    var menu = document.getElementById('profile-menu');
+    if (menu) menu.style.display = 'none';
+  };
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('profile-menu');
+    if (menu && menu.style.display !== 'none' && !menu.contains(e.target)) closeProfileMenu();
+  });
+})();
+</script>
+
+<script src="supabase.js"></script>
+<script>
+(function() {
+  if (!requireAuth()) return;
+
+  window.signOut = async function() { await sb.signOut(); window.location.href = 'login.html'; };
+
+  var allContainers = [];
+
+  async function loadContainers() {
+    var { data, error } = await sb.select('containers', '*', {});
+    if (error || !data) return;
+    allContainers = data;
+    renderTable(data);
+    // Update counts
+    var activeEl = document.querySelector('.font-headline.text-3xl.font-bold:not(.text-error)');
+    var dwellEl = document.querySelector('.font-headline.text-3xl.font-bold.text-error');
+    if (activeEl) activeEl.textContent = data.length.toLocaleString();
+    if (dwellEl) dwellEl.textContent = data.filter(function(c){ return c.status==='Dwell Warning'; }).length;
+  }
+
+  function renderTable(data) {
+    var tbody = document.getElementById('containers-tbody') || document.querySelector('tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    if (!data || !data.length) {
+      tbody.innerHTML = '<tr><td colspan="5" style="padding:2rem;text-align:center;font-family:Inter,sans-serif;font-size:0.8rem;color:#76777d;">No containers found.</td></tr>';
+      return;
+    }
+
+    var statusStyles = {
+      'In Transit':    'bg-blue-50 text-blue-700 border border-blue-200/50',
+      'Dwell Warning': 'bg-error-container text-on-error-container border border-error/20',
+      'Processing':    'bg-tertiary-fixed text-on-tertiary-fixed-variant border border-tertiary-fixed-dim/50',
+      'Staged':        'bg-emerald-50 text-emerald-700 border border-emerald-200/50',
+      'Customs Hold':  'bg-purple-50 text-purple-700 border border-purple-200/50',
+    };
+
+    data.forEach(function(c) {
+      var dt = c.updated_at ? new Date(c.updated_at) : new Date();
+      var ago = timeSince(dt);
+      var dotColors = { 'In Transit':'#2563eb', 'Dwell Warning':'#ba1a1a', 'Processing':'#e25700', 'Staged':'#10b981' };
+      var row = document.createElement('tr');
+      row.className = 'hover:bg-surface-bright transition-colors group';
+      row.innerHTML =
+        '<td class="px-6 py-4"><div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full" style="background:' + (dotColors[c.status]||'#94a3b8') + '"></div><span class="font-headline font-medium text-sm tracking-tight text-on-surface">' + c.container_id + '</span></div></td>' +
+        '<td class="px-6 py-4"><span class="inline-flex items-center px-2 py-1 text-[10px] font-bold uppercase tracking-widest rounded-sm ' + (statusStyles[c.status]||'bg-slate-100 text-slate-600') + '">' + c.status + '</span></td>' +
+        '<td class="px-6 py-4"><div class="text-xs font-body text-on-surface-variant">' + (c.location||'—') + '</div></td>' +
+        '<td class="px-6 py-4"><div class="text-xs font-body text-on-surface-variant">' + ago + '</div></td>' +
+        '<td class="px-6 py-4 text-right"><button onclick="openDetails(\'' + c.id + '\')" class="text-[10px] font-bold uppercase tracking-widest text-on-tertiary-container hover:underline transition-all">Open Details</button></td>';
+      tbody.appendChild(row);
+    });
+
+    // Update count
+    var countEl = document.querySelector('.text-primary.font-bold');
+    if (countEl) countEl.textContent = data.length;
+  }
+
+  function timeSince(date) {
+    var secs = Math.floor((new Date() - date) / 1000);
+    if (secs < 60) return 'Just now';
+    if (secs < 3600) return Math.floor(secs/60) + 'm ago';
+    if (secs < 86400) return Math.floor(secs/3600) + 'h ago';
+    return Math.floor(secs/86400) + 'd ago';
+  }
+
+  function formatDate(d) {
+    if (!d) return '—';
+    var dt = new Date(d);
+    return dt.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) + ' ' + String(dt.getUTCHours()).padStart(2,'0') + ':' + String(dt.getUTCMinutes()).padStart(2,'0') + ' UTC';
+  }
+
+  window.openDetails = function(id) {
+    var c = allContainers.find(function(x){ return x.id === id; });
+    if (!c) return;
+    var panel = document.getElementById('side-panel');
+    if (!panel) return;
+
+    var statusColors = {
+      'In Transit':    'background:#dbeafe;color:#1d4ed8',
+      'Dwell Warning': 'background:#ffdad6;color:#ba1a1a',
+      'Processing':    'background:#ffdbcd;color:#7d2d00',
+      'Staged':        'background:#d1fae5;color:#065f46',
+      'Customs Hold':  'background:#ede9fe;color:#5b21b6',
+    };
+
+    var set = function(id, val) { var el = document.getElementById(id); if(el) el.textContent = val || '—'; };
+
+    set('panel-id',          c.container_id);
+    set('panel-owner',       c.carrier);
+    set('panel-bol',         c.bill_of_lading);
+    set('panel-seal',        c.seal_number);
+    set('panel-operator',    c.operator_id);
+    set('panel-size',        c.size);
+    set('panel-entry-type',  c.entry_type);
+    set('panel-location',    c.location);
+    set('panel-status-text', c.status);
+    set('panel-updated',     formatDate(c.updated_at));
+    set('panel-created',     formatDate(c.created_at));
+    set('panel-notes',       c.notes || 'No notes recorded.');
+
+    // Status badge
+    var statusEl = document.getElementById('panel-status');
+    if (statusEl) {
+      statusEl.textContent = c.status || '—';
+      var sc = statusColors[c.status] || 'background:#e25700;color:#fff';
+      statusEl.style.cssText = 'display:inline-flex;padding:0.2rem 0.5rem;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;border-radius:2px;' + sc;
+    }
+
+    // Hazmat
+    var hazEl = document.getElementById('panel-hazmat');
+    if (hazEl) {
+      hazEl.textContent = c.hazmat ? (c.hazmat_class || 'Yes — Class unspecified') : 'None';
+      hazEl.style.color = c.hazmat ? '#ba1a1a' : '#16a34a';
+      hazEl.style.fontWeight = '700';
+    }
+
+    panel.style.transform = 'translateX(0)';
+    panel.style.pointerEvents = 'auto';
+
+    setTimeout(function() {
+      document.addEventListener('click', function closeP(e) {
+        if (!panel.contains(e.target)) {
+          panel.style.transform = 'translateX(100%)';
+          panel.style.pointerEvents = 'none';
+          document.removeEventListener('click', closeP);
+        }
+      });
+    }, 50);
+  };
+
+  // ── SEARCH ──
+  var searchInput = document.querySelector('input[type="text"]');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      var q = this.value.toLowerCase();
+      var filtered = allContainers.filter(function(c) {
+        return c.container_id.toLowerCase().includes(q) || (c.location||'').toLowerCase().includes(q) || (c.carrier||'').toLowerCase().includes(q);
+      });
+      renderTable(filtered);
+    });
+  }
+
+  // ── FILTER ──
+  var statusFilter = document.querySelectorAll('select')[0];
+  if (statusFilter) {
+    statusFilter.addEventListener('change', function() {
+      var val = this.value;
+      var filtered = val === 'All Statuses' ? allContainers : allContainers.filter(function(c){ return c.status === val; });
+      renderTable(filtered);
+    });
+  }
+
+  // ── CSV EXPORT (live data) ──
+  document.querySelectorAll('button').forEach(function(btn) {
+    if (btn.textContent.includes('Export CSV')) {
+      btn.addEventListener('click', function() {
+        var rows = [['Container ID','Status','Location','Last Updated','Bill of Lading','Carrier','Size','Hazmat']];
+        allContainers.forEach(function(c) {
+          rows.push([c.container_id, c.status, c.location||'', c.updated_at||'', c.bill_of_lading||'', c.carrier||'', c.size||'', c.hazmat?'Yes':'No']);
+        });
+        var csv = rows.map(function(r){ return r.map(function(v){ return '"'+v+'"'; }).join(','); }).join('\n');
+        var blob = new Blob([csv], {type:'text/csv'});
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a'); a.href=url; a.download='phobos-containers.csv'; a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+  });
+
+  loadContainers();
+})();
+</script>
+<script src="i18n.js"></script>
+</body></html>
