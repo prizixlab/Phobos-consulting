@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services | Phobos Consulting</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#e25700",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-primary-container": "#7c839b",
+                    "on-secondary-fixed-variant": "#404758",
+                    "primary-fixed": "#dae2fd",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "tertiary-fixed-dim": "#ffb597",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#131b2e",
+                    "tertiary": "#000000",
+                    "outline-variant": "#c6c6cd",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary": "#000000",
+                    "primary-container": "#131b2e",
+                    "tertiary-fixed": "#ffdbcd",
+                    "surface-container": "#eceef0",
+                    "inverse-primary": "#bec6e0",
+                    "surface-tint": "#565e74",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-bright": "#f7f9fb",
+                    "secondary": "#575e70",
+                    "outline": "#76777d",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#c0c6db",
+                    "on-surface": "#191c1e",
+                    "tertiary-container": "#360f00",
+                    "on-secondary-fixed": "#141b2b",
+                    "secondary-container": "#d9dff5",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-background": "#191c1e",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#5c6274",
+                    "secondary-fixed": "#dce2f7",
+                    "inverse-surface": "#2d3133",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-surface-variant": "#45464d",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d8dadc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(to right, rgba(198, 198, 205, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(198, 198, 205, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .notch-left {
+            border-left: 2px solid #ffdbcd;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface selection:bg-tertiary-fixed-dim selection:text-on-tertiary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
+<span class="text-xl font-bold tracking-tighter text-slate-900 font-headline">Phobos Consulting</span>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-500 font-medium hover:text-orange-600 transition-colors font-label" href="#">Home</a>
+<a class="text-slate-500 font-medium hover:text-orange-600 transition-colors font-label" href="#">Platform</a>
+<a class="text-slate-500 font-medium hover:text-orange-600 transition-colors font-label" href="#">About</a>
+<a class="text-slate-900 border-b-2 border-orange-600 pb-1 font-bold font-label" href="#">Services</a>
+<a class="text-slate-500 font-medium hover:text-orange-600 transition-colors font-label" href="#">Contact</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-slate-500 font-medium hover:text-orange-600 transition-colors text-sm font-label">Login</button>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-lg font-bold text-sm scale-95 active:duration-75 hover:bg-primary-container transition-all notch-left">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative blueprint-grid py-24 px-8 overflow-hidden">
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="max-w-3xl">
+<span class="inline-block text-on-tertiary-container bg-tertiary-fixed px-3 py-1 text-xs font-bold tracking-widest mb-6 rounded-sm uppercase font-label">Service Architecture</span>
+<h1 class="text-5xl md:text-7xl font-headline font-bold text-on-primary-fixed tracking-tighter mb-8">Precision-Engineered Logistics Solutions.</h1>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-10 max-w-2xl font-body">
+                        We don't just provide software; we build high-velocity cloud infrastructures tailored for heavy industrial logistics. From yard orchestration to automated reporting, our services are the blueprint for your operational efficiency.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-on-tertiary-container text-white px-8 py-4 rounded-lg font-bold flex items-center gap-2 hover:brightness-110 transition-all shadow-xl shadow-orange-500/10">
+                            Contact for a Quote
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-surface-container-highest text-on-surface px-8 py-4 rounded-lg font-bold hover:bg-surface-container-high transition-all">
+                            View Documentation
+                        </button>
+</div>
+</div>
+</div>
+<!-- Background Decoration -->
+<div class="absolute right-[-10%] top-1/2 -translate-y-1/2 w-1/2 aspect-square bg-gradient-to-tr from-secondary-container/20 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+</section>
+<!-- Process Timeline -->
+<section class="py-24 bg-surface-container-low px-8">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+<div>
+<h2 class="text-3xl font-headline font-bold text-on-primary-fixed tracking-tight">The Deployment Cycle</h2>
+<p class="text-on-surface-variant mt-2">Our 4-step precision methodology.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-0 relative">
+<!-- Discovery -->
+<div class="group relative p-8 bg-surface-container-lowest border-r-0 md:border-r border-outline-variant/15 last:border-0 transition-all hover:bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1 bg-on-tertiary-container scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+<div class="text-on-tertiary-container mb-6">
+<span class="material-symbols-outlined text-4xl" data-icon="search_insights">search_insights</span>
+</div>
+<span class="text-xs font-bold text-outline uppercase tracking-widest font-label">Step 01</span>
+<h3 class="text-xl font-headline font-bold mt-2 mb-4">Discovery</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">In-depth yard audits and process mapping to identify bottlenecks and integration points.</p>
+</div>
+<!-- Design -->
+<div class="group relative p-8 bg-surface-container-lowest border-r-0 md:border-r border-outline-variant/15 last:border-0 transition-all hover:bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1 bg-on-tertiary-container scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+<div class="text-on-tertiary-container mb-6">
+<span class="material-symbols-outlined text-4xl" data-icon="architecture">architecture</span>
+</div>
+<span class="text-xs font-bold text-outline uppercase tracking-widest font-label">Step 02</span>
+<h3 class="text-xl font-headline font-bold mt-2 mb-4">Design</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Architecting cloud infrastructure and data schema tailored to your specific logistics throughput.</p>
+</div>
+<!-- Development -->
+<div class="group relative p-8 bg-surface-container-lowest border-r-0 md:border-r border-outline-variant/15 last:border-0 transition-all hover:bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1 bg-on-tertiary-container scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+<div class="text-on-tertiary-container mb-6">
+<span class="material-symbols-outlined text-4xl" data-icon="terminal">terminal</span>
+</div>
+<span class="text-xs font-bold text-outline uppercase tracking-widest font-label">Step 03</span>
+<h3 class="text-xl font-headline font-bold mt-2 mb-4">Development</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Agile sprints focusing on API connectivity, automated tracking modules, and real-time dashboards.</p>
+</div>
+<!-- Deployment -->
+<div class="group relative p-8 bg-surface-container-lowest transition-all hover:bg-surface-bright">
+<div class="absolute top-0 left-0 w-full h-1 bg-on-tertiary-container scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+<div class="text-on-tertiary-container mb-6">
+<span class="material-symbols-outlined text-4xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<span class="text-xs font-bold text-outline uppercase tracking-widest font-label">Step 04</span>
+<h3 class="text-xl font-headline font-bold mt-2 mb-4">Deployment</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Zero-downtime cutover and staff training to ensure immediate ROI on your new digital infrastructure.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Features Grid (Bento Style) -->
+<section class="py-24 px-8 blueprint-grid">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="text-3xl font-headline font-bold text-on-primary-fixed tracking-tight">System Capabilities</h2>
+<p class="text-on-surface-variant mt-2 max-w-xl">Our core platform modules are designed to provide absolute visibility over industrial operations.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Real-time Tracking -->
+<div class="md:col-span-8 group bg-surface-container-lowest p-8 rounded-lg relative overflow-hidden flex flex-col justify-between min-h-[320px]">
+<div class="h-1 w-12 bg-on-tertiary-container absolute top-0 left-8"></div>
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="sensors">sensors</span>
+<h3 class="text-2xl font-headline font-bold">Real-time Tracking</h3>
+</div>
+<p class="text-on-surface-variant max-w-md">Precision telemetry for every asset in the yard. Low-latency updates via distributed edge nodes ensure no movement is missed.</p>
+</div>
+<div class="mt-8 flex justify-end">
+<img alt="Logistics terminal" class="w-full h-48 object-cover rounded-lg grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Modern logistics terminal with stacked shipping containers and industrial cranes under bright daylight, clean and high-tech atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYH766vprJsw1cJCSx9bAeyEADE_KHIV19-WlqVtwQ23NvKrzWylt-JtaPWqCIVUAFxXYh3AJi1YtKJngpe7_lHqrnqZNLMtBFzi2wKqOZzjmBC11Fe-GHnjdguRKqaBHcO6Q9srsTE55OrkcjGoZTxPcNcqM6jDFSwBoAXGNMZatm1LD2T7TkLn49eFvxNTn977aWfAhamb1QfLyf41gDYoP8G6J5f-yPbuWvzrN4ObSbUuECY-9NI_M6sj-VwrAe4Lo6Bst-gqiD"/>
+</div>
+</div>
+<!-- Movement History -->
+<div class="md:col-span-4 bg-surface-container-lowest p-8 rounded-lg flex flex-col">
+<div class="h-1 w-12 bg-on-tertiary-container mb-8"></div>
+<span class="material-symbols-outlined text-on-tertiary-container mb-4" data-icon="history">history</span>
+<h3 class="text-xl font-headline font-bold mb-4">Movement History</h3>
+<p class="text-sm text-on-surface-variant mb-6">Auditable ledger of every asset transition. Exportable logs for compliance and efficiency analysis.</p>
+<div class="mt-auto space-y-2">
+<div class="bg-surface p-2 rounded text-[10px] font-mono flex justify-between border border-outline-variant/10">
+<span class="text-on-surface">UNIT_492_MOVE</span>
+<span class="text-outline">14:22:10</span>
+</div>
+<div class="bg-surface p-2 rounded text-[10px] font-mono flex justify-between border border-outline-variant/10">
+<span class="text-on-surface">GATE_3_ENTRY</span>
+<span class="text-outline">14:20:05</span>
+</div>
+</div>
+</div>
+<!-- Automated Reporting -->
+<div class="md:col-span-4 bg-primary-container p-8 rounded-lg text-white">
+<div class="h-1 w-12 bg-on-tertiary-container mb-8"></div>
+<span class="material-symbols-outlined text-on-tertiary-container mb-4" data-icon="analytics">analytics</span>
+<h3 class="text-xl font-headline font-bold mb-4">Automated Reporting</h3>
+<p class="text-sm text-on-primary-container leading-relaxed">Daily, weekly, and monthly performance snapshots delivered directly to stakeholders via secure channels.</p>
+</div>
+<!-- Search/Filtering -->
+<div class="md:col-span-4 bg-surface-container-lowest p-8 rounded-lg flex flex-col">
+<div class="h-1 w-12 bg-on-tertiary-container mb-8"></div>
+<span class="material-symbols-outlined text-on-tertiary-container mb-4" data-icon="filter_list">filter_list</span>
+<h3 class="text-xl font-headline font-bold mb-4">Advanced Filtering</h3>
+<p class="text-sm text-on-surface-variant">Find any asset in seconds using technical parameters, carrier ID, or timestamp ranges.</p>
+</div>
+<!-- Alerts & Integrations -->
+<div class="md:col-span-4 bg-surface-container p-8 rounded-lg flex flex-col">
+<div class="h-1 w-12 bg-on-tertiary-container mb-8"></div>
+<div class="flex gap-4 items-start">
+<div>
+<h3 class="text-xl font-headline font-bold mb-2">Alerts</h3>
+<p class="text-xs text-on-surface-variant">Instant notification on yard anomalies.</p>
+</div>
+<div>
+<h3 class="text-xl font-headline font-bold mb-2">APIs</h3>
+<p class="text-xs text-on-surface-variant">Direct ERP and WMS connectivity.</p>
+</div>
+</div>
+<div class="mt-8 flex gap-2">
+<div class="w-8 h-8 rounded-sm bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-xs" data-icon="notifications_active">notifications_active</span>
+</div>
+<div class="w-8 h-8 rounded-sm bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-xs" data-icon="api">api</span>
+</div>
+<div class="w-8 h-8 rounded-sm bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-xs" data-icon="cloud_sync">cloud_sync</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-8 border-t border-outline-variant/10">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-4xl md:text-5xl font-headline font-bold text-on-primary-fixed mb-8 tracking-tighter">Ready to re-engineer your logistics?</h2>
+<p class="text-lg text-on-surface-variant mb-12 font-body">Our team of engineers is ready to conduct a technical audit of your current yard operations and propose a cloud-first orchestration strategy.</p>
+<div class="inline-flex flex-col sm:flex-row items-center gap-6">
+<button class="bg-on-tertiary-container text-white px-10 py-5 rounded-lg font-bold text-lg hover:brightness-110 transition-all shadow-2xl shadow-orange-500/20">
+                        Contact for a Quote
+                    </button>
+<span class="text-outline font-label text-sm uppercase tracking-widest">Or call +1 800-PHOBOS-01</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 w-full py-12">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
+<div class="mb-8 md:mb-0 text-center md:text-left">
+<span class="text-lg font-bold text-white tracking-widest uppercase font-headline">Phobos Consulting</span>
+<p class="text-slate-400 text-sm mt-2 font-body">© 2024 Phobos Consulting. Precision Engineering for Cloud Logistics.</p>
+</div>
+<div class="flex gap-8 items-center">
+<a class="text-slate-400 hover:text-orange-400 text-sm font-label transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-orange-400 text-sm font-label transition-colors" href="#">Terms of Service</a>
+<a class="text-slate-400 hover:text-orange-400 text-sm font-label transition-colors" href="#">Security</a>
+<a class="text-slate-400 hover:text-orange-400 text-sm font-label transition-colors" href="#">Status</a>
+</div>
+</div>
+</footer>
+
+<script>
+(function() {
+  // --- NAV LINKS ---
+  const navMap = {
+    'Home': 'index.html',
+    'Platform': 'platform.html',
+    'About': 'about.html',
+    'Services': 'services.html',
+    'Contact': 'contact.html',
+  };
+  document.querySelectorAll('nav a').forEach(a => {
+    const txt = a.textContent.trim();
+    if (navMap[txt]) a.href = navMap[txt];
+  });
+
+  // --- FOOTER LINKS ---
+  document.querySelectorAll('footer a').forEach(a => {
+    const txt = a.textContent.trim();
+    if (txt === 'Privacy Policy') a.href = '#';
+    if (txt === 'Terms of Service') a.href = '#';
+    if (txt === 'Security') a.href = '#';
+    if (txt === 'Status') a.href = '#';
+  });
+
+  // --- GET STARTED buttons → contact.html ---
+  document.querySelectorAll('button').forEach(btn => {
+    const txt = btn.textContent.trim();
+    if (txt === 'Get Started' || txt === 'Get Started Now') {
+      btn.addEventListener('click', () => window.location.href = 'contact.html');
+    }
+    if (txt === 'See the Platform' || txt.includes('See the Platform')) {
+      btn.addEventListener('click', () => window.location.href = 'platform.html');
+    }
+    if (txt === 'Login') {
+      btn.addEventListener('click', () => {
+        alert('Login portal coming soon!');
+      });
+    }
+  });
+})();
+</script>
+
+</body></html>
