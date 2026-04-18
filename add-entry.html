@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Phobos Yard Control - Add Entry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e6e8ea",
+                        "outline-variant": "#c6c6cd",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb597",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#360f00",
+                        "primary-fixed-dim": "#bec6e0",
+                        "outline": "#76777d",
+                        "surface-tint": "#565e74",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-fixed-variant": "#404758",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "tertiary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#7c839b",
+                        "on-primary": "#ffffff",
+                        "secondary": "#575e70",
+                        "primary": "#000000",
+                        "tertiary-container": "#360f00",
+                        "secondary-fixed": "#dce2f7",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "primary-container": "#131b2e",
+                        "on-secondary-container": "#5c6274",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-secondary-fixed": "#141b2b",
+                        "on-background": "#191c1e",
+                        "surface-dim": "#d8dadc",
+                        "secondary-container": "#d9dff5",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-fixed": "#131b2e",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-container": "#e25700",
+                        "tertiary-fixed": "#ffdbcd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(to right, rgba(198, 198, 205, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(198, 198, 205, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface">
+<!-- Sidebar (SideNavBar) -->
+<aside class="flex flex-col h-full bg-slate-950 h-screen w-64 fixed left-0 top-0 shadow-[20px_0px_40px_rgba(15,23,42,0.06)] z-40">
+<div class="px-6 py-8">
+<h1 class="font-['Space_Grotesk'] text-2xl font-bold tracking-tighter text-white">PHOBOS</h1>
+<p class="font-['Inter'] uppercase tracking-widest text-[10px] font-bold text-orange-600">YARD CONTROL</p>
+</div>
+<nav class="flex-1 mt-4">
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-6 py-4 transition-colors hover:bg-slate-900/50" href="dashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="bg-slate-900 text-white border-l-4 border-orange-600 flex items-center gap-3 px-6 py-4" href="containers.html">
+<span class="material-symbols-outlined text-orange-600" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium text-sm">Containers</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-6 py-4 transition-colors hover:bg-slate-900/50" href="movement-log.html">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-medium text-sm">Movement Log</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-6 py-4 transition-colors hover:bg-slate-900/50" href="analytics.html">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-medium text-sm">Analytics</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-6 py-4 transition-colors hover:bg-slate-900/50" href="settings.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</nav>
+<div class="p-6">
+<div class="bg-slate-900 rounded-lg p-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-orange-600 flex items-center justify-center text-white text-xs font-bold">OP</div>
+<div class="overflow-hidden">
+<p class="text-white text-xs font-bold truncate">Operator #412</p>
+<p class="text-slate-500 text-[10px] uppercase">Tier 1 Clearance</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top Bar (TopAppBar) -->
+<header class="w-full h-20 sticky top-0 z-30 flex items-center justify-between px-10 ml-64 bg-[#F7F9FB] dark:bg-slate-900">
+<h2 class="font-['Space_Grotesk'] text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Add Entry</h2>
+<div class="flex items-center gap-6">
+<button onclick="showToast('No new notifications')" class="relative text-slate-500 hover:bg-slate-100 p-2 rounded-lg transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-orange-600 rounded-full border-2 border-background"></span>
+</button>
+<button onclick="window.open('mailto:Info@phobosconsulting.com','_blank')" class="text-slate-500 hover:bg-slate-100 p-2 rounded-lg transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant opacity-15"></div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-bold text-slate-900">System Logged</span>
+<span onclick="toggleProfileMenu(event)" class="material-symbols-outlined text-slate-900 cursor-pointer hover:text-[#e25700] transition-colors" style="font-size:2rem;" title="Profile menu">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-[calc(100vh-5rem)] blueprint-grid p-10 relative">
+<!-- Tab Navigation -->
+<div class="flex gap-1 bg-surface-container-low p-1 rounded-lg w-fit mb-8">
+<button class="px-6 py-2 text-sm font-bold bg-surface-container-lowest text-on-tertiary-container shadow-sm rounded transition-all">Manual Entry</button>
+<button class="px-6 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface transition-all">Bulk Import</button>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Manual Entry Form Column -->
+<div class="col-span-12 lg:col-span-8">
+<div class="bg-surface-container-lowest shadow-[0px_20px_40px_rgba(15,23,42,0.06)] overflow-hidden">
+<div class="h-1 bg-on-tertiary-container w-full"></div>
+<div class="p-8">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline text-xl font-bold text-on-primary-fixed">Container Manifest</h3>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant bg-surface-container px-2 py-1">Internal Reference: PHB-2024-X9</span>
+</div>
+<form class="space-y-8">
+<!-- Section: Primary ID -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1.5">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Container ID</label>
+<input class="w-full bg-surface-container border-none font-mono text-sm focus:ring-2 focus:ring-on-tertiary-container/20 rounded-lg py-3 px-4 transition-all" placeholder="MSCU-123456-7" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Status</label>
+<select class="w-full bg-surface-container border-none text-sm focus:ring-2 focus:ring-on-tertiary-container/20 rounded-lg py-3 px-4 transition-all">
+<option>In Transit</option>
+<option>Staged</option>
+<option>Processing</option>
+<option>Dwell Warning</option>
+<option>Customs Hold</option>
+</select>
+</div>
+</div>
+<!-- Section: Location & Carrier -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="space-y-1.5">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Location / Sector</label>
+<input class="w-full bg-surface-container border-none text-sm focus:ring-2 focus:ring-on-tertiary-container/20 rounded-lg py-3 px-4" placeholder="DOCK-4-BRAVO" type="text"/>
+</div>
+<div class="space-y-1.5 md:col-span-2">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Carrier / Owner</label>
+<input class="w-full bg-surface-container border-none text-sm focus:ring-2 focus:ring-on-tertiary-container/20 rounded-lg py-3 px-4" placeholder="Maersk Logistics Intl." type="text"/>
+</div>
+</div>
+<!-- Section: Technical Specs -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="space-y-1.5">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Bill of Lading</label>
+<input class="w-full bg-surface-container border-none font-mono text-sm focus:ring-2 focus:ring-on-tertiary-container/20 rounded-lg py-3 px-4" placeholder="BOL-882-99-A" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Container Size</label>
+<select class="w-full bg-surface-container border-none text-sm focus:ring-2 focus:ring-on-tertiary-container/20 rounded-lg py-3 px-4">
+<option>40ft</option>
+<option>20ft</option>
+<option>45ft</option>
+<option>High Cube (HC)</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Seal Number</label>
+<input class="w-full bg-surface-container border-none text-sm focus:ring-2 focus:ring-on-tertiary-container/20 rounded-lg py-3 px-4" placeholder="SEAL-X-9902" type="text"/>
+</div>
+</div>
+<!-- Section: Logistics Context -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-outline-variant/15 pt-8">
+<div class="space-y-1.5">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Entry Type</label>
+<select class="w-full bg-surface-container border-none text-sm focus:ring-2 focus:ring-on-tertiary-container/20 rounded-lg py-3 px-4">
+<option>Gate-In</option>
+<option>Gate-Out</option>
+<option>Internal Transfer</option>
+<option>Rail Connection</option>
+<option>Vessel Discharge</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Operator ID</label>
+<input class="w-full bg-surface-container-high border-none text-sm text-on-surface-variant font-bold rounded-lg py-3 px-4 cursor-not-allowed" readonly="" type="text" value="PH-SYS-412"/>
+</div>
+<div class="space-y-1.5">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Timestamp</label>
+<input class="w-full bg-surface-container border-none text-sm focus:ring-2 focus:ring-on-tertiary-container/20 rounded-lg py-3 px-4" type="datetime-local" id="ts-field" value="2024-05-24T14:30"/>
+</div>
+</div>
+<!-- Toggle: Hazmat -->
+<div class="flex items-center gap-6 bg-surface-container-low p-4 rounded-lg">
+<div class="flex items-center gap-3">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" id="hazmat-toggle" type="checkbox" onchange="toggleHazmat(this)"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-on-tertiary-container"></div>
+</label>
+<span class="text-sm font-bold text-on-surface-variant uppercase tracking-tighter">Hazmat Classified</span>
+</div>
+<div id="hazmat-class-wrap" class="flex-1 opacity-20 pointer-events-none">
+<select class="w-full bg-surface-container border-none text-xs rounded-lg py-2 px-3">
+<option>Select Hazmat Class...</option>
+<option>Class 3 (Flammable Liquids)</option>
+<option>Class 8 (Corrosive)</option>
+</select>
+</div>
+</div>
+<!-- Notes -->
+<div class="space-y-1.5">
+<label class="block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Operational Notes</label>
+<textarea class="w-full bg-surface-container border-none text-sm focus:ring-2 focus:ring-on-tertiary-container/20 rounded-lg py-3 px-4" placeholder="Enter any visible damage or specific storage requirements..." rows="3"></textarea>
+</div>
+<div class="flex justify-end pt-4">
+<button class="bg-on-tertiary-container text-white px-10 py-4 rounded font-bold uppercase tracking-widest text-xs flex items-center gap-3 hover:bg-tertiary-container transition-all active:scale-95" type="submit">
+<span class="material-symbols-outlined text-sm" data-icon="add_task">add_task</span>
+                                    Log Entry
+                                </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Contextual Information Column -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Recent Activity Feed -->
+<div class="bg-surface-container-lowest p-6 shadow-[0px_20px_40px_rgba(15,23,42,0.06)]">
+<h4 class="font-headline font-bold text-on-surface mb-6 border-b border-outline-variant/15 pb-4">Real-time Feed</h4>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="input">input</span>
+</div>
+<div>
+<p class="text-xs font-bold">MSCU-77281-9 Gate-In</p>
+<p class="text-[10px] text-on-surface-variant">Sector B-14 | 2 mins ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="output">output</span>
+</div>
+<div>
+<p class="text-xs font-bold">EVER-00192-3 Gate-Out</p>
+<p class="text-[10px] text-on-surface-variant">Gate 4 | 14 mins ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-amber-600" data-icon="warning" data-weight="fill">warning</span>
+</div>
+<div>
+<p class="text-xs font-bold text-amber-700">Dwell Alert: TEXU-992</p>
+<p class="text-[10px] text-amber-600">Sector F | Exceeded 72h</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Yard Map Preview -->
+<div class="bg-surface-container-lowest overflow-hidden shadow-[0px_20px_40px_rgba(15,23,42,0.06)]">
+<div class="h-40 bg-slate-200 relative">
+<img class="w-full h-full object-cover opacity-50 grayscale contrast-125" data-alt="Technical top-down blueprint view of a shipping yard layout with containers and transit paths in industrial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUeN--Ah24pITTIGSTS0uH0iydwJCeBTWZ6EoRG_U3mFJ8yLRKoeRA-ZTcVyvEt9dsnWTW-rRPBWTKgAysnmc_p_Erqh3fvyIcrB3HSi1AaSjBMIONjWrdPJMfv7uHgD4UGk5_GTfA_QUpYyNeavXlNJ5DofwQTtpQw0qEpyAfrgaqrJR2tp6QTnS2QJNnMTzP-ahMHZfIg3bqzwthTSoyIlvYlt4SyLrgelod5-fNe92_BZe9hz3WyofVL25IMarRkQfCf9NH_75H"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<a href="settings.html" class="bg-on-tertiary-container text-white px-4 py-2 rounded text-[10px] font-bold uppercase tracking-widest flex items-center gap-2" style="text-decoration:none;">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                                View Yard Grid
+                            </a>
+</div>
+</div>
+<div class="p-6">
+<p class="text-xs font-bold text-on-surface uppercase mb-2">Live Capacity: 84%</p>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-on-tertiary-container w-[84%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bulk Import Section (Visual Placeholder for transition) -->
+<div class="mt-20 border-t-2 border-dashed border-outline-variant/30 pt-20">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline text-2xl font-bold">Bulk Import Protocol</h3>
+<span class="text-xs font-medium text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+                    Accepted formats: CSV, XLSX, EDI 315/322
+                </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 space-y-8">
+<!-- Dropzone -->
+<div class="border-2 border-dashed border-outline-variant bg-surface-container-low rounded-xl p-12 flex flex-col items-center justify-center text-center hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mb-4 shadow-sm">
+<span class="material-symbols-outlined text-on-tertiary-container text-3xl" data-icon="upload_file">upload_file</span>
+</div>
+<p class="font-bold text-on-surface mb-1">Drag manifest files here</p>
+<p class="text-xs text-on-surface-variant">or browse your system directories</p>
+</div>
+<!-- Sample Preview -->
+<div class="bg-surface-container-lowest shadow-[0px_20px_40px_rgba(15,23,42,0.06)] rounded-lg overflow-hidden">
+<div class="px-6 py-4 bg-surface-container-high flex justify-between items-center">
+<p class="text-[11px] font-bold uppercase tracking-wider">Validation Preview (Draft)</p>
+<span class="text-[10px] text-on-surface-variant">3 rows detected</span>
+</div>
+<table class="w-full text-left">
+<thead class="bg-surface-container border-b border-outline-variant/10">
+<tr>
+<th class="px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase">ID</th>
+<th class="px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase">Carrier</th>
+<th class="px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase">Type</th>
+<th class="px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<tr class="hover:bg-surface transition-colors">
+<td class="px-6 py-4 font-mono text-[11px]">TRLU-881292-0</td>
+<td class="px-6 py-4 text-xs font-medium">CMA CGM</td>
+<td class="px-6 py-4 text-xs">Vessel</td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 bg-green-100 text-green-700 rounded text-[10px] font-bold">READY</span></td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface transition-colors">
+<td class="px-6 py-4 font-mono text-[11px]">MEDU-112003-4</td>
+<td class="px-6 py-4 text-xs font-medium">MSC</td>
+<td class="px-6 py-4 text-xs">Gate-In</td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 bg-green-100 text-green-700 rounded text-[10px] font-bold">READY</span></td>
+</tr>
+<tr class="hover:bg-surface transition-colors">
+<td class="px-6 py-4 font-mono text-[11px]">CSQU-665212-9</td>
+<td class="px-6 py-4 text-xs font-medium">COSCO</td>
+<td class="px-6 py-4 text-xs">Internal</td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 bg-amber-100 text-amber-700 rounded text-[10px] font-bold">WARN</span></td>
+</tr>
+</tbody>
+</table>
+<div class="p-6 flex justify-end">
+<button class="bg-on-tertiary-container text-white px-8 py-3 rounded font-bold uppercase tracking-widest text-[10px] hover:bg-tertiary-container transition-all">Validate &amp; Import</button>
+</div>
+</div>
+</div>
+<!-- Template Methods -->
+<div class="space-y-6">
+<div class="bg-surface-container-lowest p-6 border-l-4 border-on-tertiary-container/30 hover:border-on-tertiary-container transition-all group shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="description">description</span>
+<span class="material-symbols-outlined text-xs text-on-surface-variant cursor-pointer" data-icon="download">download</span>
+</div>
+<h5 class="text-sm font-bold mb-1">CSV Template</h5>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">Standardized manifest format for light-weight data injection.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 border-l-4 border-on-tertiary-container/30 hover:border-on-tertiary-container transition-all group shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="table_chart">table_chart</span>
+<span class="material-symbols-outlined text-xs text-on-surface-variant cursor-pointer" data-icon="download">download</span>
+</div>
+<h5 class="text-sm font-bold mb-1">XLSX Template</h5>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">Microsoft Excel format with pre-defined validation dropdowns.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 border-l-4 border-on-tertiary-container/30 hover:border-on-tertiary-container transition-all group shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-xs text-on-surface-variant cursor-pointer" data-icon="open_in_new">open_in_new</span>
+</div>
+<h5 class="text-sm font-bold mb-1">EDI 315/322 Specification</h5>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">Technical documentation for automated EDI gateway transfers.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<script>
+(function() {
+
+  // ── TOAST ──
+  window.showToast = function(msg, type) {
+    var color = type === 'success' ? '#16a34a' : type === 'error' ? '#ba1a1a' : '#1e293b';
+    var t = document.createElement('div');
+    t.style.cssText = 'position:fixed;bottom:1.5rem;right:1.5rem;z-index:99999;background:' + color + ';color:#fff;padding:0.75rem 1.25rem;border-radius:0.25rem;font-family:Inter,sans-serif;font-size:0.8rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.2);transition:opacity 0.3s;';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(function(){ t.style.opacity='0'; setTimeout(function(){ t.remove(); }, 300); }, 2800);
+  };
+
+  // ── LIVE TIMESTAMP ──
+  var tsField = document.getElementById('ts-field');
+  if (tsField) {
+    var now = new Date();
+    var pad = function(n){ return String(n).padStart(2,'0'); };
+    tsField.value = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate()) + 'T' + pad(now.getHours()) + ':' + pad(now.getMinutes());
+  }
+
+  // ── HAZMAT TOGGLE ──
+  window.toggleHazmat = function(cb) {
+    var wrap = document.getElementById('hazmat-class-wrap');
+    if (!wrap) return;
+    if (cb.checked) {
+      wrap.classList.remove('opacity-20', 'pointer-events-none');
+      wrap.classList.add('opacity-100');
+    } else {
+      wrap.classList.add('opacity-20', 'pointer-events-none');
+      wrap.classList.remove('opacity-100');
+    }
+  };
+
+  // ── TAB SWITCHING ──
+  var tabs = document.querySelectorAll('.flex.gap-1.bg-surface-container-low button');
+  var manualSection = document.querySelector('.grid.grid-cols-12.gap-8');
+  var bulkSection = document.querySelector('.mt-20.border-t-2');
+
+  if (tabs.length >= 2) {
+    tabs[0].addEventListener('click', function() {
+      tabs[0].className = 'px-6 py-2 text-sm font-bold bg-surface-container-lowest text-on-tertiary-container shadow-sm rounded transition-all';
+      tabs[1].className = 'px-6 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface transition-all';
+      if (manualSection) manualSection.style.display = '';
+      if (bulkSection) bulkSection.style.display = 'none';
+    });
+    tabs[1].addEventListener('click', function() {
+      tabs[1].className = 'px-6 py-2 text-sm font-bold bg-surface-container-lowest text-on-tertiary-container shadow-sm rounded transition-all';
+      tabs[0].className = 'px-6 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface transition-all';
+      if (manualSection) manualSection.style.display = 'none';
+      if (bulkSection) { bulkSection.style.display = ''; bulkSection.style.marginTop = '0'; bulkSection.style.borderTop = 'none'; bulkSection.style.paddingTop = '0'; }
+    });
+    // Start with bulk hidden
+    if (bulkSection) bulkSection.style.display = 'none';
+  }
+
+  // ── MANUAL ENTRY FORM ──
+  var form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var containerId = form.querySelector('input[placeholder="MSCU-123456-7"]');
+      var id = containerId ? containerId.value.trim() : '';
+      if (!id) {
+        showToast('Container ID is required', 'error');
+        if (containerId) containerId.focus();
+        return;
+      }
+      var btn = form.querySelector('button[type="submit"]');
+      var orig = btn ? btn.innerHTML : '';
+      if (btn) {
+        btn.innerHTML = '<span class="material-symbols-outlined text-sm">hourglass_top</span> Logging...';
+        btn.disabled = true;
+      }
+      setTimeout(function() {
+        showToast('Entry logged: ' + id, 'success');
+        form.reset();
+        // Reset timestamp
+        var tsF = document.getElementById('ts-field');
+        if (tsF) {
+          var now = new Date();
+          var pad = function(n){ return String(n).padStart(2,'0'); };
+          tsF.value = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate()) + 'T' + pad(now.getHours()) + ':' + pad(now.getMinutes());
+        }
+        // Reset hazmat
+        var hazWrap = document.getElementById('hazmat-class-wrap');
+        if (hazWrap) { hazWrap.classList.add('opacity-20','pointer-events-none'); hazWrap.classList.remove('opacity-100'); }
+        if (btn) { btn.innerHTML = orig; btn.disabled = false; }
+        // Add to real-time feed
+        addToFeed(id);
+      }, 800);
+    });
+  }
+
+  // ── REAL-TIME FEED ──
+  function addToFeed(id) {
+    var feed = document.querySelector('.space-y-6');
+    if (!feed) return;
+    var item = document.createElement('div');
+    item.className = 'flex gap-4';
+    item.style.animation = 'fadeIn 0.3s ease';
+    item.innerHTML = '<div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-sm text-green-600">add_task</span></div><div><p class="text-xs font-bold">' + id + ' — Logged</p><p class="text-[10px] text-on-surface-variant">Just now</p></div>';
+    feed.insertBefore(item, feed.firstChild);
+  }
+
+  // ── BULK: DRAG AND DROP ──
+  var dropzone = document.querySelector('.border-2.border-dashed.border-outline-variant');
+  if (dropzone) {
+    dropzone.addEventListener('click', function() {
+      var inp = document.createElement('input');
+      inp.type = 'file';
+      inp.accept = '.csv,.xlsx,.xls,.edi,.txt';
+      inp.multiple = true;
+      inp.addEventListener('change', function() {
+        if (inp.files.length > 0) handleBulkFiles(inp.files);
+      });
+      inp.click();
+    });
+
+    dropzone.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      dropzone.style.background = '#e6e8ea';
+      dropzone.style.borderColor = '#e25700';
+    });
+    dropzone.addEventListener('dragleave', function() {
+      dropzone.style.background = '';
+      dropzone.style.borderColor = '';
+    });
+    dropzone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropzone.style.background = '';
+      dropzone.style.borderColor = '';
+      if (e.dataTransfer.files.length > 0) handleBulkFiles(e.dataTransfer.files);
+    });
+  }
+
+  function handleBulkFiles(files) {
+    var names = Array.from(files).map(function(f){ return f.name; }).join(', ');
+    var p = dropzone.querySelector('p');
+    if (p) p.textContent = files.length + ' file(s) ready: ' + names;
+    dropzone.style.borderColor = '#e25700';
+    showToast(files.length + ' file(s) loaded — click Validate & Import', 'success');
+  }
+
+  // ── BULK: VALIDATE & IMPORT ──
+  var validateBtn = document.querySelector('button.bg-on-tertiary-container');
+  if (validateBtn && validateBtn.textContent.includes('Validate')) {
+    validateBtn.addEventListener('click', function() {
+      validateBtn.textContent = 'Validating...';
+      validateBtn.disabled = true;
+      setTimeout(function() {
+        showToast('3 entries validated and imported successfully', 'success');
+        validateBtn.textContent = '✓ Imported';
+        setTimeout(function() {
+          validateBtn.textContent = 'Validate & Import';
+          validateBtn.disabled = false;
+        }, 2500);
+      }, 1200);
+    });
+  }
+
+  // ── TEMPLATE DOWNLOADS ──
+  var csvHeaders = 'Container ID,Status,Location,Carrier,Bill of Lading,Size,Seal Number,Entry Type,Hazmat,Notes
+MSCU-123456-7,In Transit,DOCK-4-BRAVO,Maersk Logistics,BOL-882-99-A,40ft,SEAL-X-9902,Gate-In,No,
+';
+  var xlsxNote = 'Container ID,Status,Location,Carrier,Bill of Lading,Size,Seal Number,Entry Type,Hazmat,Notes
+,,,,,,,,, 
+';
+
+  document.querySelectorAll('.material-symbols-outlined').forEach(function(icon) {
+    if (icon.textContent.trim() === 'download') {
+      var card = icon.closest('div[class*="border-l-4"]');
+      if (!card) return;
+      var title = card.querySelector('h5');
+      if (!title) return;
+      icon.style.cursor = 'pointer';
+      icon.addEventListener('click', function() {
+        var isCSV = title.textContent.includes('CSV');
+        var isXLSX = title.textContent.includes('XLSX');
+        var content = isCSV ? csvHeaders : xlsxNote;
+        var filename = isCSV ? 'phobos-import-template.csv' : 'phobos-import-template.csv';
+        var blob = new Blob([content], { type: 'text/csv' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url; a.download = filename; a.click();
+        URL.revokeObjectURL(url);
+        showToast((isCSV ? 'CSV' : 'XLSX') + ' template downloaded', 'success');
+      });
+    }
+    if (icon.textContent.trim() === 'open_in_new') {
+      icon.style.cursor = 'pointer';
+      icon.addEventListener('click', function() {
+        window.open('mailto:Info@phobosconsulting.com?subject=EDI 315/322 Integration Request', '_blank');
+        showToast('Opening EDI integration request...');
+      });
+    }
+  });
+
+  // ── CLIPBOARD PASTE (bulk) ──
+  document.addEventListener('paste', function(e) {
+    var bulkVisible = bulkSection && bulkSection.style.display !== 'none';
+    if (!bulkVisible) return;
+    var text = e.clipboardData.getData('text');
+    if (!text || !text.includes('	') && !text.includes(',')) return;
+    var lines = text.trim().split('
+').length;
+    showToast(lines + ' rows detected from clipboard — click Validate & Import', 'success');
+    var p = dropzone ? dropzone.querySelector('p') : null;
+    if (p) p.textContent = lines + ' rows pasted from clipboard';
+    if (dropzone) dropzone.style.borderColor = '#e25700';
+  });
+
+})();
+</script>
+
+
+<!-- Profile Menu Dropdown (shared) -->
+<div id="profile-menu" style="display:none;position:fixed;z-index:99999;top:4.5rem;right:1.5rem;width:240px;background:#fff;border-radius:0.5rem;box-shadow:0 8px 30px rgba(0,0,0,0.15);border:1px solid #e0e3e5;overflow:hidden;">
+  <div style="padding:1rem;background:#0f172a;display:flex;align-items:center;gap:0.75rem;">
+    <div style="width:36px;height:36px;border-radius:50%;background:#e25700;display:flex;align-items:center;justify-content:center;font-family:Space Grotesk,sans-serif;font-weight:700;font-size:0.8rem;color:#fff;flex-shrink:0;">OP</div>
+    <div>
+      <div style="font-family:Space Grotesk,sans-serif;font-weight:700;font-size:0.8rem;color:#fff;">Ops Manager</div>
+      <div style="font-family:Inter,sans-serif;font-size:0.65rem;color:#94a3b8;margin-top:1px;">a.phobos@logistics-core.com</div>
+    </div>
+  </div>
+  <div style="padding:0.4rem 0;">
+    <a href="settings.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">manage_accounts</span> My Profile
+    </a>
+    <a href="settings.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">settings</span> Settings
+    </a>
+    <a href="settings.html#security" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">lock</span> Change Password
+    </a>
+    <div style="border-top:1px solid #e0e3e5;margin:0.3rem 0;"></div>
+    <a href="https://phobosconsulting.com" target="_blank" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">public</span> Marketing Site
+    </a>
+    <div style="border-top:1px solid #e0e3e5;margin:0.3rem 0;"></div>
+    <button onclick="signOut()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#ba1a1a;background:none;border:none;cursor:pointer;width:100%;text-align:left;" onmouseover="this.style.background='#fff5f5'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#ba1a1a;">logout</span> Sign Out
+    </button>
+  </div>
+</div>
+
+<script>
+(function() {
+  // ── PROFILE MENU ──
+  window.toggleProfileMenu = function(e) {
+    e.stopPropagation();
+    var menu = document.getElementById('profile-menu');
+    if (!menu) return;
+    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+  };
+  window.closeProfileMenu = function() {
+    var menu = document.getElementById('profile-menu');
+    if (menu) menu.style.display = 'none';
+  };
+  window.signOut = function() {
+    closeProfileMenu();
+    window.location.href = 'login.html';
+  };
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('profile-menu');
+    if (menu && menu.style.display !== 'none' && !menu.contains(e.target)) {
+      closeProfileMenu();
+    }
+  });
+})();
+</script>
+
+</body></html>
