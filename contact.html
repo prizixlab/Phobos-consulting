@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | Phobos Consulting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#e25700",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-primary-container": "#7c839b",
+                        "on-secondary-fixed-variant": "#404758",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed-dim": "#ffb597",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c6c6cd",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary": "#000000",
+                        "primary-container": "#131b2e",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-container": "#eceef0",
+                        "inverse-primary": "#bec6e0",
+                        "surface-tint": "#565e74",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#575e70",
+                        "outline": "#76777d",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "on-surface": "#191c1e",
+                        "tertiary-container": "#360f00",
+                        "on-secondary-fixed": "#141b2b",
+                        "secondary-container": "#d9dff5",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#5c6274",
+                        "secondary-fixed": "#dce2f7",
+                        "inverse-surface": "#2d3133",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface-variant": "#45464d",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d8dadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(to right, rgba(198, 198, 205, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(198, 198, 205, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-on-tertiary-container selection:text-white">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-md tonal-shift bg-slate-100">
+<div class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
+<div class="text-xl font-bold tracking-tighter text-slate-900 font-headline">Phobos Consulting</div>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center space-gap-8 gap-8">
+<a class="text-slate-500 font-medium font-headline hover:text-orange-600 transition-colors" href="index.html">Home</a>
+<a class="text-slate-500 font-medium font-headline hover:text-orange-600 transition-colors" href="platform.html">Platform</a>
+<a class="text-slate-500 font-medium font-headline hover:text-orange-600 transition-colors" href="about.html">About</a>
+<a class="text-slate-500 font-medium font-headline hover:text-orange-600 transition-colors" href="services.html">Services</a>
+<a class="text-slate-900 border-b-2 border-orange-600 pb-1 font-bold font-headline" href="contact.html">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+
+
+
+<button onclick="window.location.href='/login.html'" class="text-slate-500 font-medium px-4 py-2 opacity-80 hover:opacity-100 hover:text-slate-900 transition-all">Login</button>
+<button class="bg-orange-600 text-white px-6 py-2 rounded-lg font-headline font-bold scale-95 active:duration-75 hover:bg-orange-700 transition-all">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 blueprint-grid min-h-screen">
+<div class="max-w-7xl mx-auto px-8">
+<!-- Hero Header -->
+<div class="mb-20">
+<span class="text-on-tertiary-container font-headline font-bold tracking-widest text-xs uppercase mb-4 block">Precision Connection</span>
+<h1 class="text-5xl md:text-7xl font-headline font-bold text-on-primary-fixed leading-none tracking-tighter mb-6">
+                    Let's Engineer Your <br/>Next Logic Move.
+                </h1>
+<p class="max-w-2xl text-on-surface-variant text-lg font-light leading-relaxed">
+                    Ready to modernize your cloud logistics? Our consulting team is prepared to analyze your current yard operations and design high-velocity solutions.
+                </p>
+</div>
+<!-- Content Grid: Asymmetric Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Direct Contact & Visual -->
+<div class="lg:col-span-5 space-y-8">
+<div class="bg-surface-container-lowest p-8 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-on-tertiary-container"></div>
+<h3 class="font-headline text-2xl font-bold mb-4">Direct Channel</h3>
+<p class="text-on-surface-variant mb-8 font-light">Skip the forms and reach our strategic team directly for urgent partnership inquiries.</p>
+<a class="inline-flex items-center gap-3 bg-on-tertiary-container text-white px-8 py-4 rounded-lg font-headline font-bold text-lg hover:brightness-110 transition-all group" href="mailto:Info@phobosconsulting.com">
+                            Info@phobosconsulting.com
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface-container p-1 rounded-lg">
+<div class="h-[300px] w-full rounded relative overflow-hidden grayscale contrast-125 brightness-75">
+<img alt="Modern architectural abstract" class="w-full h-full object-cover" data-alt="Monochrome architectural close-up of glass and steel skyscraper reflecting high-contrast dramatic light and grid patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHOaLbv02QypEt36olnAC6wm6276ezc90Fd_9C5U1b9XWubK8usvWRzd3IDZxLNoe1OjoMLJM5-Zl9318oNOuA7dAiFc9m48ceb31lWHyE21N49s6pfz1f-rFL64M0Bm13RahoEs43olILZr1AYDOOLtQZXcG8NYY4nSExqw33CqlW9buIAVFg2cLuj28Us4KvI7LERRLpK36tO0wovxjWTFXhtwNR9CM-6Auk35x0uvvrZE8U2hSliQ-KldhDhLlWOBOmh8cJ1y25"/>
+<div class="absolute inset-0 bg-primary-container/20 mix-blend-multiply"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<p class="text-white font-headline text-sm font-medium tracking-tight">PHOBOS_HQ // COORDINATES: 34.0522° N, 118.2437° W</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Quote Request Guidance (Bento Inspired Form) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-10 rounded-lg shadow-[0px_20px_40px_rgba(15,23,42,0.06)]">
+<div class="flex items-center gap-4 mb-10">
+<span class="w-12 h-0.5 bg-on-tertiary-container"></span>
+<h2 class="font-headline text-2xl font-bold tracking-tight">Request a Precise Quote</h2>
+</div>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest block px-1">Operation Size</label>
+<select class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all outline-none">
+<option>Startup / Single Site</option>
+<option>Mid-Market / Regional</option>
+<option>Enterprise / Global Yard</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest block px-1">Timeline</label>
+<select class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all outline-none">
+<option>Immediate Deployment</option>
+<option>Next Quarter</option>
+<option>Discovery &amp; Planning</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest block px-1">Current Methodology</label>
+<input class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all placeholder:text-outline-variant" placeholder="e.g. Manual Excel, Legacy WMS, etc." type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest block px-1">Primary Pain Points</label>
+<textarea class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all placeholder:text-outline-variant resize-none" placeholder="Describe the bottleneck in your current logistics chain..." rows="4"></textarea>
+</div>
+<div class="pt-4 border-t border-surface-container-high">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<p class="text-xs text-on-surface-variant max-w-sm">
+                                    By submitting this brief, you agree to our 12-hour response service level agreement for technical consultations.
+                                </p>
+<button class="w-full md:w-auto bg-primary-container text-white px-10 py-4 rounded font-headline font-bold tracking-tight hover:bg-black transition-colors flex items-center justify-center gap-2" type="submit">
+                                    Submit Request
+                                    <span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- Secondary Info Grid (Bento) -->
+<div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-low p-8 rounded border-t-2 border-on-tertiary-container">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4" data-icon="terminal">terminal</span>
+<h4 class="font-headline font-bold text-lg mb-2">Technical Briefs</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Access our open-source implementation guides for yard API integrations.</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded border-t-2 border-on-tertiary-container">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4" data-icon="precision_manufacturing">precision_manufacturing</span>
+<h4 class="font-headline font-bold text-lg mb-2">Site Visits</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Our engineers conduct on-site audits for enterprise-level modernization projects.</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded border-t-2 border-on-tertiary-container">
+<span class="material-symbols-outlined text-on-tertiary-container mb-4" data-icon="security">security</span>
+<h4 class="font-headline font-bold text-lg mb-2">Secure Channels</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Request PGP keys for encrypted documentation transfers and sensitive data.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-slate-900 w-full py-12 border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
+<div class="mb-8 md:mb-0">
+<div class="text-lg font-bold text-white tracking-widest uppercase font-headline">PHOBOS</div>
+<p class="text-slate-400 font-body text-sm mt-2">© 2024 Phobos Consulting. Precision Engineering for Cloud Logistics.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-slate-400 hover:text-orange-400 transition-colors text-sm font-body" href="privacy.html">Privacy Policy</a>
+<a class="text-slate-400 hover:text-orange-400 transition-colors text-sm font-body" href="terms.html">Terms of Service</a>
+<a class="text-slate-400 hover:text-orange-400 transition-colors text-sm font-body" href="security.html">Security</a>
+<a class="text-slate-400 hover:text-orange-400 transition-colors text-sm font-body" href="status.html">Status</a>
+</div>
+</div>
+</footer>
+
+<script>
+(function() {
+  // --- NAV LINKS ---
+  const navMap = {
+    'Home': '/index.html',
+    'Platform': '/platform.html',
+    'About': '/about.html',
+    'Services': '/services.html',
+    'Contact': '/contact.html',
+  };
+  document.querySelectorAll('nav a').forEach(a => {
+    const txt = a.textContent.trim();
+    if (navMap[txt]) a.href = navMap[txt];
+  });
+
+  // --- FOOTER LINKS ---
+  document.querySelectorAll('footer a').forEach(a => {
+    const txt = a.textContent.trim();
+  });
+
+  // --- GET STARTED buttons → contact.html ---
+  document.querySelectorAll('button').forEach(btn => {
+    const txt = btn.textContent.trim();
+    if (txt === 'Get Started' || txt === 'Get Started Now') {
+      btn.addEventListener('click', () => window.location.href = '/contact.html');
+    }
+    if (txt === 'See the Platform' || txt.includes('See the Platform')) {
+      btn.addEventListener('click', () => window.location.href = '/platform.html');
+    }
+  });
+})();
+</script>
+
+
+<script>
+(function() {
+  const form = document.querySelector('form');
+  if (!form) return;
+
+  // Add IDs to inputs so we can read them
+  const inputs = form.querySelectorAll('input, textarea, select');
+  inputs.forEach((el, i) => { if (!el.id) el.id = 'field_' + i; });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const btn = form.querySelector('button[type="submit"]');
+    const original = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined" style="animation:spin 1s linear infinite">progress_activity</span> Sending...';
+    btn.disabled = true;
+
+    // Simulate sending (replace with Formspree action for real email delivery)
+    setTimeout(() => {
+      // Show success message
+      form.innerHTML = `
+        <div style="text-align:center; padding: 3rem 1rem;">
+          <span class="material-symbols-outlined" style="font-size:3rem; color:#e25700;">check_circle</span>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.5rem; font-weight:700; margin:1rem 0 0.5rem;">Request Submitted</h3>
+          <p style="color:#76777d; margin-bottom:2rem;">We'll respond within 12 hours per our SLA.</p>
+          <a href="index.html" style="background:#e25700; color:white; padding:0.75rem 2rem; border-radius:0.25rem; font-weight:700; text-decoration:none; font-family:'Space Grotesk',sans-serif;">Back to Home</a>
+        </div>
+      `;
+    }, 1200);
+  });
+})();
+</script>
+<style>
+@keyframes spin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+</style>
+
+</body></html>
