@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Movement Log | Phobos Consulting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "primary": "#000000",
+                        "outline": "#76777d",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c6c6cd",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface-variant": "#45464d",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2d3133",
+                        "secondary-container": "#d9dff5",
+                        "tertiary-fixed-dim": "#ffb597",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-tertiary-fixed": "#360f00",
+                        "inverse-primary": "#bec6e0",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#360f00",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "tertiary": "#000000",
+                        "secondary": "#575e70",
+                        "on-secondary-container": "#5c6274",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container": "#eceef0",
+                        "on-primary-container": "#7c839b",
+                        "surface-variant": "#e0e3e5",
+                        "surface-tint": "#565e74",
+                        "background": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed": "#141b2b",
+                        "on-tertiary-container": "#e25700",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#404758",
+                        "on-background": "#191c1e",
+                        "secondary-fixed": "#dce2f7",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-bg {
+            background-image: radial-gradient(#c6c6cd 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+        .glass-panel {
+            background: rgba(224, 227, 229, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- SideNavBar Anchor -->
+<aside class="bg-slate-900 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 overflow-y-auto flex flex-col h-full border-r border-white/5 z-50 shadow-2xl shadow-slate-950/50">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 bg-[#e25700] rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+<div>
+<h1 class="font-headline text-xl font-bold tracking-tighter text-white">Phobos</h1>
+<p class="font-headline tracking-tight text-xs text-slate-400 uppercase">Yard Orchestration</p>
+</div>
+</div>
+<nav class="space-y-1 font-headline tracking-tight text-sm">
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-all duration-200 hover:bg-slate-800/80" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-all duration-200 hover:bg-slate-800/80" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                    Containers
+                </a>
+<!-- Active Navigation: Movement Log -->
+<a class="bg-[#e25700] text-white rounded-sm font-bold border-l-4 border-white/20 flex items-center gap-3 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">swap_horiz</span>
+                    Movement Log
+                </a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-all duration-200 hover:bg-slate-800/80" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                    Analytics
+                </a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-all duration-200 hover:bg-slate-800/80" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+</nav>
+</div>
+<div class="mt-auto p-6">
+<button class="w-full py-3 bg-white/10 hover:bg-white/20 text-white font-headline text-sm font-bold rounded-sm transition-all duration-200 flex items-center justify-center gap-2 scale-[0.98] active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Entry
+            </button>
+</div>
+</aside>
+<div class="ml-64 flex flex-col min-h-screen relative">
+<!-- Blueprint Grid Background -->
+<div class="absolute inset-0 blueprint-bg pointer-events-none"></div>
+<!-- TopAppBar Anchor -->
+<header class="h-16 sticky top-0 z-40 w-full bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-white/5 flex items-center justify-between px-8 shadow-sm">
+<div class="flex items-center gap-6">
+<h2 class="font-headline font-bold text-slate-900 dark:text-white tracking-tight">Movement Log</h2>
+<div class="relative group">
+<span class="absolute inset-y-0 left-3 flex items-center text-outline">
+<span class="material-symbols-outlined text-sm">search</span>
+</span>
+<input class="bg-surface-container-low border-none rounded-sm pl-10 pr-4 py-1.5 text-[10px] font-headline tracking-widest uppercase focus:ring-1 focus:ring-[#e25700] w-64 transition-all duration-200" placeholder="SEARCH ENTRIES..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 bg-[#e25700] text-white px-4 py-2 rounded-sm font-headline font-bold tracking-widest text-[10px] uppercase hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">download</span>
+                    Export CSV
+                </button>
+<div class="flex items-center gap-2 text-slate-500">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-slate-200">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a professional logistics manager in a modern office with natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq2E-pWZ3zwJ7ebQfFyrlakdCGquoSMOTrCPHn2y8vSZlvZ39zQbut1I2CemLLXca4I-Ib94QP4HeIc2UHwDzCI9xEOIE0WOujjU8RYIMHiYbt5czcEBN3Ob6JvHT_JyRu7Y9tZzRIvWEQGVpawY1qlEzK2WWx_n-6LvXUu-fzpUqrnl27VswZ1NgG8THnmVx5LI1KnVVeOnbhkLc2CDpin96Sl2YeVmIOV2D4oO2EyXZu8PQNpk0zpiy-beorlMdq23uFVvQjLPIc"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex p-8 gap-8 relative z-10">
+<!-- Timeline Section -->
+<section class="flex-1 space-y-8">
+<div class="flex items-baseline justify-between mb-4">
+<h3 class="font-headline text-2xl font-bold tracking-tight text-on-primary-fixed">Chronological Feed</h3>
+<span class="font-headline text-[10px] tracking-widest text-outline uppercase">Live Updates Enabled</span>
+</div>
+<div class="relative ml-4">
+<!-- Vertical Timeline Line -->
+<div class="absolute left-0 top-0 bottom-0 w-px bg-outline-variant opacity-30"></div>
+<div class="space-y-12">
+<!-- Timeline Entry 1 -->
+<div class="relative pl-10 group">
+<div class="absolute left-[-4px] top-1.5 w-2 h-2 rounded-full bg-[#e25700] shadow-[0_0_8px_#e25700]"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-4">
+<span class="font-headline text-xs font-bold tracking-tight text-on-primary-fixed">14:22:18</span>
+<span class="px-2 py-0.5 bg-on-tertiary-container/10 text-on-tertiary-container font-headline text-[10px] font-bold tracking-widest uppercase rounded-sm border-l-2 border-on-tertiary-container">Gate-In</span>
+<span class="font-headline text-xs text-outline font-medium tracking-tight">ID: PHX-8829-CON</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-sm shadow-sm group-hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-[#e25700]"></div>
+<h4 class="font-headline text-lg font-bold text-on-surface mb-2">Inbound Terminal Reception</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-2xl">
+                                        Container validated at South Gate 4. Electronic seal verified. Payload manifest indicates high-priority automotive components. Routing to Zone Alpha, Section 12.
+                                    </p>
+<div class="mt-4 flex items-center gap-6">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline">person</span>
+<span class="text-[11px] font-label font-medium uppercase text-outline tracking-wider">Operator: M. Rodriguez</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline">location_on</span>
+<span class="text-[11px] font-label font-medium uppercase text-outline tracking-wider">Location: South Gate 04</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Entry 2 -->
+<div class="relative pl-10 group">
+<div class="absolute left-[-4px] top-1.5 w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-4">
+<span class="font-headline text-xs font-bold tracking-tight text-on-primary-fixed">13:45:02</span>
+<span class="px-2 py-0.5 bg-slate-200 text-slate-700 font-headline text-[10px] font-bold tracking-widest uppercase rounded-sm border-l-2 border-slate-500">Intra-Yard</span>
+<span class="font-headline text-xs text-outline font-medium tracking-tight">ID: SEA-4410-ISO</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-sm shadow-sm group-hover:shadow-md transition-shadow">
+<h4 class="font-headline text-lg font-bold text-on-surface mb-2">Automated Stacker Relocation</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-2xl">
+                                        Unit relocated from Temporary Holding to Long-term Storage Tier 3. Weight distribution re-calculated for stack stability. Crane unit CR-09 reporting nominal performance.
+                                    </p>
+<div class="mt-4 flex items-center gap-6">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline">precision_manufacturing</span>
+<span class="text-[11px] font-label font-medium uppercase text-outline tracking-wider">Asset: CR-09 Automated</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline">layers</span>
+<span class="text-[11px] font-label font-medium uppercase text-outline tracking-wider">Pos: Block D / T3</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Entry 3 -->
+<div class="relative pl-10 group">
+<div class="absolute left-[-4px] top-1.5 w-2 h-2 rounded-full bg-[#e25700] shadow-[0_0_8px_#e25700]"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-4">
+<span class="font-headline text-xs font-bold tracking-tight text-on-primary-fixed">12:10:55</span>
+<span class="px-2 py-0.5 bg-on-tertiary-container/10 text-on-tertiary-container font-headline text-[10px] font-bold tracking-widest uppercase rounded-sm border-l-2 border-on-tertiary-container">Gate-Out</span>
+<span class="font-headline text-xs text-outline font-medium tracking-tight">ID: NYK-0021-REE</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-sm shadow-sm group-hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-[#e25700]"></div>
+<h4 class="font-headline text-lg font-bold text-on-surface mb-2">Outbound Dispatch Authorization</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-2xl">
+                                        Reefer unit NYK-0021 cleared for exit. Final temperature log confirmed at -18.2°C. Driver credentials verified against transport order #AX-900.
+                                    </p>
+<div class="mt-4 flex items-center gap-6">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline">thermostat</span>
+<span class="text-[11px] font-label font-medium uppercase text-outline tracking-wider">Temp: -18.2°C Stable</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline">local_shipping</span>
+<span class="text-[11px] font-label font-medium uppercase text-outline tracking-wider">Carrier: Prime Logics</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Panel -->
+<aside class="w-80 space-y-6">
+<div class="glass-panel p-6 rounded-sm border border-outline-variant/15 shadow-sm sticky top-24">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline font-bold text-on-primary-fixed tracking-tight">Advanced Filters</h3>
+<button class="text-[10px] font-headline font-bold text-[#e25700] uppercase tracking-widest hover:underline">Clear All</button>
+</div>
+<div class="space-y-8">
+<!-- Date Range -->
+<div class="space-y-3">
+<label class="font-headline text-[10px] font-bold text-outline uppercase tracking-widest">Date Range</label>
+<div class="space-y-2">
+<div class="relative">
+<span class="absolute inset-y-0 left-3 flex items-center text-outline">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-sm pl-10 py-2.5 text-xs font-medium focus:ring-1 focus:ring-[#e25700]" type="text" value="Oct 24, 2023 - Oct 25, 2023"/>
+</div>
+</div>
+</div>
+<!-- Container ID -->
+<div class="space-y-3">
+<label class="font-headline text-[10px] font-bold text-outline uppercase tracking-widest">Container ID / Reference</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-sm px-4 py-2.5 text-xs font-medium focus:ring-1 focus:ring-[#e25700]" placeholder="e.g. PHX-8829" type="text"/>
+</div>
+<!-- Event Type -->
+<div class="space-y-3">
+<label class="font-headline text-[10px] font-bold text-outline uppercase tracking-widest">Event Type</label>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-sm cursor-pointer hover:bg-white transition-colors">
+<input checked="" class="rounded-sm text-[#e25700] focus:ring-[#e25700] border-outline-variant" type="checkbox"/>
+<span class="text-xs font-medium text-on-surface-variant">Gate-In (Terminal)</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-sm cursor-pointer hover:bg-white transition-colors">
+<input checked="" class="rounded-sm text-[#e25700] focus:ring-[#e25700] border-outline-variant" type="checkbox"/>
+<span class="text-xs font-medium text-on-surface-variant">Gate-Out (Dispatch)</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-sm cursor-pointer hover:bg-white transition-colors">
+<input class="rounded-sm text-[#e25700] focus:ring-[#e25700] border-outline-variant" type="checkbox"/>
+<span class="text-xs font-medium text-on-surface-variant">Intra-Yard Movement</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-sm cursor-pointer hover:bg-white transition-colors">
+<input class="rounded-sm text-[#e25700] focus:ring-[#e25700] border-outline-variant" type="checkbox"/>
+<span class="text-xs font-medium text-on-surface-variant">Inspection / Damage Log</span>
+</label>
+</div>
+</div>
+<!-- Status Select -->
+<div class="space-y-3 pt-4 border-t border-outline-variant/20">
+<label class="font-headline text-[10px] font-bold text-outline uppercase tracking-widest">System Status</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold tracking-wider rounded-sm uppercase">Active</span>
+<span class="px-3 py-1.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold tracking-wider rounded-sm uppercase opacity-50">Pending</span>
+<span class="px-3 py-1.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold tracking-wider rounded-sm uppercase opacity-50">Flagged</span>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-white font-headline font-bold tracking-widest text-[10px] uppercase rounded-sm hover:bg-on-primary-fixed-variant transition-all mt-4">
+                            Apply Parameters
+                        </button>
+</div>
+</div>
+<!-- Small Visual Module -->
+<div class="bg-primary-container p-6 rounded-sm relative overflow-hidden">
+<div class="relative z-10">
+<p class="font-headline text-[10px] text-[#e25700] font-bold tracking-widest uppercase mb-1">Yard Density</p>
+<h4 class="font-headline text-3xl font-bold text-white">82%</h4>
+<div class="mt-4 w-full h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-[#e25700] w-[82%]"></div>
+</div>
+<p class="text-[10px] text-on-primary-container mt-2">1,244 / 1,500 slots occupied</p>
+</div>
+<span class="material-symbols-outlined absolute right-[-10px] bottom-[-10px] text-white/5 text-8xl pointer-events-none">grid_view</span>
+</div>
+</aside>
+</main>
+</div>
+
+<script>
+(function() {
+  // NAV
+  const navMap = {
+    'Dashboard':    '/dashboard.html',
+    'Containers':   '/containers.html',
+    'Movement Log': '/movement-log.html',
+    'Analytics':    '/analytics.html',
+    'Settings':     '/settings.html',
+  };
+  document.querySelectorAll('aside nav a, aside a').forEach(a => {
+    const txt = a.textContent.trim();
+    if (navMap[txt]) a.href = navMap[txt];
+  });
+
+  // TOAST
+  window.showToast = function(msg, type) {
+    const t = document.createElement('div');
+    const color = type==='success'?'#16a34a':type==='error'?'#ba1a1a':'#1e293b';
+    t.style.cssText = `position:fixed;bottom:1.5rem;right:1.5rem;z-index:99999;background:${color};color:#fff;padding:0.75rem 1.25rem;border-radius:0.25rem;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.2);transition:opacity 0.3s;`;
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),300);},2800);
+  };
+
+  // CSV EXPORT
+  const movementData = [
+    ['Timestamp','Event Type','Container ID','Location','Operator','Notes'],
+    ['14:20 UTC','Gate Entry','PHB-9921-X','Gate 4, Sector B','System','Verified at Gate 4. Moving to Sector B.'],
+    ['13:45 UTC','Internal Transfer','PHB-2101-B','Loading Dock 04','OP-4421','Shifted from Staging to Loading Dock 04.'],
+    ['11:12 UTC','Threshold Alert','PHB-4432-A','Terminal A','System','Exceeded 48h dwell limit.'],
+    ['09:30 UTC','Manual Override','PHB-8871-M','Overflow Yard C','OP-4421','Staging allocation updated.'],
+    ['08:15 UTC','Gate Entry','PHB-882910-U','North Gate','System','Auto-cleared at entry.'],
+    ['07:44 UTC','Customs Hold','PHB-114205-X','Section G','Customs','Secondary inspection flagged.'],
+    ['06:20 UTC','Gate Entry','PHB-223109-M','Main Entrance','System','BOL verified, proceeding.'],
+    ['05:10 UTC','Vessel Departure','PHB-772193-L','Outbound Terminal B','System','Ever-Glade 402 departure confirmed.'],
+  ];
+
+  function downloadCSV(data, filename) {
+    const csv = data.map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+    const blob = new Blob([csv], {type:'text/csv'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href=url; a.download=filename; a.click();
+    URL.revokeObjectURL(url);
+    showToast('Movement log exported', 'success');
+  }
+
+  // SEARCH
+  const searchInput = document.querySelector('input[type="text"]');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll('main section > div.relative > div > div.relative').forEach(entry => {
+        entry.style.display = entry.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+  }
+
+  // FILTER CHECKBOXES - wire them to show/hide entry types
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', () => showToast('Filter updated'));
+  });
+
+  // BUTTONS
+  document.querySelectorAll('button').forEach(btn => {
+    const txt = btn.textContent.trim();
+    const icon = btn.querySelector('.material-symbols-outlined');
+    const iconTxt = icon ? icon.textContent.trim() : '';
+
+    if (txt.includes('Export CSV')) btn.addEventListener('click', () => downloadCSV(movementData, 'phobos-movement-log.csv'));
+    if (txt.includes('New Entry')) btn.addEventListener('click', () => showToast('New log entry — available with Supabase integration'));
+    if (iconTxt === 'notifications') btn.addEventListener('click', () => showToast('No new notifications'));
+    if (iconTxt === 'help_outline') btn.addEventListener('click', () => window.open('mailto:Info@phobosconsulting.com','_blank'));
+  });
+})();
+</script>
+</body></html>

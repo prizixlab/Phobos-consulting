@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In | Phobos Consulting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#000000",
+                        "on-secondary-fixed": "#141b2b",
+                        "on-primary-fixed": "#131b2e",
+                        "on-secondary-container": "#5c6274",
+                        "on-secondary-fixed-variant": "#404758",
+                        "inverse-surface": "#2d3133",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "surface": "#f7f9fb",
+                        "outline-variant": "#c6c6cd",
+                        "outline": "#76777d",
+                        "tertiary-container": "#360f00",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "secondary": "#575e70",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed": "#ffdbcd",
+                        "secondary-fixed": "#dce2f7",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-container": "#d9dff5",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "inverse-primary": "#bec6e0",
+                        "primary-container": "#131b2e",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#7c839b",
+                        "background": "#f7f9fb",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-background": "#191c1e",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-container": "#e25700",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface-variant": "#45464d",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb597"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0f172a; /* Custom override for dark slate background */
+            font-family: 'Inter', sans-serif;
+        }
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(to right, rgba(198, 198, 205, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(198, 198, 205, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glass-card {
+            background: rgba(19, 27, 46, 0.7);
+            backdrop-filter: blur(20px);
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen relative overflow-hidden">
+<!-- Blueprint Underlay -->
+<div class="absolute inset-0 blueprint-grid z-0"></div>
+<!-- Decorative Glows -->
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-on-tertiary-container/10 rounded-full blur-[120px] z-0"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-on-primary-container/5 rounded-full blur-[100px] z-0"></div>
+<!-- Login Container -->
+<main class="relative z-10 w-full max-w-md px-6">
+<!-- Branding Section -->
+<div class="mb-10 text-center">
+<div class="flex items-center justify-center mb-4">
+<div class="h-10 w-10 bg-on-tertiary-container flex items-center justify-center rounded-lg mr-3">
+<span class="material-symbols-outlined text-on-primary text-2xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<h1 class="font-headline text-3xl font-bold tracking-tighter text-on-primary uppercase">
+                    Phobos Consulting
+                </h1>
+</div>
+<p class="font-label text-on-primary-container text-sm tracking-wide">LOGISTICS TERMINAL ACCESS v2.4</p>
+</div>
+<!-- Centered Login Card -->
+<div class="glass-card rounded-xl p-8 border border-white/5 relative">
+<!-- Accent Hairline -->
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-on-tertiary-container rounded-t-xl"></div>
+<form class="space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block font-label text-xs font-bold uppercase tracking-widest text-on-primary-container" for="email">
+                        System Identity (Email)
+                    </label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-secondary-container text-sm" data-icon="alternate_email">alternate_email</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 bg-primary-container/50 border border-outline-variant/15 rounded-lg text-on-primary placeholder-on-secondary-container focus:outline-none focus:ring-1 focus:ring-on-tertiary-container focus:border-on-tertiary-container transition-all text-sm font-body" id="email" name="email" placeholder="user@phobos.tech" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block font-label text-xs font-bold uppercase tracking-widest text-on-primary-container" for="password">
+                            Encrypted Key (Password)
+                        </label>
+<a class="text-[11px] font-bold text-on-tertiary-container hover:text-on-tertiary-fixed-variant transition-colors uppercase tracking-tighter" href="#">
+                            Forgot Key?
+                        </a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-secondary-container text-sm" data-icon="lock">lock</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 bg-primary-container/50 border border-outline-variant/15 rounded-lg text-on-primary placeholder-on-secondary-container focus:outline-none focus:ring-1 focus:ring-on-tertiary-container focus:border-on-tertiary-container transition-all text-sm font-body" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-outline-variant/20 bg-primary-container text-on-tertiary-container focus:ring-on-tertiary-container" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-2 block text-xs font-medium text-on-secondary-container" for="remember-me">
+                        Maintain persistent session
+                    </label>
+</div>
+<!-- Primary CTA -->
+<button class="w-full bg-on-tertiary-container text-on-primary font-headline font-bold py-3 px-4 rounded shadow-lg shadow-on-tertiary-container/20 hover:bg-on-tertiary-fixed-variant transition-all duration-200 active:scale-[0.98] flex items-center justify-center group" type="submit">
+<span class="tracking-tight uppercase">Authorize Access</span>
+<span class="material-symbols-outlined ml-2 text-lg group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Secondary Links -->
+<div class="mt-8 pt-6 border-t border-white/5 text-center">
+<p class="text-xs text-on-secondary-container font-body">
+                    Unauthorized access is strictly prohibited. 
+                    <a class="ml-1 text-on-primary font-bold hover:text-on-tertiary-container transition-colors" href="#">
+                        Request Credentials
+                    </a>
+</p>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="mt-12 grid grid-cols-3 gap-4 opacity-40">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-on-primary text-xl" data-icon="shield">shield</span>
+<span class="text-[10px] font-label text-on-primary mt-1 uppercase tracking-widest">Secure</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-on-primary text-xl" data-icon="hub">hub</span>
+<span class="text-[10px] font-label text-on-primary mt-1 uppercase tracking-widest">Global</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-on-primary text-xl" data-icon="terminal">terminal</span>
+<span class="text-[10px] font-label text-on-primary mt-1 uppercase tracking-widest">Admin</span>
+</div>
+</div>
+</main>
+<!-- Side Image Decor (Bento feel) -->
+<div class="hidden lg:block fixed right-0 top-0 bottom-0 w-1/3 z-0">
+<div class="h-full w-full relative">
+<div class="absolute inset-0 bg-gradient-to-l from-on-primary-fixed to-transparent z-10"></div>
+<img alt="high-tech logistics control room with multiple screens displaying global freight movement data and fleet metrics" class="h-full w-full object-cover opacity-30 grayscale" data-alt="dramatic night view of a high-tech logistics control center with glowing dashboard screens reflecting on glass surfaces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrN5Tm2SD4_SgPZuErlf9zH28o7ozrA1zzV4g9ISf2lgIljAkGsKSBxdbntY59WEkQq_an_dr4joo90OHRKPZV15JtDzRdnORrqPL7l9w3ssVpoEStl8aDJXQaPZHc8RdQz8DkXeJgRtGAVBLem33Ns1y69Z7KtA7SNfp9uJ0rO_YjIP6gQIDPFoYJ9WJXX6kCrMk6FCr1MYjYNyLH3aMl4d8tmZaRJESh-wIlXP67-A9FVGM-PtJeVJjJYEcJV6fLlC8fbIxMcPQj"/>
+<div class="absolute bottom-12 left-12 z-20 max-w-xs">
+<div class="h-1 w-12 bg-on-tertiary-container mb-4"></div>
+<h3 class="font-headline text-on-primary text-xl font-bold leading-tight uppercase tracking-tighter">Precision Engineering for Modern Supply Chains</h3>
+<p class="font-body text-on-primary-container text-xs mt-2 leading-relaxed">Phobos Consulting streamlines industrial yard operations through autonomous tracking and predictive analytics.</p>
+</div>
+</div>
+</div>
+
+<script>
+(function() {
+  const form = document.querySelector('form');
+  if (!form) return;
+
+  // Demo credentials banner
+  const banner = document.createElement('div');
+  banner.style.cssText = 'background:rgba(226,87,0,0.1);border:1px solid rgba(226,87,0,0.3);border-radius:0.25rem;padding:0.75rem 1rem;margin-bottom:1rem;text-align:center;font-family:"Inter",sans-serif;font-size:0.75rem;color:#e25700;font-weight:600;';
+  banner.innerHTML = '🔑 Demo: <strong>demo@phobosconsulting.com</strong> / <strong>Demo1234</strong>';
+  form.insertBefore(banner, form.firstChild);
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const btn = form.querySelector('button[type="submit"]');
+    const original = btn.innerHTML;
+
+    // Validate demo credentials
+    if (email === 'demo@phobosconsulting.com' && password === 'Demo1234') {
+      btn.innerHTML = '<span style="font-family:Inter">Authorizing...</span>';
+      btn.disabled = true;
+      setTimeout(() => { window.location.href = '/dashboard.html'; }, 800);
+    } else {
+      btn.innerHTML = '<span style="color:#ff6b6b">Invalid credentials</span>';
+      setTimeout(() => { btn.innerHTML = original; }, 2000);
+    }
+  });
+
+  // Forgot Key link
+  document.querySelectorAll('a').forEach(a => {
+    if (a.textContent.includes('Forgot Key')) a.href = '/forgot-password.html';
+    if (a.textContent.includes('Request Credentials')) a.href = '/contact.html';
+  });
+})();
+</script>
+</body></html>
