@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin | Phobos Consulting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = { darkMode:'class', theme:{ extend:{ colors:{
+  "surface-container-lowest":"#ffffff","surface-container-low":"#f2f4f6",
+  "surface-container-high":"#e6e8ea","on-surface-variant":"#45464d",
+  "outline-variant":"#c6c6cd","on-primary-fixed":"#131b2e",
+  "on-tertiary-container":"#e25700","error":"#ba1a1a","surface":"#f7f9fb",
+  "on-surface":"#191c1e","outline":"#76777d","surface-container":"#eceef0"
+}, fontFamily:{"headline":["Space Grotesk"],"body":["Inter"]} }}}
+</script>
+<style>
+.blueprint-bg { background-image:linear-gradient(to right,rgba(198,198,205,0.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(198,198,205,0.06) 1px,transparent 1px);background-size:24px 24px; }
+.material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+
+<!-- Sidebar -->
+<aside class="bg-slate-900 h-screen w-64 fixed left-0 top-0 overflow-y-auto flex flex-col z-50 border-r border-white/5">
+  <div class="p-6">
+    <div class="flex items-center gap-3 mb-8">
+      <div class="w-8 h-8 bg-[#e25700] flex items-center justify-center rounded-sm">
+        <span class="material-symbols-outlined text-white text-lg">layers</span>
+      </div>
+      <div>
+        <h1 class="font-['Space_Grotesk'] text-xl font-bold tracking-tighter text-white leading-none">Phobos</h1>
+        <p class="text-[10px] text-[#e25700] uppercase tracking-widest mt-1 font-bold">Super Admin</p>
+      </div>
+    </div>
+    <nav class="space-y-1 font-['Space_Grotesk'] tracking-tight text-sm">
+      <a class="bg-[#e25700] text-white rounded-sm font-bold border-l-4 border-white/20 flex items-center gap-3 px-4 py-3" href="admin.html">
+        <span class="material-symbols-outlined text-xl">corporate_fare</span><span>Organizations</span>
+      </a>
+      <div class="pt-4 border-t border-white/5 mt-4">
+        <p class="text-[10px] text-slate-500 uppercase tracking-widest px-4 mb-2">Client Apps</p>
+        <a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 hover:bg-slate-800/80 transition-colors" href="dashboard.html">
+          <span class="material-symbols-outlined text-xl">dashboard</span><span>Dashboard</span>
+        </a>
+        <a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 hover:bg-slate-800/80 transition-colors" href="settings.html">
+          <span class="material-symbols-outlined text-xl">settings</span><span>Settings</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</aside>
+
+<!-- Main -->
+<main class="ml-64 min-h-screen blueprint-bg">
+  <header class="h-16 sticky top-0 z-40 bg-slate-50/80 backdrop-blur-xl flex items-center justify-between px-8 border-b border-slate-200/50 shadow-sm">
+    <h2 class="font-['Space_Grotesk'] font-bold text-slate-900 tracking-tight text-xl uppercase">Organization Management</h2>
+    <button onclick="showCreateOrg()" class="flex items-center gap-2 bg-[#e25700] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-sm hover:brightness-110 transition-all">
+      <span class="material-symbols-outlined text-sm">add</span> New Organization
+    </button>
+  </header>
+
+  <div class="p-10 max-w-6xl mx-auto space-y-8">
+
+    <!-- Org List -->
+    <div>
+      <p class="text-[11px] font-bold uppercase tracking-widest text-outline mb-4">Active Organizations</p>
+      <div id="org-list" class="space-y-3">
+        <div style="padding:2rem;text-align:center;color:#76777d;font-family:Inter,sans-serif;font-size:0.8rem;">Loading organizations...</div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Create/Edit Org Modal -->
+<div id="org-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(15,23,42,0.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;overflow-y:auto;">
+  <div style="background:#fff;border-radius:0.5rem;max-width:600px;width:90%;margin:2rem auto;box-shadow:0 25px 60px rgba(0,0,0,0.3);overflow:hidden;">
+    <div style="background:#0f172a;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span class="material-symbols-outlined" style="color:#e25700;">corporate_fare</span>
+        <span style="font-family:Space Grotesk,sans-serif;font-weight:700;font-size:0.9rem;color:#fff;text-transform:uppercase;letter-spacing:0.05em;" id="modal-title">New Organization</span>
+      </div>
+      <button onclick="closeOrgModal()" style="color:#94a3b8;background:none;border:none;cursor:pointer;font-size:1.2rem;">×</button>
+    </div>
+    <div style="padding:1.5rem;" class="space-y-5">
+      <input type="hidden" id="edit-org-id"/>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div class="col-span-2 space-y-1">
+          <label class="text-[11px] font-bold uppercase tracking-widest text-outline">Organization Name</label>
+          <input id="org-name" type="text" placeholder="e.g. Port of Valencia SA" class="w-full bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm focus:ring-1 focus:ring-[#e25700] outline-none"/>
+        </div>
+        <div class="space-y-1">
+          <label class="text-[11px] font-bold uppercase tracking-widest text-outline">Slug (URL identifier)</label>
+          <input id="org-slug" type="text" placeholder="e.g. port-valencia" class="w-full bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm font-mono focus:ring-1 focus:ring-[#e25700] outline-none"/>
+          <p class="text-[10px] text-outline">Lowercase, hyphens only. Used internally.</p>
+        </div>
+        <div class="space-y-1">
+          <label class="text-[11px] font-bold uppercase tracking-widest text-outline">Terminal Identifier</label>
+          <input id="org-terminal" type="text" placeholder="e.g. VAL-HUB-01" class="w-full bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm font-mono focus:ring-1 focus:ring-[#e25700] outline-none"/>
+        </div>
+      </div>
+
+      <div class="border-t border-surface-container-high pt-4">
+        <p class="text-[11px] font-bold uppercase tracking-widest text-outline mb-3">Capacity Configuration</p>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-outline">Max Yard Capacity (TEU)</label>
+            <input id="org-max-cap" type="number" min="0" placeholder="e.g. 2000" class="w-full bg-surface-container-low border-none rounded-sm px-3 py-2.5 text-sm font-mono focus:ring-1 focus:ring-[#e25700] outline-none"/>
+          </div>
+          <div class="space-y-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-outline">Dwell Warning (hrs)</label>
+            <input id="org-dwell" type="number" min="1" value="48" class="w-full bg-surface-container-low border-none rounded-sm px-3 py-2.5 text-sm font-mono focus:ring-1 focus:ring-[#e25700] outline-none"/>
+          </div>
+          <div class="space-y-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5" style="color:#059669;"><span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span> General / Dry</label>
+            <input id="org-cap-dry" type="number" min="0" placeholder="Max TEU" class="w-full bg-surface-container-low border-none rounded-sm px-3 py-2.5 text-sm font-mono focus:ring-1 focus:ring-[#e25700] outline-none"/>
+          </div>
+          <div class="space-y-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5" style="color:#0891b2;"><span class="w-2 h-2 rounded-full bg-cyan-600 inline-block"></span> Reefer / Cold</label>
+            <input id="org-cap-reefer" type="number" min="0" placeholder="Max TEU" class="w-full bg-surface-container-low border-none rounded-sm px-3 py-2.5 text-sm font-mono focus:ring-1 focus:ring-[#e25700] outline-none"/>
+          </div>
+          <div class="space-y-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5" style="color:#dc2626;"><span class="w-2 h-2 rounded-full bg-red-600 inline-block"></span> Hazmat</label>
+            <input id="org-cap-hazmat" type="number" min="0" placeholder="Max TEU" class="w-full bg-surface-container-low border-none rounded-sm px-3 py-2.5 text-sm font-mono focus:ring-1 focus:ring-[#e25700] outline-none"/>
+          </div>
+          <div class="space-y-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5" style="color:#7c3aed;"><span class="w-2 h-2 rounded-full bg-violet-700 inline-block"></span> Customs Hold</label>
+            <input id="org-cap-customs" type="number" min="0" placeholder="Max TEU" class="w-full bg-surface-container-low border-none rounded-sm px-3 py-2.5 text-sm font-mono focus:ring-1 focus:ring-[#e25700] outline-none"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-surface-container-high pt-4">
+        <p class="text-[11px] font-bold uppercase tracking-widest text-outline mb-3">User Assignment</p>
+        <p class="text-[10px] text-on-surface-variant mb-3">Enter the email address of a registered user to assign them to this organization.</p>
+        <div class="flex gap-2">
+          <input id="assign-email" type="email" placeholder="user@company.com" class="flex-1 bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm focus:ring-1 focus:ring-[#e25700] outline-none"/>
+          <select id="assign-role" class="bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm focus:ring-1 focus:ring-[#e25700] outline-none">
+            <option value="admin">Admin</option>
+            <option value="operator" selected>Operator</option>
+            <option value="viewer">Viewer</option>
+          </select>
+          <button onclick="assignUser()" class="px-4 py-3 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-widest rounded-sm hover:brightness-110">Assign</button>
+        </div>
+        <div id="assigned-users" class="mt-3 space-y-2"></div>
+      </div>
+
+      <div class="flex justify-end gap-3 pt-2 border-t border-surface-container-high">
+        <button onclick="closeOrgModal()" class="px-5 py-2.5 bg-surface-container-low text-on-surface-variant text-[10px] font-bold uppercase tracking-widest rounded-sm hover:bg-surface-container-high transition-colors">Cancel</button>
+        <button onclick="saveOrg()" class="px-5 py-2.5 bg-[#e25700] text-white text-[10px] font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">Save Organization</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="supabase.js"></script>
+<script>
+(function() {
+  var orgs = [];
+  var editingOrgId = null;
+
+  // ── LOAD ORGS ──
+  async function loadOrgs() {
+    var res = await fetch(sb.url + '/rest/v1/organizations?select=*,profiles(id,email,org_role)&order=created_at.desc', {
+      headers: sb.headers()
+    });
+    orgs = await res.json();
+    renderOrgs();
+  }
+
+  function renderOrgs() {
+    var list = document.getElementById('org-list');
+    if (!orgs || !orgs.length) {
+      list.innerHTML = '<div style="padding:2rem;text-align:center;color:#76777d;font-family:Inter,sans-serif;font-size:0.8rem;">No organizations yet. Create one above.</div>';
+      return;
+    }
+    list.innerHTML = '';
+    orgs.forEach(function(org) {
+      var members = org.profiles ? org.profiles.length : 0;
+      var card = document.createElement('div');
+      card.style.cssText = 'background:#fff;border-radius:2px;padding:1.25rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,0.06);border-left:4px solid #e25700;display:flex;align-items:center;justify-content:space-between;';
+      card.innerHTML =
+        '<div style="display:flex;align-items:center;gap:1rem;">' +
+        '<div style="width:40px;height:40px;background:#0f172a;border-radius:4px;display:flex;align-items:center;justify-content:center;">' +
+        '<span class="material-symbols-outlined" style="color:#e25700;font-size:1.25rem;">corporate_fare</span></div>' +
+        '<div>' +
+        '<div style="font-family:Space Grotesk,sans-serif;font-weight:700;font-size:0.95rem;color:#131b2e;">' + org.name + '</div>' +
+        '<div style="font-family:Inter,sans-serif;font-size:0.7rem;color:#76777d;margin-top:2px;">' +
+        org.slug + ' · ' + (org.terminal_id || '—') + ' · ' + members + ' user' + (members !== 1 ? 's' : '') +
+        (org.max_capacity ? ' · ' + org.max_capacity + ' TEU max' : '') +
+        '</div></div></div>' +
+        '<div style="display:flex;gap:0.75rem;">' +
+        '<button onclick="editOrg(\'' + org.id + '\')" style="padding:0.4rem 0.9rem;background:#f2f4f6;border:none;border-radius:2px;font-family:Space Grotesk,sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;color:#45464d;">Edit</button>' +
+        '<button onclick="deleteOrg(\'' + org.id + '\',\'' + org.name + '\')" style="padding:0.4rem 0.9rem;background:#ffdad6;border:none;border-radius:2px;font-family:Space Grotesk,sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;color:#ba1a1a;">Delete</button>' +
+        '</div>';
+      list.appendChild(card);
+    });
+  }
+
+  // ── MODAL ──
+  window.showCreateOrg = function() {
+    editingOrgId = null;
+    document.getElementById('modal-title').textContent = 'New Organization';
+    document.getElementById('edit-org-id').value = '';
+    ['org-name','org-slug','org-terminal','org-max-cap','org-cap-dry','org-cap-reefer','org-cap-hazmat','org-cap-customs','assign-email'].forEach(function(id) {
+      var el = document.getElementById(id); if (el) el.value = '';
+    });
+    document.getElementById('org-dwell').value = '48';
+    document.getElementById('assigned-users').innerHTML = '';
+    document.getElementById('org-modal').style.display = 'flex';
+  };
+
+  window.editOrg = function(id) {
+    var org = orgs.find(function(o){ return o.id === id; });
+    if (!org) return;
+    editingOrgId = id;
+    document.getElementById('modal-title').textContent = 'Edit: ' + org.name;
+    document.getElementById('edit-org-id').value = id;
+    document.getElementById('org-name').value = org.name || '';
+    document.getElementById('org-slug').value = org.slug || '';
+    document.getElementById('org-terminal').value = org.terminal_id || '';
+    document.getElementById('org-max-cap').value = org.max_capacity || '';
+    document.getElementById('org-dwell').value = org.dwell_warning_hrs || 48;
+    document.getElementById('org-cap-dry').value = org.cap_dry || '';
+    document.getElementById('org-cap-reefer').value = org.cap_reefer || '';
+    document.getElementById('org-cap-hazmat').value = org.cap_hazmat || '';
+    document.getElementById('org-cap-customs').value = org.cap_customs || '';
+
+    // Show assigned users
+    var usersDiv = document.getElementById('assigned-users');
+    usersDiv.innerHTML = '';
+    if (org.profiles && org.profiles.length) {
+      org.profiles.forEach(function(u) {
+        var row = document.createElement('div');
+        row.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:0.4rem 0.75rem;background:#f2f4f6;border-radius:2px;font-family:Inter,sans-serif;font-size:0.75rem;';
+        row.innerHTML = '<span>' + (u.email || u.id) + '</span><span style="color:#e25700;font-weight:700;text-transform:uppercase;font-size:0.65rem;">' + (u.org_role || 'operator') + '</span>';
+        usersDiv.appendChild(row);
+      });
+    }
+
+    document.getElementById('org-modal').style.display = 'flex';
+  };
+
+  window.closeOrgModal = function() {
+    document.getElementById('org-modal').style.display = 'none';
+  };
+
+  // ── SAVE ORG ──
+  window.saveOrg = async function() {
+    var name = document.getElementById('org-name').value.trim();
+    var slug = document.getElementById('org-slug').value.trim().toLowerCase().replace(/[^a-z0-9-]/g,'');
+    if (!name || !slug) { showToast('Name and slug are required', 'error'); return; }
+
+    function getN(id) { var v = document.getElementById(id).value; return v ? parseInt(v) : null; }
+
+    var payload = {
+      name: name,
+      slug: slug,
+      terminal_id:       document.getElementById('org-terminal').value.trim() || null,
+      max_capacity:      getN('org-max-cap'),
+      dwell_warning_hrs: getN('org-dwell') || 48,
+      cap_dry:           getN('org-cap-dry'),
+      cap_reefer:        getN('org-cap-reefer'),
+      cap_hazmat:        getN('org-cap-hazmat'),
+      cap_customs:       getN('org-cap-customs'),
+    };
+
+    var isEdit = !!editingOrgId;
+    var url = sb.url + '/rest/v1/organizations' + (isEdit ? '?id=eq.' + editingOrgId : '');
+    var method = isEdit ? 'PATCH' : 'POST';
+
+    var res = await fetch(url, {
+      method: method,
+      headers: { ...sb.headers(), 'Prefer': 'return=representation' },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      showToast(isEdit ? 'Organization updated' : 'Organization created', 'success');
+      closeOrgModal();
+      await loadOrgs();
+    } else {
+      var err = await res.json();
+      showToast('Error: ' + (err.message || err.details || 'Could not save'), 'error');
+    }
+  };
+
+  // ── ASSIGN USER ──
+  window.assignUser = async function() {
+    var email = document.getElementById('assign-email').value.trim();
+    var role  = document.getElementById('assign-role').value;
+    var orgId = editingOrgId || document.getElementById('edit-org-id').value;
+    if (!email) { showToast('Enter an email address', 'error'); return; }
+    if (!orgId) { showToast('Save the organization first', 'error'); return; }
+
+    var res = await fetch(sb.url + '/rest/v1/profiles?email=eq.' + encodeURIComponent(email), {
+      headers: { ...sb.headers(), 'Prefer': 'return=representation' }
+    });
+    var users = await res.json();
+    if (!users || !users.length) { showToast('User not found — they must sign up first', 'error'); return; }
+
+    var updateRes = await fetch(sb.url + '/rest/v1/profiles?id=eq.' + users[0].id, {
+      method: 'PATCH',
+      headers: { ...sb.headers(), 'Prefer': 'return=representation' },
+      body: JSON.stringify({ org_id: orgId, org_role: role })
+    });
+
+    if (updateRes.ok) {
+      showToast(email + ' assigned as ' + role, 'success');
+      document.getElementById('assign-email').value = '';
+      var usersDiv = document.getElementById('assigned-users');
+      var row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:0.4rem 0.75rem;background:#f2f4f6;border-radius:2px;font-family:Inter,sans-serif;font-size:0.75rem;';
+      row.innerHTML = '<span>' + email + '</span><span style="color:#e25700;font-weight:700;text-transform:uppercase;font-size:0.65rem;">' + role + '</span>';
+      usersDiv.appendChild(row);
+    } else {
+      showToast('Could not assign user', 'error');
+    }
+  };
+
+  // ── DELETE ORG ──
+  window.deleteOrg = async function(id, name) {
+    if (!confirm('Delete "' + name + '"? This cannot be undone and will remove all associated data access.')) return;
+    var res = await fetch(sb.url + '/rest/v1/organizations?id=eq.' + id, {
+      method: 'DELETE', headers: sb.headers()
+    });
+    if (res.ok) { showToast('Organization deleted'); await loadOrgs(); }
+    else showToast('Could not delete', 'error');
+  };
+
+  // Auto-generate slug from name
+  document.getElementById('org-name').addEventListener('input', function() {
+    var slugEl = document.getElementById('org-slug');
+    if (!slugEl.dataset.manual) {
+      slugEl.value = this.value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    }
+  });
+  document.getElementById('org-slug').addEventListener('input', function() {
+    this.dataset.manual = '1';
+  });
+
+  // Close modal on backdrop click
+  document.getElementById('org-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeOrgModal();
+  });
+
+  // Init
+  loadOrgs();
+})();
+</script>
+</body>
+</html>
