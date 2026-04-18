@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | Phobos Yard Orchestration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "primary": "#000000",
+                        "outline": "#76777d",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c6c6cd",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface-variant": "#45464d",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2d3133",
+                        "secondary-container": "#d9dff5",
+                        "tertiary-fixed-dim": "#ffb597",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-tertiary-fixed": "#360f00",
+                        "inverse-primary": "#bec6e0",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#360f00",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "tertiary": "#000000",
+                        "secondary": "#575e70",
+                        "on-secondary-container": "#5c6274",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container": "#eceef0",
+                        "on-primary-container": "#7c839b",
+                        "surface-variant": "#e0e3e5",
+                        "surface-tint": "#565e74",
+                        "background": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed": "#141b2b",
+                        "on-tertiary-container": "#e25700",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#404758",
+                        "on-background": "#191c1e",
+                        "secondary-fixed": "#dce2f7",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .blueprint-bg {
+            background-image: linear-gradient(to right, rgba(198, 198, 205, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(198, 198, 205, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="bg-slate-900 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 overflow-y-auto flex flex-col z-50 border-r border-white/5 shadow-2xl shadow-slate-950/50">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-8 h-8 bg-[#e25700] flex items-center justify-center rounded-sm">
+<span class="material-symbols-outlined text-white text-lg">layers</span>
+</div>
+<div>
+<h1 class="font-['Space_Grotesk'] text-xl font-bold tracking-tighter text-white leading-none">Phobos</h1>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Yard Orchestration</p>
+</div>
+</div>
+<nav class="space-y-1 font-['Space_Grotesk'] tracking-tight text-sm">
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="dashboard.html">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="containers.html">
+<span class="material-symbols-outlined text-xl">inventory_2</span>
+<span>Containers</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="movement-log.html">
+<span class="material-symbols-outlined text-xl">swap_horiz</span>
+<span>Movement Log</span>
+</a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="analytics.html">
+<span class="material-symbols-outlined text-xl">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="bg-[#e25700] text-white rounded-sm font-bold border-l-4 border-white/20 flex items-center gap-3 px-4 py-3 scale-[0.98] active:scale-95 transition-all" href="settings.html">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-white/5">
+<button class="w-full bg-white/10 hover:bg-white/20 text-white font-['Space_Grotesk'] py-2 rounded-sm text-sm transition-all">
+                New Entry
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen blueprint-bg">
+<!-- Top App Bar -->
+<header class="h-16 sticky top-0 z-40 w-full bg-slate-50/80 backdrop-blur-xl flex items-center justify-between px-8 border-b border-slate-200/50 shadow-sm">
+<div class="flex items-center gap-6">
+<h2 class="font-['Space_Grotesk'] font-bold text-slate-900 tracking-tight text-xl uppercase">Settings</h2>
+<div class="h-4 w-px bg-slate-300"></div>
+<div class="flex gap-4 font-['Space_Grotesk'] font-medium uppercase tracking-widest text-xs">
+<span class="text-[#e25700] border-b-2 border-[#e25700] pb-1 cursor-pointer">Account</span>
+<span class="text-slate-500 hover:text-slate-900 cursor-pointer">Security</span>
+<span class="text-slate-500 hover:text-slate-900 cursor-pointer">Integrations</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined text-slate-500 absolute left-3 top-1/2 -translate-y-1/2 text-lg">search</span>
+<input class="bg-surface-container-low border-none rounded-sm pl-10 pr-4 py-1.5 text-[10px] font-['Space_Grotesk'] tracking-widest focus:ring-1 focus:ring-[#e25700] w-64 uppercase" placeholder="SEARCH SYSTEM..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:bg-slate-100 p-2 rounded-full transition-colors">notifications</span>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-slate-200" data-alt="professional portrait of a logistics engineer in a clean office environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTD9sEgApr7D1OLwGDwhfK7mWew2qIO9JZGoWbazSb9a2H2RDPAx7iXt3o-u9vHjJhYuR_2njhKHYZ_TR_HTZ_4xCNIwQtbpojyKDbWYDKKleXLpD6dZENL6e7m5Hh0fE4ZhDWnV2xU0XdgL8YCPDVSoeOiGWuy3k-cjawZRNotQi9GLKkALtDvHpUlTd9rkX2u_runsiS3Lpq_a9wLYt9zAhl0C8Yy-9Hh3yXf5tKNrwtbHDHVGtPcJITXSHStdLAKwB2DOlebgeV"/>
+</div>
+</header>
+<div class="p-12 max-w-6xl mx-auto">
+<div class="grid grid-cols-12 gap-8">
+<!-- Profile Section -->
+<section class="col-span-12 lg:col-span-5 space-y-6">
+<div class="space-y-1">
+<h3 class="font-headline text-2xl font-bold tracking-tight text-on-primary-fixed">Profile</h3>
+<p class="text-sm text-on-surface-variant">Update your personal identification and platform role.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-[#e25700]/10"></div>
+<form class="space-y-6" onsubmit="event.preventDefault();alert('Settings saved successfully!');">
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline">Full Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm focus:ring-1 focus:ring-[#e25700] transition-all" type="text" value="Alexander Phobos"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline">Email Address</label>
+<input class="w-full bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm focus:ring-1 focus:ring-[#e25700] transition-all" type="email" value="a.phobos@logistics-core.com"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline">System Role</label>
+<select class="w-full bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm focus:ring-1 focus:ring-[#e25700] transition-all appearance-none">
+<option>Yard Supervisor</option>
+<option>Terminal Manager</option>
+<option>System Admin</option>
+</select>
+</div>
+<div class="pt-2">
+<a class="text-xs font-bold text-[#e25700] uppercase tracking-tighter flex items-center gap-2 hover:translate-x-1 transition-transform" href="#">
+                                    Change Password 
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="pt-6">
+<button class="w-full bg-[#e25700] text-white font-headline font-bold py-4 rounded-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-lg">save</span>
+                                    SAVE CHANGES
+                                </button>
+</div>
+</form>
+</div>
+</section>
+<!-- Yard Configuration Section -->
+<section class="col-span-12 lg:col-span-7 space-y-6">
+<div class="space-y-1">
+<h3 class="font-headline text-2xl font-bold tracking-tight text-on-primary-fixed">Yard Configuration</h3>
+<p class="text-sm text-on-surface-variant">Technical parameters for automated yard alerts and terminal naming.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 shadow-sm border-t-2 border-[#e25700]">
+<div class="grid grid-cols-2 gap-8">
+<div class="col-span-2 space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline">Terminal Identifier</label>
+<input class="w-full bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm font-mono focus:ring-1 focus:ring-[#e25700]" type="text" value="PHX-HUB-04"/>
+</div>
+<div class="col-span-1 space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline">Dwell Warning (HRS)</label>
+<input class="w-full bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm focus:ring-1 focus:ring-[#e25700]" type="number" value="48"/>
+<p class="text-[10px] text-outline uppercase tracking-widest mt-1">Threshold — triggers orange badge</p>
+</div>
+<div class="col-span-1 space-y-1.5">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline">Critical Alert (HRS)</label>
+<input class="w-full bg-surface-container-low border-none rounded-sm px-4 py-3 text-sm focus:ring-1 focus:ring-[#e25700]" type="number" value="72"/>
+<p class="text-[10px] text-outline uppercase tracking-widest mt-1">Critical — triggers red alert</p>
+</div>
+<div class="col-span-2 space-y-4 pt-4 border-t border-surface-container-high">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline block">Notification Preferences</label>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#e25700]">emergency_home</span>
+<div>
+<p class="text-sm font-bold">Priority Gate Alerts</p>
+<p class="text-[10px] text-on-surface-variant">Immediate mobile ping for gate blockages</p>
+</div>
+</div>
+<div class="w-10 h-5 bg-[#e25700] rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">mail</span>
+<div>
+<p class="text-sm font-bold">Daily Yard Report</p>
+<p class="text-[10px] text-on-surface-variant">06:00 AM summary of container aging</p>
+</div>
+</div>
+<div class="w-10 h-5 bg-outline-variant rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="col-span-2 pt-6">
+<button class="w-full bg-[#e25700] text-white font-headline font-bold py-4 rounded-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-lg">settings_suggest</span>
+                                    APPLY CONFIGURATION
+                                </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- YARD LAYOUT BUILDER -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="col-span-12 space-y-6 mt-4">
+  <div class="space-y-1">
+    <h3 class="font-headline text-2xl font-bold tracking-tight text-on-primary-fixed">Yard Layout</h3>
+    <p class="text-sm text-on-surface-variant">Draw your yard by placing and naming zones. AI will organise and label everything automatically.</p>
+  </div>
+
+  <div class="bg-surface-container-lowest shadow-sm border-t-2 border-[#e25700] p-6">
+
+    <!-- Toolbar -->
+    <div class="flex items-center gap-3 mb-4 flex-wrap">
+      <button onclick="addZone('gate')" class="flex items-center gap-2 px-3 py-2 bg-slate-900 text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-slate-700 transition-colors">
+        <span class="material-symbols-outlined text-sm">gate</span> Add Gate
+      </button>
+      <button onclick="addZone('sector')" class="flex items-center gap-2 px-3 py-2 bg-[#e25700] text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+        <span class="material-symbols-outlined text-sm">grid_view</span> Add Sector
+      </button>
+      <button onclick="addZone('dock')" class="flex items-center gap-2 px-3 py-2 bg-blue-600 text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+        <span class="material-symbols-outlined text-sm">directions_boat</span> Add Dock
+      </button>
+      <button onclick="addZone('storage')" class="flex items-center gap-2 px-3 py-2 bg-emerald-600 text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+        <span class="material-symbols-outlined text-sm">warehouse</span> Add Storage
+      </button>
+      <div class="flex-1"></div>
+      <button onclick="clearCanvas()" class="flex items-center gap-2 px-3 py-2 bg-surface-container-low text-on-surface-variant text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined text-sm">delete_sweep</span> Clear
+      </button>
+      <button onclick="analyzeLayout()" class="flex items-center gap-2 px-4 py-2 bg-slate-900 text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-slate-700 transition-colors">
+        <span class="material-symbols-outlined text-sm">auto_awesome</span> AI Analyse
+      </button>
+    </div>
+
+    <!-- Canvas -->
+    <div id="yard-canvas" style="position:relative;width:100%;height:520px;background:#f2f4f6;border:2px dashed #c6c6cd;border-radius:2px;overflow:hidden;background-image:linear-gradient(to right,rgba(198,198,205,0.3) 1px,transparent 1px),linear-gradient(to bottom,rgba(198,198,205,0.3) 1px,transparent 1px);background-size:40px 40px;">
+      <div id="canvas-hint" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;opacity:0.4;">
+        <span class="material-symbols-outlined" style="font-size:3rem;color:#76777d;">space_dashboard</span>
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:#76777d;margin-top:0.5rem;">Click a button above to place zones</p>
+      </div>
+    </div>
+
+    <!-- AI Analysis Output -->
+    <div id="ai-output" style="display:none;margin-top:1rem;padding:1.25rem;background:#0f172a;border-radius:2px;border-left:3px solid #e25700;">
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
+        <span class="material-symbols-outlined" style="color:#e25700;font-size:1rem;">auto_awesome</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:#e25700;">AI Layout Analysis</span>
+      </div>
+      <div id="ai-output-text" style="font-family:'Inter',sans-serif;font-size:0.8rem;color:#94a3b8;line-height:1.7;white-space:pre-wrap;"></div>
+    </div>
+
+    <!-- Zone List -->
+    <div id="zone-list-wrap" style="display:none;margin-top:1rem;">
+      <p style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#76777d;margin-bottom:0.5rem;">Defined Zones</p>
+      <div id="zone-list" style="display:flex;flex-wrap:wrap;gap:0.5rem;"></div>
+    </div>
+
+    <div class="flex justify-end mt-4">
+      <button onclick="saveLayout()" class="flex items-center gap-2 px-6 py-3 bg-[#e25700] text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+        <span class="material-symbols-outlined text-sm">save</span> Save Layout
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var zones = [];
+  var zoneCount = { gate: 0, sector: 0, dock: 0, storage: 0 };
+  var colors = { gate: '#1e293b', sector: '#e25700', dock: '#2563eb', storage: '#059669' };
+  var labels = { gate: 'Gate', sector: 'Sector', dock: 'Dock', storage: 'Storage' };
+  var dragging = null, offsetX = 0, offsetY = 0;
+
+  window.addZone = function(type) {
+    var canvas = document.getElementById('yard-canvas');
+    var hint = document.getElementById('canvas-hint');
+    if (hint) hint.style.display = 'none';
+
+    zoneCount[type]++;
+    var id = type + '_' + zoneCount[type];
+    var label = labels[type] + ' ' + zoneCount[type];
+    var color = colors[type];
+
+    // Random position within canvas
+    var x = 40 + Math.floor(Math.random() * (canvas.offsetWidth - 200));
+    var y = 40 + Math.floor(Math.random() * (canvas.offsetHeight - 120));
+
+    var el = document.createElement('div');
+    el.id = id;
+    el.dataset.type = type;
+    el.dataset.label = label;
+    el.style.cssText = 'position:absolute;left:' + x + 'px;top:' + y + 'px;width:140px;min-height:70px;background:' + color + ';border-radius:2px;cursor:move;user-select:none;box-shadow:0 4px 12px rgba(0,0,0,0.2);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.75rem;';
+
+    // Zone number badge
+    var badge = document.createElement('div');
+    badge.style.cssText = 'position:absolute;top:-8px;right:-8px;width:20px;height:20px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk",sans-serif;font-size:0.6rem;font-weight:900;color:' + color + ';border:2px solid ' + color + ';';
+    badge.textContent = zoneCount[type];
+    el.appendChild(badge);
+
+    // Label (editable)
+    var labelEl = document.createElement('div');
+    labelEl.contentEditable = true;
+    labelEl.style.cssText = 'font-family:"Space Grotesk",sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;text-align:center;outline:none;min-width:60px;';
+    labelEl.textContent = label;
+    labelEl.addEventListener('input', function() { el.dataset.label = labelEl.textContent; updateZoneList(); });
+    labelEl.addEventListener('mousedown', function(e) { e.stopPropagation(); });
+    el.appendChild(labelEl);
+
+    // Delete button
+    var del = document.createElement('button');
+    del.style.cssText = 'position:absolute;top:2px;left:4px;background:none;border:none;color:rgba(255,255,255,0.4);cursor:pointer;font-size:0.7rem;line-height:1;padding:2px;';
+    del.textContent = '×';
+    del.addEventListener('mousedown', function(e) { e.stopPropagation(); });
+    del.addEventListener('click', function() {
+      canvas.removeChild(el);
+      zones = zones.filter(function(z) { return z.id !== id; });
+      updateZoneList();
+      if (zones.length === 0 && hint) hint.style.display = 'flex';
+    });
+    el.appendChild(del);
+
+    // Drag
+    el.addEventListener('mousedown', function(e) {
+      if (e.target === labelEl || e.target === del) return;
+      dragging = el;
+      var rect = canvas.getBoundingClientRect();
+      offsetX = e.clientX - rect.left - parseInt(el.style.left);
+      offsetY = e.clientY - rect.top - parseInt(el.style.top);
+      el.style.zIndex = 100;
+      e.preventDefault();
+    });
+
+    canvas.appendChild(el);
+    zones.push({ id: id, type: type, label: label, x: x, y: y });
+    updateZoneList();
+  };
+
+  // Global drag handlers
+  document.addEventListener('mousemove', function(e) {
+    if (!dragging) return;
+    var canvas = document.getElementById('yard-canvas');
+    var rect = canvas.getBoundingClientRect();
+    var nx = e.clientX - rect.left - offsetX;
+    var ny = e.clientY - rect.top - offsetY;
+    nx = Math.max(0, Math.min(nx, canvas.offsetWidth - 140));
+    ny = Math.max(0, Math.min(ny, canvas.offsetHeight - 70));
+    dragging.style.left = nx + 'px';
+    dragging.style.top = ny + 'px';
+    // Update zone data
+    var id = dragging.id;
+    zones.forEach(function(z) { if (z.id === id) { z.x = nx; z.y = ny; } });
+  });
+
+  document.addEventListener('mouseup', function() {
+    if (dragging) { dragging.style.zIndex = ''; dragging = null; }
+  });
+
+  window.clearCanvas = function() {
+    var canvas = document.getElementById('yard-canvas');
+    zones.forEach(function(z) {
+      var el = document.getElementById(z.id);
+      if (el) canvas.removeChild(el);
+    });
+    zones = [];
+    zoneCount = { gate: 0, sector: 0, dock: 0, storage: 0 };
+    updateZoneList();
+    var hint = document.getElementById('canvas-hint');
+    if (hint) hint.style.display = 'flex';
+    document.getElementById('ai-output').style.display = 'none';
+  };
+
+  function updateZoneList() {
+    var wrap = document.getElementById('zone-list-wrap');
+    var list = document.getElementById('zone-list');
+    if (!zones.length) { wrap.style.display = 'none'; return; }
+    wrap.style.display = 'block';
+    list.innerHTML = '';
+    zones.forEach(function(z) {
+      var tag = document.createElement('span');
+      tag.style.cssText = 'display:inline-flex;align-items:center;gap:0.3rem;padding:0.2rem 0.6rem;background:' + colors[z.type] + ';color:#fff;border-radius:2px;font-family:"Space Grotesk",sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;';
+      var el = document.getElementById(z.id);
+      var lbl = el ? el.dataset.label : z.label;
+      tag.textContent = lbl;
+      list.appendChild(tag);
+    });
+  }
+
+  window.analyzeLayout = function() {
+    if (!zones.length) { alert('Add some zones to your yard first.'); return; }
+    var output = document.getElementById('ai-output');
+    var outputText = document.getElementById('ai-output-text');
+    output.style.display = 'block';
+    outputText.textContent = 'Analysing layout...';
+
+    // Build zone summary for AI
+    var canvas = document.getElementById('yard-canvas');
+    var cw = canvas.offsetWidth, ch = canvas.offsetHeight;
+    var zoneSummary = zones.map(function(z) {
+      var el = document.getElementById(z.id);
+      var lbl = el ? el.dataset.label : z.label;
+      var xPct = Math.round((z.x / cw) * 100);
+      var yPct = Math.round((z.y / ch) * 100);
+      var quadrant = (yPct < 50 ? 'north' : 'south') + '-' + (xPct < 50 ? 'west' : 'east');
+      return lbl + ' (' + z.type + ', ' + quadrant + ', position ' + xPct + '%x/' + yPct + '%y)';
+    }).join(', ');
+
+    fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: 'You are a freight yard logistics expert. When given a yard layout description, provide a concise professional analysis covering: 1) Layout assessment (flow efficiency, gate-to-storage proximity), 2) Numbered zone recommendations, 3) Potential bottlenecks, 4) One optimisation suggestion. Keep it under 200 words, use plain text no markdown.',
+        messages: [{ role: 'user', content: 'Analyse this yard layout: ' + zoneSummary }]
+      })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var text = data.content && data.content[0] ? data.content[0].text : 'Analysis complete.';
+      outputText.textContent = text;
+    })
+    .catch(function() {
+      // Fallback if API unavailable
+      var gates = zones.filter(function(z){return z.type==='gate';}).length;
+      var sectors = zones.filter(function(z){return z.type==='sector';}).length;
+      var docks = zones.filter(function(z){return z.type==='dock';}).length;
+      var storage = zones.filter(function(z){return z.type==='storage';}).length;
+      outputText.textContent =
+        'Layout Summary: ' + zones.length + ' zones defined.
+' +
+        '• ' + gates + ' gate(s), ' + sectors + ' sector(s), ' + docks + ' dock(s), ' + storage + ' storage area(s)
+
+' +
+        'Recommendation: Ensure gates are positioned at yard perimeter for efficient ingress/egress. ' +
+        'Storage zones benefit from proximity to docks to minimise container transit time. ' +
+        'Consider numbering sectors sequentially from gate entry point for logical container routing.';
+    });
+  };
+
+  window.saveLayout = function() {
+    if (!zones.length) { alert('No zones to save. Add zones first.'); return; }
+    var canvas = document.getElementById('yard-canvas');
+    var saveData = zones.map(function(z) {
+      var el = document.getElementById(z.id);
+      return { id: z.id, type: z.type, label: el ? el.dataset.label : z.label, x: z.x, y: z.y };
+    });
+    localStorage.setItem('phobos_yard_layout', JSON.stringify(saveData));
+    // Show toast
+    var t = document.createElement('div');
+    t.style.cssText = 'position:fixed;bottom:1.5rem;right:1.5rem;z-index:99999;background:#16a34a;color:#fff;padding:0.75rem 1.25rem;border-radius:0.25rem;font-family:Inter,sans-serif;font-size:0.8rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.2);transition:opacity 0.3s;';
+    t.textContent = 'Yard layout saved successfully';
+    document.body.appendChild(t);
+    setTimeout(function() { t.style.opacity='0'; setTimeout(function(){t.remove();},300); }, 2800);
+  };
+
+  // Restore saved layout on load
+  var saved = localStorage.getItem('phobos_yard_layout');
+  if (saved) {
+    try {
+      var data = JSON.parse(saved);
+      data.forEach(function(z) {
+        zoneCount[z.type] = (zoneCount[z.type] || 0) + 1;
+        var canvas = document.getElementById('yard-canvas');
+        var hint = document.getElementById('canvas-hint');
+        if (hint) hint.style.display = 'none';
+        var color = colors[z.type];
+        var el = document.createElement('div');
+        el.id = z.id;
+        el.dataset.type = z.type;
+        el.dataset.label = z.label;
+        el.style.cssText = 'position:absolute;left:' + z.x + 'px;top:' + z.y + 'px;width:140px;min-height:70px;background:' + color + ';border-radius:2px;cursor:move;user-select:none;box-shadow:0 4px 12px rgba(0,0,0,0.2);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.75rem;';
+        var num = zoneCount[z.type];
+        var badge = document.createElement('div');
+        badge.style.cssText = 'position:absolute;top:-8px;right:-8px;width:20px;height:20px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk",sans-serif;font-size:0.6rem;font-weight:900;color:' + color + ';border:2px solid ' + color + ';';
+        badge.textContent = num;
+        el.appendChild(badge);
+        var labelEl = document.createElement('div');
+        labelEl.contentEditable = true;
+        labelEl.style.cssText = 'font-family:"Space Grotesk",sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;text-align:center;outline:none;min-width:60px;';
+        labelEl.textContent = z.label;
+        labelEl.addEventListener('input', function() { el.dataset.label = labelEl.textContent; updateZoneList(); });
+        labelEl.addEventListener('mousedown', function(e) { e.stopPropagation(); });
+        el.appendChild(labelEl);
+        var del = document.createElement('button');
+        del.style.cssText = 'position:absolute;top:2px;left:4px;background:none;border:none;color:rgba(255,255,255,0.4);cursor:pointer;font-size:0.7rem;line-height:1;padding:2px;';
+        del.textContent = '×';
+        del.addEventListener('mousedown', function(e) { e.stopPropagation(); });
+        del.addEventListener('click', function() {
+          canvas.removeChild(el);
+          zones = zones.filter(function(zz) { return zz.id !== z.id; });
+          updateZoneList();
+        });
+        el.appendChild(del);
+        el.addEventListener('mousedown', function(e) {
+          if (e.target === labelEl || e.target === del) return;
+          dragging = el;
+          var rect = canvas.getBoundingClientRect();
+          offsetX = e.clientX - rect.left - parseInt(el.style.left);
+          offsetY = e.clientY - rect.top - parseInt(el.style.top);
+          el.style.zIndex = 100;
+          e.preventDefault();
+        });
+        canvas.appendChild(el);
+        zones.push({ id: z.id, type: z.type, label: z.label, x: z.x, y: z.y });
+      });
+      updateZoneList();
+    } catch(e) {}
+  }
+})();
+</script>
+
+<!-- Footer Help/Info -->
+<footer class="mt-16 grid grid-cols-3 gap-6">
+<div class="p-6 bg-surface-container-high/30 flex flex-col gap-3">
+<span class="material-symbols-outlined text-[#e25700]">help_center</span>
+<h4 class="text-xs font-bold uppercase tracking-widest">Technical Support</h4>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">Access documentation or open a ticket with the Phobos deployment team.</p>
+</div>
+<div class="p-6 bg-surface-container-high/30 flex flex-col gap-3">
+<span class="material-symbols-outlined text-[#e25700]">terminal</span>
+<h4 class="text-xs font-bold uppercase tracking-widest">API Access</h4>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">Manage OAuth credentials for third-party yard sensors and telematics.</p>
+</div>
+<div class="p-6 bg-surface-container-high/30 flex flex-col gap-3">
+<span class="material-symbols-outlined text-[#e25700]">history_edu</span>
+<h4 class="text-xs font-bold uppercase tracking-widest">Audit Log</h4>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">Review a complete history of configuration changes and user sessions.</p>
+</div>
+</footer>
+</div>
+</main>
+
+<script>
+(function() {
+  const navMap = {
+    'Dashboard':    '/dashboard.html',
+    'Containers':   '/containers.html',
+    'Movement Log': '/movement-log.html',
+    'Analytics':    '/analytics.html',
+    'Settings':     '/settings.html',
+  };
+  document.querySelectorAll('aside nav a, aside a').forEach(a => {
+    const txt = a.textContent.trim();
+    if (navMap[txt]) a.href = navMap[txt];
+  });
+
+  window.showToast = function(msg, type) {
+    const t = document.createElement('div');
+    const color = type==='success'?'#16a34a':type==='error'?'#ba1a1a':'#1e293b';
+    t.style.cssText = `position:fixed;bottom:1.5rem;right:1.5rem;z-index:99999;background:${color};color:#fff;padding:0.75rem 1.25rem;border-radius:0.25rem;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.2);transition:opacity 0.3s;`;
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),300);},2800);
+  };
+
+  // Wire all forms
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
+      if (btn) {
+        const orig = btn.textContent;
+        btn.textContent = 'Saving...';
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.textContent = '✓ Saved';
+          showToast('Settings saved successfully', 'success');
+          setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
+        }, 700);
+      }
+    });
+  });
+
+  document.querySelectorAll('button').forEach(btn => {
+    const txt = btn.textContent.trim();
+    const icon = btn.querySelector('.material-symbols-outlined');
+    const iconTxt = icon ? icon.textContent.trim() : '';
+
+    if (iconTxt === 'notifications') btn.addEventListener('click', () => showToast('No new notifications'));
+    if (iconTxt === 'help_outline') btn.addEventListener('click', () => window.open('mailto:Info@phobosconsulting.com','_blank'));
+
+    // Change password button
+    if (txt.includes('Change Password') || txt.includes('Update Password') || txt.includes('Reset')) {
+      btn.addEventListener('click', () => window.location.href = 'forgot-password.html');
+    }
+
+    // Sign out
+    if (txt.includes('Sign Out') || txt.includes('Logout') || txt.includes('Log Out')) {
+      btn.addEventListener('click', () => {
+        if (confirm('Sign out of Phobos Yard Control?')) window.location.href = 'login.html';
+      });
+    }
+  });
+})();
+</script>
+</body></html>
