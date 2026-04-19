@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Phobos Consulting | Yard Control</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#bec6e0",
+                    "inverse-primary": "#bec6e0",
+                    "secondary-container": "#d9dff5",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed": "#dce2f7",
+                    "tertiary-fixed": "#ffdbcd",
+                    "background": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#7c839b",
+                    "on-error": "#ffffff",
+                    "primary-container": "#131b2e",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary": "#000000",
+                    "tertiary-fixed-dim": "#ffb597",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-surface-variant": "#45464d",
+                    "primary-fixed": "#dae2fd",
+                    "on-tertiary-container": "#e25700",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-background": "#191c1e",
+                    "on-secondary-fixed-variant": "#404758",
+                    "on-secondary-container": "#5c6274",
+                    "on-primary-fixed": "#131b2e",
+                    "on-secondary-fixed": "#141b2b",
+                    "primary": "#000000",
+                    "surface-tint": "#565e74",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed": "#360f00",
+                    "tertiary-container": "#360f00",
+                    "surface-bright": "#f7f9fb",
+                    "secondary-fixed-dim": "#c0c6db",
+                    "outline": "#76777d",
+                    "surface": "#f7f9fb",
+                    "outline-variant": "#c6c6cd",
+                    "surface-container": "#eceef0",
+                    "secondary": "#575e70",
+                    "on-surface": "#191c1e",
+                    "surface-variant": "#e0e3e5",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e6e8ea"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .blueprint-grid {
+            background-image: linear-gradient(to right, rgba(198, 198, 205, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(198, 198, 205, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-on-tertiary-container/30">
+<!-- SideNavBar Shell -->
+<aside class="bg-slate-100 dark:bg-slate-900 h-screen w-64 fixed left-0 top-0 z-50 flex flex-col py-6 space-y-2 no-shadows">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-slate-900 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-orange-500" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<div>
+<h1 class="font-['Space_Grotesk'] font-black uppercase text-slate-900 dark:text-slate-50 leading-tight">Yard Control</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Terminal A-12</p>
+</div>
+</div>
+</div>
+<nav class="flex-1">
+<a class="bg-white dark:bg-slate-800 text-slate-900 dark:text-white border-l-4 border-orange-600 shadow-sm rounded-sm mx-2 px-4 py-3 flex items-center gap-3 font-['Inter'] text-sm font-medium tracking-wide transition-all duration-200 ease-in-out" href="dashboard.html">
+<span class="material-symbols-outlined text-orange-600">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 mx-2 flex items-center gap-3 font-['Inter'] text-sm font-medium tracking-wide hover:bg-slate-200 dark:hover:bg-slate-800/50 rounded-sm transition-all" href="containers.html">
+<span class="material-symbols-outlined">inventory_2</span>
+                Containers
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 mx-2 flex items-center gap-3 font-['Inter'] text-sm font-medium tracking-wide hover:bg-slate-200 dark:hover:bg-slate-800/50 rounded-sm transition-all" href="movement-log.html">
+<span class="material-symbols-outlined">local_shipping</span>
+                Movement Log
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 mx-2 flex items-center gap-3 font-['Inter'] text-sm font-medium tracking-wide hover:bg-slate-200 dark:hover:bg-slate-800/50 rounded-sm transition-all" href="analytics.html">
+<span class="material-symbols-outlined">analytics</span>
+                Analytics
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 mx-2 flex items-center gap-3 font-['Inter'] text-sm font-medium tracking-wide hover:bg-slate-200 dark:hover:bg-slate-800/50 rounded-sm transition-all" href="settings.html">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+<a class="text-slate-400 hover:text-white flex items-center gap-3 px-4 py-3 transition-colors hover:bg-slate-800/80" href="add-entry.html">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Add Entry</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="bg-slate-200/50 dark:bg-slate-800/50 p-4 rounded-lg">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-tighter">System Status: Live</span>
+</div>
+<p class="text-[10px] text-slate-500">v4.2.0-phobos-stable</p>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen blueprint-grid relative">
+<!-- TopAppBar Shell -->
+<header class="bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/10 dark:border-slate-800/10 shadow-sm dark:shadow-none docked full-width top-0 sticky z-40 flex items-center justify-between px-8 py-4 w-full">
+<div class="flex items-center gap-6">
+<h2 class="text-2xl font-['Space_Grotesk'] font-bold tracking-tight text-slate-900 dark:text-slate-50">Platform Dashboard</h2>
+<div class="h-6 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-4 text-sm text-slate-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_today</span> <span id="live-date">—</span></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> <span id="live-time">—</span></span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-on-tertiary-container text-white px-5 py-2 rounded-lg font-bold text-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center gap-2 shadow-lg shadow-on-tertiary-container/20">
+<span class="material-symbols-outlined text-sm">download</span>
+                    Execute Task
+                </button>
+<div class="flex items-center gap-2 border-l border-slate-200 pl-4 ml-2">
+<button class="p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors text-slate-600">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors text-slate-600">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<img onclick="toggleProfileMenu(event)" alt="Operator profile" class="w-8 h-8 rounded-full border-2 border-white shadow-sm object-cover cursor-pointer hover:ring-2 hover:ring-[#e25700] transition-all" data-alt="Close-up professional portrait of a tech operations manager with neutral expression in a modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMptUmTIBqWIxCjwKEAxOMtj_-WQcdvyKkSwzEJdHGLVrxr4Q3yw9UBmlDdsM4Ps2geoNqEQI9bO77Oo3foDoinUug19IpESn5Rh-CXcrJg3YmoaG1H9aaE0j1IcmbxwK0C_m7rs68w67bLK9BJEQ4cNI8qU0H-_ARPt8K6S-WAnoLAbjy7k1bL_aCqn24w06PYWLZzKO_Evaf2oUwIPbQ2XxqEv3iw_fFvDTU3axofPERcnpKTxAi8sNcYKwt_sxZqaMoxgKxaUEz"/>
+</div>
+</div>
+<div style="position:relative;display:inline-flex;align-items:center;margin-left:0.75rem;flex-shrink:0;">
+<button id="lang-switcher-btn" type="button" onclick="phobosToggleDD()" style="display:flex;align-items:center;gap:0.35rem;background:rgba(0,0,0,0.07);border:1px solid rgba(0,0,0,0.12);color:#45464d;border-radius:4px;padding:0.3rem 0.65rem;font-family:Space Grotesk,sans-serif;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;white-space:nowrap;">
+<span id="lang-flag" style="font-size:1rem;">🇬🇧</span>
+<span id="lang-label">English</span>
+<span style="font-size:0.5rem;opacity:0.5;margin-left:2px;">▼</span>
+</button>
+<div id="lang-dropdown" style="display:none;position:absolute;top:calc(100% + 6px);right:0;background:#0f172a;border:1px solid rgba(255,255,255,0.1);border-radius:6px;min-width:200px;z-index:99999;box-shadow:0 8px 32px rgba(0,0,0,0.4);overflow:hidden;">
+<div style="display:grid;grid-template-columns:1fr 1fr;">
+<button type="button" onclick="phobosSetLang('en')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇬🇧</span><span>English</span></button>
+<button type="button" onclick="phobosSetLang('es')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇪🇸</span><span>Español</span></button>
+<button type="button" onclick="phobosSetLang('hi')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇮🇳</span><span>हिंदी</span></button>
+<button type="button" onclick="phobosSetLang('bn')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇮🇳</span><span>বাংলা</span></button>
+<button type="button" onclick="phobosSetLang('zh')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇨🇳</span><span>中文</span></button>
+<button type="button" onclick="phobosSetLang('pt')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇧🇷</span><span>Português</span></button>
+<button type="button" onclick="phobosSetLang('ru')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇷🇺</span><span>Русский</span></button>
+<button type="button" onclick="phobosSetLang('fr')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇫🇷</span><span>Français</span></button>
+<button type="button" onclick="phobosSetLang('ar')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇸🇦</span><span>العربية</span></button>
+<button type="button" onclick="phobosSetLang('de')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇩🇪</span><span>Deutsch</span></button>
+<button type="button" onclick="phobosSetLang('ja')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇯🇵</span><span>日本語</span></button>
+<button type="button" onclick="phobosSetLang('ko')" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.5rem 0.75rem;background:none;border:none;font-family:Space Grotesk,sans-serif;font-size:0.73rem;font-weight:600;color:#e2e8f0;cursor:pointer;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'"><span style="font-size:1rem;">🇰🇷</span><span>한국어</span></button>
+</div>
+</div>
+</div>
+</header>
+<div class="p-8">
+<!-- Stat Cards Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-slate-900 opacity-20"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-slate-400">inventory_2</span>
+<span class="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Metric_01</span>
+</div>
+<p class="text-sm font-medium text-on-surface-variant mb-1">Total Containers</p>
+<h3 class="text-4xl font-headline font-bold text-on-primary-fixed" id="stat-total">—</h3>
+<div class="mt-4 flex items-center gap-2 text-[11px] font-bold text-green-600">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+<span id="stat-total-sub">Loading...</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-on-tertiary-container"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-tertiary-container">local_shipping</span>
+<span class="text-[10px] font-bold text-on-tertiary-container tracking-widest uppercase">Live_Feed</span>
+</div>
+<p class="text-sm font-medium text-on-surface-variant mb-1">In Transit</p>
+<h3 class="text-4xl font-headline font-bold text-on-primary-fixed" id="stat-transit">—</h3>
+<div class="mt-4 flex items-center gap-2 text-[11px] font-bold text-on-tertiary-container">
+<span class="material-symbols-outlined text-xs">sync</span>
+<span id="stat-transit-sub">Loading...</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-error"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-error">warning</span>
+<span class="text-[10px] font-bold text-error tracking-widest uppercase">Alert_Priority</span>
+</div>
+<p class="text-sm font-medium text-on-surface-variant mb-1">Dwell Warnings</p>
+<h3 class="text-4xl font-headline font-bold text-on-primary-fixed" id="stat-dwell">—</h3>
+<div class="mt-4 flex items-center gap-2 text-[11px] font-bold text-error">
+<span class="material-symbols-outlined text-xs">schedule</span>
+<span id="stat-dwell-sub">Loading...</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-blue-500"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-blue-500">conveyor_belt</span>
+<span class="text-[10px] font-bold text-blue-400 tracking-widest uppercase">Unit_Ops</span>
+</div>
+<p class="text-sm font-medium text-on-surface-variant mb-1">Processing</p>
+<h3 class="text-4xl font-headline font-bold text-on-primary-fixed" id="stat-processing">—</h3>
+<div class="mt-4 flex items-center gap-2 text-[11px] font-bold text-blue-500">
+<span class="material-symbols-outlined text-xs">engineering</span>
+<span id="stat-processing-sub">Loading...</span>
+</div>
+</div>
+</div>
+<!-- Content Area: Main Table + History -->
+<div class="flex flex-col xl:flex-row gap-8">
+<!-- Left: Container Table -->
+<div class="flex-1 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-6 border-b border-slate-100 flex justify-between items-center">
+<h4 class="font-headline font-bold text-xl text-on-primary-fixed">Container Inventory</h4>
+<div class="flex gap-2">
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded text-[11px] font-bold uppercase tracking-wider">All Units</span>
+<span class="bg-slate-50 text-slate-400 px-3 py-1 rounded text-[11px] font-bold uppercase tracking-wider">Filter By: Location</span>
+</div>
+</div>
+<!-- Mac-style Yard Capacity Bar -->
+<div id="dash-capacity-wrap" style="display:none;margin-bottom:1.5rem;" class="bg-surface-container-lowest p-6 shadow-sm border-t-2 border-slate-900">
+  <div class="flex items-center justify-between mb-3">
+    <div>
+      <p class="text-[11px] font-bold uppercase tracking-widest text-outline">Yard Storage Capacity</p>
+      <p class="text-[10px] text-on-surface-variant mt-0.5" id="dash-capacity-lbl">— of — TEU used</p>
+    </div>
+    <span class="font-headline text-xl font-bold text-on-primary-fixed" id="dash-capacity-free">—</span>
+  </div>
+  <div class="w-full h-5 rounded-sm overflow-hidden flex gap-px" id="dash-mac-bar" style="background:#e6e8ea;min-height:20px;"></div>
+  <div class="flex flex-wrap gap-x-5 gap-y-1.5 mt-3" id="dash-mac-legend"></div>
+  <p class="text-[10px] text-on-surface-variant mt-2">Set limits in <a href="settings.html" class="text-[#e25700] font-bold hover:underline">Settings → Yard Configuration</a>.</p>
+</div>
+
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-high border-b border-slate-200/50">
+<tr>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Container ID</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Status</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Location</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Last Updated</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100" id="containers-tbody"><tr><td colspan="5" style="padding:1.5rem;text-align:center;font-family:Inter,sans-serif;font-size:0.8rem;color:#76777d;">Loading containers...</td></tr>
+
+
+
+
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right: Movement History Panel -->
+<aside class="w-full xl:w-80 bg-surface-container-lowest rounded-xl p-6 shadow-sm border-l-4 border-slate-900">
+<h4 class="font-headline font-bold text-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container">history</span>
+                        Movement History
+                    </h4>
+<div class="space-y-8 relative before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-100">
+
+<button class="w-full mt-8 py-3 border border-slate-200 text-slate-500 font-bold text-[11px] uppercase tracking-widest rounded hover:bg-slate-50 transition-colors">
+                        View Complete Audit Log
+                    </button>
+</aside>
+</div>
+</div>
+<!-- Decorative background texture -->
+<div class="fixed bottom-0 right-0 w-96 h-96 opacity-[0.03] pointer-events-none">
+<svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M44.7,-76.4C58.3,-69.2,70.1,-58.5,78.2,-45.4C86.4,-32.4,90.9,-16.9,89.5,-1.9C88.1,13.1,80.8,27.5,71.2,40.1C61.6,52.8,49.7,63.6,35.9,70.4C22.1,77.3,6.3,80.1,-9.6,78.8C-25.5,77.6,-41.4,72.3,-54.6,63.2C-67.8,54.1,-78.3,41.2,-83.4,26.5C-88.5,11.8,-88.2,-4.8,-83.1,-20.1C-77.9,-35.4,-67.9,-49.4,-55.1,-56.9C-42.3,-64.4,-26.8,-65.4,-12.3,-71.4C2.3,-77.3,16.8,-88.3,31.2,-83.7C45.6,-79.1,44.7,-76.4,44.7,-76.4Z" fill="#0F172A" transform="translate(100 100)"></path>
+</svg>
+</div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ── NAV LINKS ──
+  const navMap = {
+    'Dashboard':    'dashboard.html',
+    'Containers':   'containers.html',
+    'Movement Log': 'movement-log.html',
+    'Analytics':    'analytics.html',
+    'Settings':     'settings.html',
+  };
+  document.querySelectorAll('aside a').forEach(function(a) {
+    var txt = a.textContent.trim();
+    if (navMap[txt]) a.href = navMap[txt];
+  });
+
+  // ── LIVE CLOCK ──
+  function updateClock() {
+    var now = new Date();
+    var h = String(now.getUTCHours()).padStart(2,'0');
+    var m = String(now.getUTCMinutes()).padStart(2,'0');
+    document.querySelectorAll('span').forEach(function(el) {
+      if (el.textContent.includes('UTC') && !el.classList.contains('material-symbols-outlined')) {
+        el.textContent = h + ':' + m + ' UTC';
+      }
+    });
+  }
+  updateClock();
+  setInterval(updateClock, 60000);
+
+  // ── TOAST ──
+  function showToast(msg, type) {
+    var color = type === 'success' ? '#16a34a' : type === 'error' ? '#ba1a1a' : '#1e293b';
+    var t = document.createElement('div');
+    t.style.cssText = 'position:fixed;bottom:1.5rem;right:1.5rem;z-index:99999;background:' + color + ';color:#fff;padding:0.75rem 1.25rem;border-radius:0.25rem;font-family:Inter,sans-serif;font-size:0.8rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.2);transition:opacity 0.3s;';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(function() { t.style.opacity = '0'; setTimeout(function() { t.remove(); }, 300); }, 2800);
+  }
+
+  // ── MODAL ──
+  var modal = document.createElement('div');
+  modal.id = 'phobos-modal';
+  modal.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(15,23,42,0.75);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:1rem;';
+  modal.innerHTML = '<div style="background:#fff;border-radius:0.5rem;max-width:520px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 25px 60px rgba(0,0,0,0.3);"><div style="display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem;border-bottom:1px solid #e0e3e5;"><span id="modal-title" style="font-family:Space Grotesk,sans-serif;font-weight:700;font-size:1.1rem;color:#131b2e;"></span><button id="modal-close" style="background:none;border:none;cursor:pointer;font-size:1.5rem;color:#76777d;line-height:1;">&times;</button></div><div id="modal-body" style="padding:1.5rem;font-family:Inter,sans-serif;font-size:0.875rem;color:#45464d;line-height:1.6;"></div></div>';
+  document.body.appendChild(modal);
+
+  document.getElementById('modal-close').addEventListener('click', function() { modal.style.display = 'none'; });
+  modal.addEventListener('click', function(e) { if (e.target === modal) modal.style.display = 'none'; });
+
+  function showModal(title, body) {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-body').innerHTML = body;
+    modal.style.display = 'flex';
+  }
+
+  // ── WIRE ALL BUTTONS ──
+  document.querySelectorAll('button').forEach(function(btn) {
+    var txt = btn.textContent.trim();
+    var icon = btn.querySelector('.material-symbols-outlined');
+    var iconTxt = icon ? icon.textContent.trim() : '';
+
+    // Export CSV / Execute Task → Containers page
+    if (txt.includes('Execute Task') || txt.includes('Export CSV')) {
+      btn.innerHTML = '<span class="material-symbols-outlined text-sm" style="font-size:1rem;vertical-align:middle;">download</span> Export CSV';
+      btn.addEventListener('click', function() { window.location.href = 'containers.html'; });
+    }
+
+    // Notifications
+    if (iconTxt === 'notifications') {
+      btn.addEventListener('click', function() { showToast('No new notifications'); });
+    }
+
+    // Help
+    if (iconTxt === 'help_outline') {
+      btn.addEventListener('click', function() { window.open('mailto:Info@phobosconsulting.com', '_blank'); });
+    }
+
+    // View Complete Audit Log
+    if (txt.includes('View Complete Audit Log')) {
+      btn.addEventListener('click', function() { window.location.href = 'movement-log.html'; });
+    }
+
+    // Container row actions (more_vert)
+    if (iconTxt === 'more_vert') {
+      btn.style.cursor = 'pointer';
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var row = btn.closest('tr');
+        var id = row ? (row.querySelector('.font-headline') || row.querySelector('span[class*="font"]') || {textContent:'Container'}).textContent.trim() : 'Container';
+        var statusEl = row ? row.querySelector('[class*="rounded-full"]') : null;
+        var status = statusEl ? statusEl.textContent.trim() : 'Unknown';
+        var location = row && row.cells[2] ? row.cells[2].textContent.trim() : '—';
+        var updated = row && row.cells[3] ? row.cells[3].textContent.trim() : '—';
+        showModal('Container: ' + id,
+          '<div style="display:grid;gap:0.75rem;">' +
+          '<div style="display:flex;justify-content:space-between;padding-bottom:0.75rem;border-bottom:1px solid #f2f4f6;"><span style="color:#76777d;">Container ID</span><strong>' + id + '</strong></div>' +
+          '<div style="display:flex;justify-content:space-between;padding-bottom:0.75rem;border-bottom:1px solid #f2f4f6;"><span style="color:#76777d;">Status</span><strong>' + status + '</strong></div>' +
+          '<div style="display:flex;justify-content:space-between;padding-bottom:0.75rem;border-bottom:1px solid #f2f4f6;"><span style="color:#76777d;">Location</span><strong>' + location + '</strong></div>' +
+          '<div style="display:flex;justify-content:space-between;padding-bottom:0.75rem;border-bottom:1px solid #f2f4f6;"><span style="color:#76777d;">Last Updated</span><strong>' + updated + '</strong></div>' +
+          '<div style="margin-top:0.5rem;"><a href="containers.html" style="background:#e25700;color:#fff;padding:0.5rem 1.25rem;border-radius:0.25rem;font-weight:700;font-size:0.8rem;text-decoration:none;display:inline-block;">View Full Details</a></div>' +
+          '</div>'
+        );
+      });
+    }
+  });
+
+});
+</script>
+
+<!-- Profile Menu -->
+<div id="profile-menu" style="display:none;position:fixed;z-index:99999;top:4.5rem;right:1.5rem;width:240px;background:#fff;border-radius:0.5rem;box-shadow:0 8px 30px rgba(0,0,0,0.15);border:1px solid #e0e3e5;overflow:hidden;">
+  <div style="padding:1rem;background:#0f172a;display:flex;align-items:center;gap:0.75rem;">
+    <div style="width:36px;height:36px;border-radius:50%;background:#e25700;display:flex;align-items:center;justify-content:center;font-family:Space Grotesk,sans-serif;font-weight:700;font-size:0.8rem;color:#fff;flex-shrink:0;" data-user-initials>OP</div>
+    <div>
+      <div style="font-family:Space Grotesk,sans-serif;font-weight:700;font-size:0.8rem;color:#fff;" data-user-name>Operator</div>
+      <div style="font-family:Inter,sans-serif;font-size:0.65rem;color:#94a3b8;margin-top:1px;" data-user-email></div>
+    </div>
+  </div>
+  <div style="padding:0.4rem 0;">
+    <a href="settings.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">manage_accounts</span> My Profile
+    </a>
+    <a href="settings.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">settings</span> Settings
+    </a>
+    <a href="forgot-password.html" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">lock</span> Change Password
+    </a>
+    <div style="border-top:1px solid #e0e3e5;margin:0.3rem 0;"></div>
+    <a href="https://phobosconsulting.com" target="_blank" onclick="closeProfileMenu()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#191c1e;text-decoration:none;" onmouseover="this.style.background='#f2f4f6'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#76777d;">public</span> Marketing Site
+    </a>
+    <div style="border-top:1px solid #e0e3e5;margin:0.3rem 0;"></div>
+    <button onclick="signOut()" style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 1rem;font-family:Inter,sans-serif;font-size:0.8rem;color:#ba1a1a;background:none;border:none;cursor:pointer;width:100%;text-align:left;" onmouseover="this.style.background='#fff5f5'" onmouseout="this.style.background=''">
+      <span class="material-symbols-outlined" style="font-size:1rem;color:#ba1a1a;">logout</span> Sign Out
+    </button>
+  </div>
+</div>
+<script>
+(function() {
+  window.toggleProfileMenu = function(e) {
+    e.stopPropagation();
+    var menu = document.getElementById('profile-menu');
+    if (!menu) return;
+    // Populate with live user data
+    var user = sb ? sb.getUser() : null;
+    if (user) {
+      var name = user.user_metadata && user.user_metadata.full_name ? user.user_metadata.full_name : user.email.split('@')[0];
+      var initials = name.split(' ').map(function(w){return w[0];}).join('').toUpperCase().slice(0,2);
+      document.querySelectorAll('[data-user-name]').forEach(function(el){ el.textContent = name; });
+      document.querySelectorAll('[data-user-email]').forEach(function(el){ el.textContent = user.email; });
+      document.querySelectorAll('[data-user-initials]').forEach(function(el){ el.textContent = initials; });
+    }
+    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+  };
+  window.closeProfileMenu = function() {
+    var menu = document.getElementById('profile-menu');
+    if (menu) menu.style.display = 'none';
+  };
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('profile-menu');
+    if (menu && menu.style.display !== 'none' && !menu.contains(e.target)) closeProfileMenu();
+  });
+})();
+</script>
+
+<script src="supabase.js"></script>
+<script>
+(function() {
+  if (!requireAuth()) return;
+
+  var user = sb.getUser();
+
+  // ── YARD CONFIG HELPERS ──
+  function getYardConfig() {
+    try { return JSON.parse(localStorage.getItem('phobos_yard_config') || '{}'); } catch(e) { return {}; }
+  }
+  function getMaxCapacity() {
+    var v = getYardConfig().max_capacity;
+    return (v !== null && v !== undefined && !isNaN(parseInt(v))) ? parseInt(v) : null;
+  }
+
+  // ── LOAD STATS ──
+  async function loadStats() {
+    var { data: containers } = await sb.select('containers', 'status');
+    if (!containers) return;
+
+    var total = containers.length;
+    var inTransit = containers.filter(function(c){ return c.status === 'In Transit'; }).length;
+    var dwellWarning = containers.filter(function(c){ return c.status === 'Dwell Warning'; }).length;
+    var processing = containers.filter(function(c){ return c.status === 'Processing'; }).length;
+    var s1 = document.getElementById('stat-total');
+    var s2 = document.getElementById('stat-transit');
+    var s3 = document.getElementById('stat-dwell');
+    var s4 = document.getElementById('stat-processing');
+    if (s1) s1.textContent = total;
+    if (s2) s2.textContent = inTransit;
+    if (s3) s3.textContent = dwellWarning;
+    if (s4) s4.textContent = processing;
+    var sub1 = document.getElementById('stat-total-sub');
+    var sub3 = document.getElementById('stat-dwell-sub');
+    var sub4 = document.getElementById('stat-processing-sub');
+    var maxCap = getMaxCapacity();
+    if (sub1) sub1.textContent = maxCap ? total + ' / ' + maxCap + ' capacity used' : total + ' units tracked';
+    if (sub3) sub3.textContent = dwellWarning + ' exceeding threshold';
+    if (sub4) sub4.textContent = processing + ' active units';
+    // Mac-style capacity bar
+    if (maxCap) {
+      var wrap = document.getElementById('dash-capacity-wrap');
+      if (wrap) wrap.style.display = 'block';
+
+      var lbl  = document.getElementById('dash-capacity-lbl');
+      var free = document.getElementById('dash-capacity-free');
+      if (lbl)  lbl.textContent  = total + ' of ' + maxCap + ' TEU used';
+      if (free) free.textContent = Math.max(0, maxCap - total) + ' TEU available';
+
+      // Build segments from yard config
+      function getCfg() { try { return JSON.parse(localStorage.getItem('phobos_yard_config')||'{}'); } catch(e){return{};} }
+      var cfg = getCfg();
+      var SEGS = [
+        { key:'cap_dry',      label:'General/Dry',   color:'#059669' },
+        { key:'cap_reefer',   label:'Reefer',        color:'#0891b2' },
+        { key:'cap_hazmat',   label:'Hazmat',        color:'#dc2626' },
+        { key:'cap_oversize', label:'Oversize',      color:'#d97706' },
+        { key:'cap_customs',  label:'Customs Hold',  color:'#7c3aed' },
+        { key:'cap_empty',    label:'Empty Stack',   color:'#6d7a8a' },
+      ];
+      // Add custom categories
+      if (cfg.custom_categories) {
+        cfg.custom_categories.forEach(function(c) {
+          SEGS.push({ key: null, label: c.name, color: c.color, fixed: c.capacity });
+        });
+      }
+
+      var bar    = document.getElementById('dash-mac-bar');
+      var legend = document.getElementById('dash-mac-legend');
+      if (!bar || !legend) return;
+      bar.innerHTML = '';
+      legend.innerHTML = '';
+
+      var totalCfgCap = 0;
+      var segsWithCap = [];
+      SEGS.forEach(function(s) {
+        var cap = s.fixed || (s.key ? cfg[s.key] : null) || 0;
+        if (cap > 0) { segsWithCap.push({label:s.label, color:s.color, cap:cap}); totalCfgCap += cap; }
+      });
+
+      // If no per-type caps set, show one block for used vs free
+      if (!segsWithCap.length) {
+        var usedPct = Math.min(100, (total / maxCap) * 100);
+        var freePct = 100 - usedPct;
+        var usedSeg = document.createElement('div');
+        usedSeg.style.cssText = 'height:100%;width:' + usedPct + '%;background:#e25700;transition:width 0.6s;';
+        usedSeg.title = 'Used: ' + total + ' TEU';
+        bar.appendChild(usedSeg);
+        var freeSeg = document.createElement('div');
+        freeSeg.style.cssText = 'height:100%;flex:1;background:#e6e8ea;';
+        freeSeg.title = 'Available: ' + (maxCap - total) + ' TEU';
+        bar.appendChild(freeSeg);
+        var lbl2 = document.createElement('div');
+        lbl2.style.cssText = 'display:flex;align-items:center;gap:0.3rem;font-family:Inter,sans-serif;font-size:0.65rem;color:#45464d;';
+        lbl2.innerHTML = '<span style="width:8px;height:8px;border-radius:2px;background:#e25700;display:inline-block;"></span>Used: <strong>' + total + ' TEU</strong>';
+        legend.appendChild(lbl2);
+        return;
+      }
+
+      // Show each category segment proportional to its cap
+      segsWithCap.forEach(function(s) {
+        var pct = (s.cap / maxCap) * 100;
+        var seg = document.createElement('div');
+        seg.style.cssText = 'height:100%;width:' + pct + '%;background:' + s.color + ';transition:width 0.6s;cursor:default;';
+        seg.title = s.label + ': ' + s.cap + ' TEU';
+        bar.appendChild(seg);
+      });
+      // Free space
+      var allocPct = (totalCfgCap / maxCap) * 100;
+      if (allocPct < 100) {
+        var freeBlock = document.createElement('div');
+        freeBlock.style.cssText = 'height:100%;flex:1;background:#e6e8ea;';
+        freeBlock.title = 'Unallocated: ' + (maxCap - totalCfgCap) + ' TEU';
+        bar.appendChild(freeBlock);
+      }
+
+      // Legend
+      segsWithCap.forEach(function(s) {
+        var item = document.createElement('div');
+        item.style.cssText = 'display:flex;align-items:center;gap:0.3rem;font-family:Inter,sans-serif;font-size:0.65rem;color:#45464d;';
+        item.innerHTML = '<span style="width:8px;height:8px;border-radius:2px;background:' + s.color + ';display:inline-block;"></span>' + s.label + ': <strong>' + s.cap + '</strong>';
+        legend.appendChild(item);
+      });
+      if (allocPct < 100) {
+        var freeItem = document.createElement('div');
+        freeItem.style.cssText = 'display:flex;align-items:center;gap:0.3rem;font-family:Inter,sans-serif;font-size:0.65rem;color:#45464d;';
+        freeItem.innerHTML = '<span style="width:8px;height:8px;border-radius:2px;background:#e6e8ea;border:1px solid #c6c6cd;display:inline-block;"></span>Available: <strong>' + (maxCap - totalCfgCap) + '</strong>';
+        legend.appendChild(freeItem);
+      }
+    }
+  }
+
+  // ── LOAD CONTAINERS TABLE ──
+  async function loadContainers() {
+    var { data } = await sb.select('containers', 'container_id,status,location,updated_at', {});
+    if (!data || !data.length) return;
+
+    var tbody = document.querySelector('tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    var statusColors = {
+      'In Transit': 'bg-green-100 text-green-700',
+      'Dwell Warning': 'bg-orange-100 text-orange-700',
+      'Processing': 'bg-blue-100 text-blue-700',
+      'Staged': 'bg-slate-100 text-slate-600',
+      'Customs Hold': 'bg-purple-100 text-purple-700'
+    };
+
+    data.slice(0, 4).forEach(function(c) {
+      var dt = c.updated_at ? new Date(c.updated_at) : new Date();
+      var ago = timeSince(dt);
+      var dotColor = { 'In Transit':'bg-on-tertiary-container', 'Dwell Warning':'bg-error', 'Processing':'bg-blue-500', 'Staged':'bg-slate-400' };
+      var row = document.createElement('tr');
+      row.className = 'hover:bg-slate-50/50 transition-colors';
+      row.innerHTML =
+        '<td class="px-6 py-5"><div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full ' + (dotColor[c.status]||'bg-slate-400') + '"></div><span class="font-headline font-bold text-slate-900">' + c.container_id + '</span></div></td>' +
+        '<td class="px-6 py-5"><span class="px-3 py-1 rounded-full text-[10px] font-black uppercase ' + (statusColors[c.status]||'bg-slate-100 text-slate-600') + '">' + c.status + '</span></td>' +
+        '<td class="px-6 py-5 text-sm font-medium text-slate-500">' + (c.location||'—') + '</td>' +
+        '<td class="px-6 py-5 text-sm text-slate-400">' + ago + '</td>' +
+        '<td class="px-6 py-5 text-right"><button class="text-slate-400 hover:text-on-tertiary-container transition-colors"><span class="material-symbols-outlined">more_vert</span></button></td>';
+      tbody.appendChild(row);
+    });
+  }
+
+  // ── LOAD MOVEMENT LOG ──
+  async function loadMovementLog() {
+    var { data } = await sb.select('movement_log', 'container_id,event_type,location,notes,created_at', {});
+    if (!data || !data.length) return;
+
+    var feed = document.querySelector('.space-y-8.relative');
+    if (!feed) return;
+    feed.innerHTML = '';
+
+    var icons = {
+      'Gate Entry': { icon:'check_circle', color:'border-green-500', iconColor:'text-green-500' },
+      'Internal Transfer': { icon:'sync_alt', color:'border-on-tertiary-container', iconColor:'text-on-tertiary-container' },
+      'Threshold Alert': { icon:'report_problem', color:'border-error', iconColor:'text-error' },
+      'Manual Override': { icon:'package_2', color:'border-slate-300', iconColor:'text-slate-400' },
+      'Customs Hold': { icon:'lock', color:'border-purple-400', iconColor:'text-purple-500' },
+      'Vessel Departure': { icon:'directions_boat', color:'border-blue-400', iconColor:'text-blue-500' },
+    };
+
+    data.slice(0, 4).forEach(function(entry) {
+      var cfg = icons[entry.event_type] || icons['Manual Override'];
+      var dt = new Date(entry.created_at);
+      var time = dt.getUTCHours().toString().padStart(2,'0') + ':' + dt.getUTCMinutes().toString().padStart(2,'0') + ' UTC';
+      var div = document.createElement('div');
+      div.className = 'relative pl-8';
+      div.innerHTML =
+        '<div class="absolute left-0 top-1 w-6 h-6 bg-white border-2 ' + cfg.color + ' rounded-full flex items-center justify-center z-10">' +
+        '<span class="material-symbols-outlined text-[12px] ' + cfg.iconColor + '">' + cfg.icon + '</span></div>' +
+        '<p class="text-xs font-black uppercase tracking-widest text-slate-400 mb-1">' + time + '</p>' +
+        '<h5 class="text-sm font-bold text-on-primary-fixed">' + entry.container_id + ' — ' + entry.event_type + '</h5>' +
+        '<p class="text-xs text-slate-500 mt-1">' + (entry.notes||'') + '</p>';
+      feed.appendChild(div);
+    });
+  }
+
+  function timeSince(date) {
+    var secs = Math.floor((new Date() - date) / 1000);
+    if (secs < 60) return 'Just now';
+    if (secs < 3600) return Math.floor(secs/60) + 'm ago';
+    if (secs < 86400) return Math.floor(secs/3600) + 'h ago';
+    return Math.floor(secs/86400) + 'd ago';
+  }
+
+  // ── SIGN OUT ──
+  window.signOut = async function() {
+    await sb.signOut();
+    window.location.href = 'login.html';
+  };
+
+  // Init
+  loadStats();
+  loadContainers();
+  loadMovementLog();
+})();
+</script>
+
+<script>
+(function() {
+  function updateDateTime() {
+    var now = new Date();
+    var dateEl = document.getElementById('live-date');
+    var timeEl = document.getElementById('live-time');
+    if (dateEl) dateEl.textContent = now.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+    if (timeEl) {
+      var h = String(now.getUTCHours()).padStart(2,'0');
+      var m = String(now.getUTCMinutes()).padStart(2,'0');
+      timeEl.textContent = h + ':' + m + ' UTC';
+    }
+  }
+  updateDateTime();
+  setInterval(updateDateTime, 60000);
+})();
+</script>
+<script src="i18n.js"></script>
+</body></html>
