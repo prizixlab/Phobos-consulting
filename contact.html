@@ -146,17 +146,25 @@
 </div>
 </div>
 </div>
-<!-- Right Column: Quote Request Guidance (Bento Inspired Form) -->
+<!-- Right Column: Quote Request Form with Web3Forms -->
 <div class="lg:col-span-7 bg-surface-container-lowest p-10 rounded-lg shadow-[0px_20px_40px_rgba(15,23,42,0.06)]">
 <div class="flex items-center gap-4 mb-10">
 <span class="w-12 h-0.5 bg-on-tertiary-container"></span>
 <h2 class="font-headline text-2xl font-bold tracking-tight">Request a Precise Quote</h2>
 </div>
-<form class="space-y-8">
+<form action="https://api.web3forms.com/submit" method="POST" class="space-y-8">
+<!-- Web3Forms Access Key -->
+<input type="hidden" name="access_key" value="ac51e786-5951-4105-a810-32c7049ec89e">
+<!-- Optional: Customize the email subject -->
+<input type="hidden" name="subject" value="New Quote Request from Phobos Website">
+<!-- Optional: Set a custom redirect after submission -->
+<input type="hidden" name="redirect" value="https://phobosconsulting.vercel.app/contact.html?success=true">
+
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-2">
 <label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest block px-1">Operation Size</label>
-<select class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all outline-none">
+<select name="operation_size" required class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all outline-none">
+<option value="">Select one...</option>
 <option>Startup / Single Site</option>
 <option>Mid-Market / Regional</option>
 <option>Enterprise / Global Yard</option>
@@ -164,7 +172,8 @@
 </div>
 <div class="space-y-2">
 <label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest block px-1">Timeline</label>
-<select class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all outline-none">
+<select name="timeline" required class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all outline-none">
+<option value="">Select one...</option>
 <option>Immediate Deployment</option>
 <option>Next Quarter</option>
 <option>Discovery &amp; Planning</option>
@@ -173,11 +182,11 @@
 </div>
 <div class="space-y-2">
 <label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest block px-1">Current Methodology</label>
-<input class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all placeholder:text-outline-variant" placeholder="e.g. Manual Excel, Legacy WMS, etc." type="text"/>
+<input name="current_methodology" required class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all placeholder:text-outline-variant" placeholder="e.g. Manual Excel, Legacy WMS, etc." type="text"/>
 </div>
 <div class="space-y-2">
 <label class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest block px-1">Primary Pain Points</label>
-<textarea class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all placeholder:text-outline-variant resize-none" placeholder="Describe the bottleneck in your current logistics chain..." rows="4"></textarea>
+<textarea name="pain_points" required class="w-full bg-surface-container-low border-0 text-on-surface py-4 px-4 rounded focus:ring-2 focus:ring-on-tertiary-container transition-all placeholder:text-outline-variant resize-none" placeholder="Describe the bottleneck in your current logistics chain..." rows="4"></textarea>
 </div>
 <div class="pt-4 border-t border-surface-container-high">
 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -218,7 +227,7 @@
 <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
 <div class="mb-8 md:mb-0">
 <div class="text-lg font-bold text-white tracking-widest uppercase font-headline">PHOBOS</div>
-<p class="text-slate-400 font-body text-sm mt-2">© 2026 Phobos Consulting. Precision Engineering for Cloud Logistics.</p>
+<p class="text-slate-400 font-body text-sm mt-2">© 2024 Phobos Consulting. Precision Engineering for Cloud Logistics.</p>
 </div>
 <div class="flex flex-wrap justify-center gap-8">
 <a class="text-slate-400 hover:text-orange-400 transition-colors text-sm font-body" href="privacy.html">Privacy Policy</a>
@@ -259,44 +268,23 @@
       btn.addEventListener('click', () => window.location.href = '/platform.html');
     }
   });
-})();
-</script>
 
-
-<script>
-(function() {
-  const form = document.querySelector('form');
-  if (!form) return;
-
-  // Add IDs to inputs so we can read them
-  const inputs = form.querySelectorAll('input, textarea, select');
-  inputs.forEach((el, i) => { if (!el.id) el.id = 'field_' + i; });
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const btn = form.querySelector('button[type="submit"]');
-    const original = btn.innerHTML;
-    btn.innerHTML = '<span class="material-symbols-outlined" style="animation:spin 1s linear infinite">progress_activity</span> Sending...';
-    btn.disabled = true;
-
-    // Simulate sending (replace with Formspree action for real email delivery)
-    setTimeout(() => {
-      // Show success message
+  // --- SUCCESS MESSAGE (if redirected back with ?success=true) ---
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success') === 'true') {
+    const form = document.querySelector('form');
+    if (form) {
       form.innerHTML = `
         <div style="text-align:center; padding: 3rem 1rem;">
           <span class="material-symbols-outlined" style="font-size:3rem; color:#e25700;">check_circle</span>
-          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.5rem; font-weight:700; margin:1rem 0 0.5rem;">Request Submitted</h3>
-          <p style="color:#76777d; margin-bottom:2rem;">We'll respond within 12 hours per our SLA.</p>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.5rem; font-weight:700; margin:1rem 0 0.5rem;">Request Submitted Successfully!</h3>
+          <p style="color:#76777d; margin-bottom:2rem;">We've received your quote request and will respond within 12 hours per our SLA.</p>
           <a href="index.html" style="background:#e25700; color:white; padding:0.75rem 2rem; border-radius:0.25rem; font-weight:700; text-decoration:none; font-family:'Space Grotesk',sans-serif;">Back to Home</a>
         </div>
       `;
-    }, 1200);
-  });
+    }
+  }
 })();
 </script>
-<style>
-@keyframes spin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
-</style>
 
 </body></html>
